@@ -1,0 +1,145 @@
+html * {
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* --------------------------------
+
+Primary style
+
+-------------------------------- */
+html {
+  font-size: 62.5%;
+  font-family: "Nunito", sans-serif;
+}
+
+a {
+  color: #000;
+  letter-spacing: 0px;
+  font-weight: 600;
+  text-decoration: none;
+}
+a h3 {
+  text-decoration: none;
+}
+
+a:hover {
+  color: #5AC2FB;
+  text-decoration: underline;
+}
+
+h1 {
+  font-family: "Nunito", sans-serif;
+  font-weight: 600;
+  font-size: 56px;
+}
+
+h3 {
+  font-family: "Nunito", sans-serif;
+  font-weight: 700;
+  opacity: 0.6;
+  text-transform: uppercase;
+  color: #555;
+  text-decoration: none;
+  font-size: 16px;
+  line-height: 23px;
+  letter-spacing: 1px;
+}
+
+p {
+  font-family: "Mukta", sans-serif;
+  font-size: 24px;
+  line-height: 29px;
+  letter-spacing: 0.2px;
+  color: #000;
+}
+
+body {
+  background-color: #FFF;
+}
+
+.column {
+  height: 100%;
+  margin: auto;
+  max-width: 680px;
+  padding-top: 60px;
+  padding-bottom: 100px;
+  width: 80%;
+}
+@media only screen and (min-width: 480px) {
+  .column {
+    width: 68%;
+  }
+}
+@media only screen and (min-width: 600px) {
+  .column {
+    width: 50%;
+  }
+}
+.column .paragraph {
+  padding-top: 12px;
+}
+.column #my-name {
+  padding-top: 20px;
+  padding-bottom: 44px;
+}
+.column h1, .column h3 {
+  text-align: center;
+}
+
+.work-experience {
+  padding-top: 32px;
+  padding-bottom: 30px;
+  margin: 0;
+}
+.work-experience h3 {
+  text-align: left;
+}
+.work-experience h5 {
+  font-size: 14px;
+  color: #555;
+  opacity: 0.6;
+}
+.work-experience p {
+  padding-top: 6px;
+  color: #000;
+}
+
+#contact-information h3 {
+  padding-top: 32px;
+  text-align: left;
+}
+@media (min-width: 576px) {
+  #contact-information h3 {
+    padding-top: calc(3.7735849057vw + 10.2641509434px);
+  }
+}
+@media (min-width: 1000px) {
+  #contact-information h3 {
+    padding-top: calc(2.6666666667vw + 21.3333333333px);
+  }
+}
+@media (min-width: 1600px) {
+  #contact-information h3 {
+    padding-top: 64px;
+  }
+}
+#contact-information p {
+  padding-top: 2px;
+}
+@media (min-width: 576px) {
+  #contact-information p {
+    padding-top: calc(0.2358490566vw + 0.641509434px);
+  }
+}
+@media (min-width: 1000px) {
+  #contact-information p {
+    padding-top: calc(0.1666666667vw + 1.3333333333px);
+  }
+}
+@media (min-width: 1600px) {
+  #contact-information p {
+    padding-top: 4px;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */

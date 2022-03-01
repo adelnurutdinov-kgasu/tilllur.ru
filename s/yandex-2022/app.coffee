@@ -204,15 +204,6 @@ tabs_Bar.states =
 	"shown": { opacity: 1 }
 
 
-# tab_weather = new Layer
-# 	parent: tabsView
-# 	x: 188
-# 	y: 231
-# 	width: 183
-# 	height: 259
-# 
-# tab_weather.onTap ->
-# 	
 
 
 
@@ -299,7 +290,7 @@ feedScroll = new ScrollComponent
 	scrollHorizontal: false
 	directionLock: true
 	contentInset:
-		bottom: 144
+		bottom: 144 + 8
 	backgroundColor: "F3F3F2"
 
 feedScroll.sendToBack()
@@ -325,8 +316,8 @@ article_card_with_embed = new Layer
 
 article_card = new Layer
 	width: 375
-	height: 343
-	image: "images/article%20card.png"
+	height: 423
+	image: "images/Cardsasds.png"
 
 news_card = new Layer
 	width: 375
@@ -350,8 +341,10 @@ shortcutView = new ScrollComponent
 
 isOrder_StartWithNews = true
 newsCardOrder = [shortcutView, news_card, article_card, article_card_with_embed]
-zenCardOrder = [shortcutView, article_card_with_embed, news_card, article_card]
+zenCardOrder = [shortcutView, article_card, news_card, article_card_with_embed]
 
+
+Framer.Extras.Preloader.addImage(item.image) for item in newsCardOrder
 item.parent = feedScroll.content for item in newsCardOrder
 feedScroll.updateContent()
 
@@ -370,6 +363,7 @@ updateOrder = () ->
 
 updateOrder()
 feedScroll.updateContent()
+
 
 
 # Shortcuts
@@ -454,6 +448,7 @@ siteScroll = new ScrollComponent
 	y: Align.top(44)
 	scrollVertical: true
 	scrollHorizontal: false
+	directionLock: true
 
 siteContent = new Layer
 	parent: siteScroll.content
@@ -531,6 +526,61 @@ site_tabsButton.onTap ->
 
 
 
+# Article
+
+article_ViewController = new Layer
+	width: screen.width
+	height: screen.height
+	backgroundColor: "white"
+	parent: screen
+
+article_ViewController.on(Events.SwipeRightEnd, firstTab_Flow_prevSwipe)
+
+
+
+articleScroll = new ScrollComponent
+	parent: article_ViewController
+	width: 375
+	height: 812 - 100 - 78
+	y: Align.top(100)
+	scrollVertical: true
+	scrollHorizontal: false
+	directionLock: true
+
+articleContent = new Layer
+	parent: articleScroll.content
+	width: 375
+	height: 1286
+	image: "images/article_content.png"
+
+
+
+
+article_Bar = new Layer
+	parent: article_ViewController
+	width: 375
+	height: 78
+	y: Align.bottom
+	image: "images/article_bar.png"
+
+
+article_Header = new Layer
+	parent: article_ViewController
+	width: 376
+	height: 101
+	y: Align.top
+	image: "images/article_header.png"
+
+
+article_Header_back = new Layer
+	parent: article_Header
+	y: 44
+	height: 56
+	width: 42
+	backgroundColor: debugColor()
+
+article_Header_back.on(Events.Tap, firstTab_Flow_prev)
+
 
 
 # Buttons
@@ -544,10 +594,13 @@ news_card.onTap ->
 	loadSite(sites.news)
 	firstTab_Flow.transition(site_ViewController, stackTransition)
 
+article_card.onTap ->
+	firstTab_Flow.transition(article_ViewController, stackTransition)
+
+
 shortcutView.content.children[1].onTap ->
 	loadSite(sites.weather)
 	firstTab_Flow.transition(site_ViewController, stackTransition)
-
 
 
 
@@ -930,6 +983,9 @@ firstTab_Flow.transition(site_ViewController, stackTransition)
 firstTab_Flow.transition(startPage_ViewController, stackTransition)
 
 firstTab_Flow.transition(screen_settings, stackTransition)
+firstTab_Flow.transition(startPage_ViewController, stackTransition)
+
+firstTab_Flow.transition(article_ViewController, stackTransition)
 firstTab_Flow.transition(startPage_ViewController, stackTransition)
 
 # firstTab_Flow.transition(search_ViewController, stackTransition)

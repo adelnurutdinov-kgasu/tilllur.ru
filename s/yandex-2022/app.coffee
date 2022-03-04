@@ -54,7 +54,7 @@ else
 
 # Global
 
-isTabs_AsThirdTab = true
+isTabs_AsThirdTab = false
 
 changeState = (toState) ->
 	if toState == "global"
@@ -254,7 +254,7 @@ feedScroll = new ScrollComponent
 	scrollHorizontal: false
 	directionLock: true
 	contentInset:
-		bottom: 144 + 8
+		bottom: 80+8
 	backgroundColor: "F3F3F2"
 
 feedScroll.sendToBack()
@@ -312,16 +312,12 @@ scrollDirectionProxy.stateSwitch("shown")
 scrollDirectionProxy.on Events.StateSwitchEnd, (from, to) ->
 	barTransitionTime = 0.2
 	if from != to
-		if to == "shown"
-			startPage_TopView.animate("shown", time: barTransitionTime)
-			aliceBar.animate("shown", time: barTransitionTime)
-			startPage_TopImage.animate("shown", time: barTransitionTime)
-		else
-			startPage_TopView.animate("hidden", time: barTransitionTime)
-			aliceBar.animate("hidden", time: barTransitionTime)
-			startPage_TopImage.animate("hidden", time: barTransitionTime)
-
-
+		startPage_TopView.animate(to, time: barTransitionTime)
+		if isAliceFab then aliceBar.animate(to, time: barTransitionTime)
+		startPage_TopImage.animate(to, time: barTransitionTime)
+	
+	else if aliceBar.states.current.name == "shown" and to == "hidden"
+		if isAliceFab then aliceBar.animate(to, time: barTransitionTime)
 
 
 
@@ -487,6 +483,7 @@ sites =
 
 
 loadSite = (title) ->
+	if isAliceFab then aliceBar.animate("shown", time: 0.3)
 	
 	if title == sites.vc
 		siteContent.image = "images/site_vc.jpg"
@@ -510,6 +507,7 @@ loadSite = (title) ->
 	
 	
 	site_title.text = title
+	site_title_small.text = title
 	siteScroll.updateContent()
 
 
@@ -528,7 +526,7 @@ site_ViewController.on(Events.SwipeRightEnd, firstTab_Flow_prevSwipe)
 siteScroll = new ScrollComponent
 	parent: site_ViewController
 	width: 375
-	height: 812 - 44 - 146
+	height: 812 - 44 - 50
 	y: Align.top(44)
 	scrollVertical: true
 	scrollHorizontal: false
@@ -543,26 +541,59 @@ siteContent = new Layer
 
 
 
+
 site_Bar = new Layer
 	parent: site_ViewController
 	width: 375
 	height: 146
 	y: Align.bottom
+	backgroundColor: "#ECEAE9"
+
+site_Bar.states =
+	"shown": { y: Align.bottom }
+	"hidden": { y: Align.bottom(site_Bar.height - 50) }
+site_Bar.stateSwitch("shown")
+
+
+site_Bar_Image = new Layer
+	parent: site_Bar
+	width: site_Bar.width
+	height: site_Bar.height
 	image: "images/vcBar.png"
 
+site_Bar_Image.states =
+	"shown": { opacity: 1 }
+	"hidden": { opacity: 0 }
+site_Bar_Image.stateSwitch("shown")
+
+
+
+
+
 site_title = new TextLayer
-	parent: site_Bar
+	parent: site_Bar_Image
 	backgroundColor: "white"
-	width: 231, height: 40, x: 72, y: 14
+	width: 231, height: 40, x: 72, y: 12
 	fontSize: 18
 	color: "black"
 	textAlign: "center"
 	padding:  { top: 10 }
 
+site_title_small = new TextLayer
+	parent: site_Bar
+	width: 231, x: 72
+	fontSize: 14
+	color: "black"
+	textAlign: "center"
+	padding:  { top: 7 }
+
+site_title_small.placeBehind(site_Bar_Image)
+
+
 
 
 site_Bar_alice = new Layer
-	parent: site_Bar
+	parent: site_Bar_Image
 	width: 32, height: 32, x: 26, y: 18
 	image: "images/aliceField.png"
 	backgroundColor: "white"
@@ -609,6 +640,37 @@ site_tabsButton.onTap ->
 	else changeState("tabs_fromFeed")
 
 
+
+# Scroll: Site
+
+siteScrollProxy = new Layer
+	opacity: 0
+	x: -3000
+
+siteScrollProxy.states =
+	"shown": { opacity: 0 }
+	"hidden": { opacity: 0 }
+siteScrollProxy.stateSwitch("shown")
+
+siteScrollProxy.on Events.StateSwitchEnd, (from, to) ->
+	siteTransitionTime = 0.2
+	if to != from
+		site_Bar.animate(to, time: siteTransitionTime)
+		site_Bar_Image.animate(to, time: siteTransitionTime)
+		if isAliceFab then aliceBar.animate(to, time: siteTransitionTime)
+
+
+siteScroll.content.on "change:y", ->
+	v = @parent.scrollY
+# 	print v
+
+	if v < 40 then siteScrollProxy.stateSwitch("shown")
+	else if v > @height - @parent.height
+		siteScrollProxy.stateSwitch("hidden")
+	else if @draggable.direction == "up"
+		siteScrollProxy.stateSwitch("hidden")
+	else if @draggable.direction == "down"
+		siteScrollProxy.stateSwitch("shown")
 
 # Article
 
@@ -820,6 +882,7 @@ scrollProxy.on Events.StateSwitchEnd, (from, to) ->
 		else
 			startPage_HeaderTitleYandex.animate("hidden", time: logoTransitionTime)
 			startPage_HeaderTitleZen.animate("shown", time: logoTransitionTime)
+
 
 
 startPage_Header = new Layer

@@ -240,42 +240,6 @@ startPage = new Layer
 
 
 
-# Bars
-
-isRedLogo = () ->
-	return startPage_Bar.states.current.name == "start yellow logo"
-
-changeStartBar = () ->
-	if isRedLogo() then startPage_Bar.stateSwitch("start yellow")
-	else startPage_Bar.stateSwitch("start yellow logo")
-
-
-
-startPage_Bar = new Layer
-	parent: startPage
-	width: 375
-	height: 146
-	y: Align.bottom
-
-startPage_Bar.states =
-	"start yellow": { image: "images/startBar_1.png" }
-	"start yellow logo": { image: "images/startBar_2.png" }
-startPage_Bar.stateSwitch("start yellow")
-
-
-
-startPage_Bar_alice = new Layer
-	parent: startPage_Bar
-	width: 32, height: 32, x: 26, y: 18
-	image: "images/aliceField.png"
-	backgroundColor: "white"
-
-startPage_Bar_alice.states =
-	"shown": { opacity: 1 }
-	"hidden": { opacity: 0 }
-startPage_Bar_alice.stateSwitch("hidden")
-
-
 
 
 
@@ -302,9 +266,129 @@ feedScroll.content.on "change:y", ->
 		scrollProxy.stateSwitch("feed")
 	else
 		scrollProxy.stateSwitch("start")
+	
+# 	print v
+# 	print feedScroll.content.height - feedScroll.height
+
+	if v < 40 then scrollDirectionProxy.stateSwitch("shown")
+	else if v > feedScroll.content.height - feedScroll.height
+		scrollDirectionProxy.stateSwitch("hidden")
+	else if @draggable.direction == "up"
+		scrollDirectionProxy.stateSwitch("hidden")
+	else if @draggable.direction == "down"
+		scrollDirectionProxy.stateSwitch("shown")
 
 
 
+# Scroll: Bottom Bar
+
+# Bars
+
+isRedLogo = () ->
+	return startPage_TopImage.states.current.name == "start yellow logo"
+
+changeStartBar = () ->
+	if isRedLogo()
+		startPage_BottomImage.stateSwitch("start yellow")
+		startPage_TopImage.stateSwitch("start yellow")
+	else
+		startPage_BottomImage.stateSwitch("start yellow logo")
+		startPage_TopImage.stateSwitch("start yellow logo")
+
+
+
+
+
+
+scrollDirectionProxy = new Layer
+	opacity: 0
+	x: -3000
+
+scrollDirectionProxy.states =
+	"shown": { opacity: 0 }
+	"hidden": { opacity: 0 }
+scrollDirectionProxy.stateSwitch("shown")
+
+scrollDirectionProxy.on Events.StateSwitchEnd, (from, to) ->
+	barTransitionTime = 0.2
+	if from != to
+		if to == "shown"
+			startPage_TopView.animate("shown", time: barTransitionTime)
+			aliceBar.animate("shown", time: barTransitionTime)
+			startPage_TopImage.animate("shown", time: barTransitionTime)
+		else
+			startPage_TopView.animate("hidden", time: barTransitionTime)
+			aliceBar.animate("hidden", time: barTransitionTime)
+			startPage_TopImage.animate("hidden", time: barTransitionTime)
+
+
+
+
+
+# Bottom Part (Static)
+startPage_BottomView = new Layer
+	parent: startPage
+	width: 375
+	height: 84
+	y: Align.bottom
+	clip: true
+	backgroundColor: null
+
+
+startPage_BottomImage = new Layer
+	parent: startPage_BottomView
+	width: 375
+	height: 146
+	y: Align.bottom
+
+startPage_BottomImage.states =
+	"start yellow": { image: "images/startBar_1.png" }
+	"start yellow logo": { image: "images/startBar_2.png" }
+startPage_BottomImage.stateSwitch("start yellow")
+
+
+# Bottom Part (Dynamic)
+startPage_TopView = new Layer
+	parent: startPage
+	width: 375
+	height: startPage_BottomImage.height - startPage_BottomView.height
+	y: Align.bottom(-startPage_BottomView.height)
+	clip: true
+	backgroundColor: null
+
+startPage_TopView.states =
+	"shown": { y: Align.bottom(-startPage_BottomView.height) }
+	"hidden": { y: Align.bottom(-startPage_BottomView.height + startPage_TopView.height) }
+
+startPage_TopImage = new Layer
+	parent: startPage_TopView
+	width: 375
+	height: 146
+	y: Align.top
+
+startPage_TopImage.states =
+	"start yellow": { image: "images/startBar_1.png" }
+	"start yellow logo": { image: "images/startBar_2.png" }
+	"shown": { opacity: 1 }
+	"hidden": { opacity: 0 }
+startPage_TopImage.stateSwitch("start yellow")
+
+
+
+startPage_TopView.placeBehind(startPage_BottomView)
+
+
+# TODO
+startPage_BottomView_Alice = new Layer
+	parent: startPage_TopImage
+	width: 32, height: 32, x: 26, y: 18
+	image: "images/aliceField.png"
+	backgroundColor: "white"
+
+startPage_BottomView_Alice.states =
+	"shown": { opacity: 1 }
+	"hidden": { opacity: 0 }
+startPage_BottomView_Alice.stateSwitch("hidden")
 
 # Feed
 
@@ -608,8 +692,8 @@ shortcutView.content.children[1].onTap ->
 
 # Feed — Bottom Bar ->
 startPage_SearchButton = new Layer
-	parent: startPage_Bar
-	x: 65, y: 6, width: 245, height: 60
+	parent: startPage_TopImage
+	x: 65, y: Align.top, width: 245, height: startPage_TopView.height
 	backgroundColor: debugColor()
 
 startPage_SearchButton.onTap ->
@@ -618,9 +702,20 @@ startPage_SearchButton.onTap ->
 
 
 
+startPage_ScrollToTop_Button = new Layer
+	parent: startPage_BottomView
+	x: Align.left(15)
+	y: Align.bottom, width: 115, height: startPage_BottomView.height
+	backgroundColor: debugColor()
+
+startPage_ScrollToTop_Button.onTap ->
+	feedScroll.scrollToTop()
+
+
+
 startPage_NavigateToReels_Button = new Layer
-	parent: startPage_Bar
-	width: 103, height: 55, x: 135, y: 66
+	parent: startPage_BottomImage
+	x: Align.center, y: Align.bottom, width: 115, height: startPage_BottomView.height
 	backgroundColor: debugColor()
 
 startPage_NavigateToReels_Button.onTap ->
@@ -629,9 +724,9 @@ startPage_NavigateToReels_Button.onTap ->
 
 
 startPage_NavigateToTabs_Button = new Layer
-	parent: startPage_Bar
-	x: Align.right(-20)
-	y: 68, width: 103, height: 55
+	parent: startPage_BottomView
+	x: Align.right(-15)
+	y: Align.bottom, width: 115, height: startPage_BottomView.height
 	backgroundColor: debugColor()
 
 startPage_NavigateToTabs_Button.onTap ->
@@ -705,7 +800,7 @@ stackTransition = (firstTab_Flow, layerA = startPage_ViewController, layerB = si
 			show: { opacity: 0.4 }
 			hide: { opacity: 0 }
 
-# Scroll Feed 
+# Scroll: Feed 
 
 scrollProxy = new Layer
 	opacity: 0
@@ -779,11 +874,11 @@ changeAliceFab = () ->
 updateAliceFab = () ->
 	if isAliceFab
 		aliceBar.stateSwitch("shown")
-		startPage_Bar_alice.stateSwitch("hidden")
+		startPage_BottomView_Alice.stateSwitch("hidden")
 		site_Bar_alice.stateSwitch("hidden")
 	else
 		aliceBar.stateSwitch("hidden")
-		startPage_Bar_alice.stateSwitch("shown")
+		startPage_BottomView_Alice.stateSwitch("shown")
 		site_Bar_alice.stateSwitch("shown")
 
 
@@ -793,12 +888,13 @@ aliceBar = new Layer
 	parent: globalTabs_View
 	width: 375
 	height: 80
-	y: Align.bottom(-startPage_Bar.height)
+	y: Align.bottom(-startPage_BottomImage.height)
 	image: "images/aliceBar.png"
 
 aliceBar.states =
-	"shown": { y: Align.bottom(-startPage_Bar.height) }
-	"hidden": { y: Align.bottom(startPage_Bar.height) }
+	"shown": { opacity: 1 }
+	"hidden": { opacity: 0 }
+aliceBar.stateSwitch("shown")
 
 updateAliceFab()
 

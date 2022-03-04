@@ -54,7 +54,7 @@ else
 
 # Global
 
-isTabs_AsThirdTab = false
+isTabs_AsThirdTab = true
 
 changeState = (toState) ->
 	if toState == "global"
@@ -71,7 +71,7 @@ changeState = (toState) ->
 		secondTab_Flow.stateSwitch("shown")
 		thirdTab_Flow.stateSwitch("hidden")
 		
-		secondTab_Flow.placeBehind(aliceBar)
+		secondTab_Flow.placeBefore(aliceBar)
 		firstTab_Flow.sendToBack()
 		thirdTab_Flow.sendToBack()
 	
@@ -80,7 +80,7 @@ changeState = (toState) ->
 		secondTab_Flow.stateSwitch("hidden")
 		thirdTab_Flow.stateSwitch("shown")
 		
-		thirdTab_Flow.placeBehind(aliceBar)
+		thirdTab_Flow.placeBefore(aliceBar)
 		firstTab_Flow.sendToBack()
 		secondTab_Flow.sendToBack()
 	
@@ -122,8 +122,8 @@ firstTab_Flow = new FlowComponent
 	height: screen.height
 
 firstTab_Flow.states =
-	"hidden": { opacity: 0 }
-	"shown": { opacity: 1 }
+	"hidden": { opacity: 0, x: -400  }
+	"shown": { opacity: 1, x: 0 }
 firstTab_Flow.stateSwitch("shown")
 
 
@@ -190,18 +190,9 @@ tabs = new Layer
 tabs.states =
 	"hidden": { opacity: 0.2 }
 	"shown": { opacity: 1 }
+	"custom": { image: "images/tabsView.png" }
+	"tab": { image: "images/tabsViewNext.png" }
 
-
-tabs_Bar = new Layer
-	parent: tabsView
-	width: 375
-	height: 82
-	y: Align.bottom
-	image: "images/tabs_bar.png"
-
-tabs_Bar.states =
-	"hidden": { opacity: 0 }
-	"shown": { opacity: 1 }
 
 
 
@@ -213,13 +204,13 @@ changeTabs = () ->
 
 updateTabs = () ->
 	if isTabs_AsThirdTab
+		tabs.stateSwitch("tab")
 		tabsView.parent = thirdTab_Flow
 		thirdTab_Flow.showNext(tabsView)
 		tabs.stateSwitch("shown")
-		tabs_Bar.stateSwitch("shown")
 	else
+		tabs.stateSwitch("custom")
 		tabs.stateSwitch("hidden")
-		tabs_Bar.stateSwitch("hidden")
 		tabsView.parent = screen
 		tabsView.sendToBack()
 
@@ -385,6 +376,8 @@ startPage_BottomView_Alice.states =
 	"shown": { opacity: 1 }
 	"hidden": { opacity: 0 }
 startPage_BottomView_Alice.stateSwitch("hidden")
+
+
 
 # Feed
 
@@ -811,6 +804,18 @@ secondTab_Flow_NavigateToFeed_Button.onTap ->
 	changeState("global")
 
 
+secondTab_Flow_NavigateToTabs_Button = new Layer
+	parent: secondTab_Flow
+	x: Align.right(-20)
+	y: Align.bottom(-24)
+	width: 103, height: 55
+	backgroundColor: debugColor()
+
+secondTab_Flow_NavigateToTabs_Button.onTap ->
+	if isTabs_AsThirdTab then changeState("tabs")
+	else changeState("tabs_fromFeed")
+
+
 
 # Tabs ->
 tabsView_NavigateToFeed_Button = new Layer
@@ -889,7 +894,7 @@ startPage_Header = new Layer
 	parent: startPage
 	width: 375
 	height: 100
-	image: "images/startPage_Header.png"
+	image: "images/startPage_Header1.png"
 	clip: true
 
 

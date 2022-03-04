@@ -54,7 +54,7 @@ else
 
 # Global
 
-isTabs_AsThirdTab = true
+isTabs_AsThirdTab = false
 
 changeState = (toState) ->
 	if toState == "global"

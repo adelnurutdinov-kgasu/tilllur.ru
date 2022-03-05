@@ -732,6 +732,7 @@ article_card_with_embed.onTap ->
 news_card.onTap ->
 	loadSite(sites.news)
 	firstTab_Flow.transition(site_ViewController, stackTransition)
+	siteScroll.scrollToPoint({ x: 0, y: 128 }, false)
 
 article_card.onTap ->
 	firstTab_Flow.transition(article_ViewController, stackTransition)
@@ -754,6 +755,7 @@ startPage_SearchButton = new Layer
 startPage_SearchButton.onTap ->
 	loadSite(sites.search)
 	firstTab_Flow.transition(site_ViewController, stackTransition)
+	siteScroll.scrollToPoint({ x: 0, y: 88 }, false)
 
 
 

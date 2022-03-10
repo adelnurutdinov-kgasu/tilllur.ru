@@ -54,7 +54,7 @@ else
 
 # Global
 
-isTabs_AsThirdTab = false
+isTabs_AsThirdTab = true
 
 changeState = (toState) ->
 	if toState == "global"
@@ -935,7 +935,7 @@ startPage_HeaderTitleZen.stateSwitch("hidden")
 
 # Alice Bar
 
-isAliceFab = true
+isAliceFab = false
 
 changeAliceFab = () ->
 	isAliceFab = !isAliceFab

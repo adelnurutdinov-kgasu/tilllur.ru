@@ -112,6 +112,7 @@ class exports.Presentation extends PageComponent
 	
 	initShortcuts: () =>
 		localScroll = @
+		print Screen.width
 		Events.wrap(window).addEventListener "keydown", (event) ->
 			if event.code is "ArrowLeft"
 				localScroll.snapToNextPage("left", false)

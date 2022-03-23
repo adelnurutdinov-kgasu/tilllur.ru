@@ -11,16 +11,16 @@ class exports.Presentation extends PageComponent
 		@_theme = ""
 		
 		@canvas = new Layer
-			width: Canvas.width, height: Canvas.height, name: "canvas"
+			width: Screen.width, height: Screen.height, name: "canvas"
 		@canvas.states =
 			"window": { backgroundColor: "#000" }
 			"fullscreen": { backgroundColor: "#222" }
 		
 		@topView = new Layer
-			width: Canvas.width, height: @gap, name: "topView"
+			width: Screen.width, height: @gap, name: "topView"
 		
 		@bottomView = new Layer
-			width: Canvas.width, height: @gap, name: "bottomView", y: Align.bottom
+			width: Screen.width, height: @gap, name: "bottomView", y: Align.bottom
 		
 		
 		_.defaults @options,
@@ -131,12 +131,12 @@ class exports.Presentation extends PageComponent
 	initScale: (forState = "window") =>
 		slideGap = 120
 		
-		scaleX = (Canvas.width - slideGap / 6) / @width
-		scaleY = (Canvas.height - slideGap) / @height
+		scaleX = (Screen.width - slideGap / 6) / @width
+		scaleY = (Screen.height - slideGap) / @height
 		@states.window.scale = Math.min(scaleX, scaleY)
 		
-		scaleX = Canvas.width / @width
-		scaleY = Canvas.height / @height
+		scaleX = Screen.width / @width
+		scaleY = Screen.height / @height
 		@states.fullscreen.scale = Math.min(scaleX, scaleY)
 		
 		@stateSwitch(forState)
@@ -197,8 +197,8 @@ class exports.Presentation extends PageComponent
 	initSizeChange: () =>
 		local = @
 		
-		Canvas.on "change:width", =>
-			local.updateSize(Canvas)
+		Screen.on "change:width", =>
+			local.updateSize(Screen)
 	
 	
 	

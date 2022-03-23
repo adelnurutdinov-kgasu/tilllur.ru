@@ -112,6 +112,9 @@ class exports.Presentation extends PageComponent
 	
 	initShortcuts: () =>
 		localScroll = @
+		print Screen.width
+		print Canvas.width
+		
 		Events.wrap(window).addEventListener "keydown", (event) ->
 			if event.code is "ArrowLeft"
 				localScroll.snapToNextPage("left", false)
@@ -239,12 +242,10 @@ class exports.Presentation extends PageComponent
 	
 	openURLHome: =>
 		@openURL("https://tilllur.ru", true)
-	
-	
-	
 
-print Screen.width
-print Canvas.width
+
+
+
 
 
 # Slide

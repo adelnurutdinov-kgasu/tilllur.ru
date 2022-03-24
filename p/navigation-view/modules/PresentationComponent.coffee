@@ -2,7 +2,6 @@
 
 SVG = require "PCSVG"
 
-
 # Presentation
 
 class exports.Presentation extends PageComponent
@@ -10,17 +9,17 @@ class exports.Presentation extends PageComponent
 		@gap = 56
 		@_theme = ""
 		
-		@canvas = new Layer
-			width: Screen.width, height: Screen.height, name: "canvas"
+		@canvas = new BackgroundLayer
+			name: "canvas"
 		@canvas.states =
 			"window": { backgroundColor: "#000" }
 			"fullscreen": { backgroundColor: "#222" }
 		
 		@topView = new Layer
-			width: Screen.width, height: @gap, name: "topView"
+			width: @canvas.width, height: @gap, name: "topView"
 		
 		@bottomView = new Layer
-			width: Screen.width, height: @gap, name: "bottomView", y: Align.bottom
+			width: @canvas.width, height: @gap, name: "bottomView", y: Align.bottom
 		
 		
 		_.defaults @options,
@@ -65,18 +64,19 @@ class exports.Presentation extends PageComponent
 		
 		@titleText = new PCText
 			parent: @topView, name: "title"
-			text: @title, textAlign: "center"
-			x: Align.center, y: Align.center, width: @topView.width / 2
+			text: @title, textAlign: "center", y: Align.center
+# 			x: Align.center, width: @topView.width / 2
 		
 		@copyButton = new PCCopyButton
 			parent: @topView, name: "copy link"
-			text: "Copy Link", textAlign: "right"
-			x: Align.right(-32-20-24), y: Align.center, width: @bottomView.width / 4
+			text: "Copy Link", textAlign: "right", y: Align.center
+# 			x: Align.right(-32-20-24), , width: @bottomView.width / 4
 			custom: { x: -32-20-24 }
 		
 		@fullscreenButton = new PCSVGButton
 			parent: @topView, name: "fullscreen"
-			x: Align.right(-32), y: Align.center
+			y: Align.center
+# 			x: Align.right(-32)
 			width: 20, height: 20, asset: SVG.fullscreenIcon
 			handler: @changeScale
 			custom: { x: -32 }
@@ -89,16 +89,22 @@ class exports.Presentation extends PageComponent
 		@restartButton = new PCButton
 			parent: @bottomView, name: "restart"
 			text: "Restart (R)", textAlign: "right"
-			x: Align.right(-2000), y: Align.center, width: @bottomView.width / 4
+# 			width: @bottomView.width / 4
+			x: Align.right(-2000), y: Align.center
 			handler: @restartHandler
 			custom: { x: -2000 }
 		
-		
+		@updateSize(@canvas)
+	
 	
 	
 	@define 'title',
 		get: -> @options.title
 		set: (value) -> @options.title = value
+	
+	@define 'deviceCanvas',
+		get: -> @options.deviceCanvas
+		set: (value) -> @options.deviceCanvas = value
 	
 	@define 'gap',
 		get: -> @options.gap
@@ -112,8 +118,6 @@ class exports.Presentation extends PageComponent
 	
 	initShortcuts: () =>
 		localScroll = @
-		print Screen.width
-		print Canvas.width
 		
 		Events.wrap(window).addEventListener "keydown", (event) ->
 			if event.code is "ArrowLeft"
@@ -134,12 +138,14 @@ class exports.Presentation extends PageComponent
 	initScale: (forState = "window") =>
 		slideGap = 120
 		
-		scaleX = (Screen.width - slideGap / 6) / @width
-		scaleY = (Screen.height - slideGap) / @height
+		scaleX = (@canvas.width - slideGap / 6) / @width
+		scaleY = (@canvas.height - slideGap) / @height
 		@states.window.scale = Math.min(scaleX, scaleY)
 		
-		scaleX = Screen.width / @width
-		scaleY = Screen.height / @height
+# 		print Math.min(scaleX, scaleY)
+		
+		scaleX = @canvas.width / @width
+		scaleY = @canvas.height / @height
 		@states.fullscreen.scale = Math.min(scaleX, scaleY)
 		
 		@stateSwitch(forState)
@@ -200,8 +206,8 @@ class exports.Presentation extends PageComponent
 	initSizeChange: () =>
 		local = @
 		
-		Screen.on "change:width", =>
-			local.updateSize(Screen)
+		local.parent.on "change:width", =>
+			local.updateSize(local.parent)
 	
 	
 	
@@ -212,8 +218,20 @@ class exports.Presentation extends PageComponent
 		@parent.width = anchor.width
 		
 		@topView.width = anchor.width
-		@titleText.x = Align.center
-		@copyButton.x = Align.right(@copyButton.custom.x)
+		
+		if @canvas.width < 740
+			@titleText.x = Align.left(@logoButton.x)
+			@titleText.y = Align.top(@topView.height + 10)
+			
+			@copyButton.x = Align.left(@logoButton.x)
+			@copyButton.y = Align.top(@topView.height + 36)
+		else
+			@titleText.x = Align.center
+			@titleText.y = Align.center
+			
+			@copyButton.x = Align.right(@copyButton.custom.x)
+			@copyButton.y = Align.center
+		
 		@fullscreenButton.x = Align.right(@fullscreenButton.custom.x)
 		
 		@bottomView.width = anchor.width

@@ -251,6 +251,11 @@ class exports.Presentation extends PageComponent
 			images: images, descriptions: [], title: named, parent: @content
 			x: @content.children.length * (@width + @gap)
 	
+	withPrototypes: (urls, named = "") =>
+		return new PrototypeSlide
+			urls: urls, descriptions: [], title: named, parent: @content
+			x: @content.children.length * (@width + @gap)
+	
 	
 	openURL: (url = "https://tilllur.ru", isBlank = false) =>
 		if isBlank then window.open url, '_blank'
@@ -278,6 +283,12 @@ class Slide extends Layer
 			height: 900 * 2
 			borderRadius: 16 * 2
 			title: ""
+			
+			imageRadius: 42
+			imageSize:
+				width: 375 * 2
+				height: 812 * 2
+				gap: 60 * 2
 		
 		super @options
 		@name = "slide #{@parent.children.length}"
@@ -288,10 +299,22 @@ class Slide extends Layer
 		get: -> @options.title
 		set: (value) -> @options.title = value
 	
+	@define 'imageRadius',
+		get: -> @options.imageRadius
+		set: (value) -> @options.imageRadius = value
+	
+	@define 'imageSize',
+		get: -> @options.imageSize
+		set: (value) -> @options.descriptions = value
+	
+	
+	
 	named: (title) =>
 		@title = title
 		return @
 	
+
+
 
 # Text, Button
 
@@ -480,11 +503,6 @@ class ScreenSlide extends Slide
 		_.defaults @options,
 			images: []
 			descriptions: []
-			
-			imageSize:
-				width: 375 * 2
-				height: 812 * 2
-				gap: 60 * 2
 		
 		@screenView = new Layer
 			name: "screens"
@@ -505,64 +523,81 @@ class ScreenSlide extends Slide
 	@define 'descriptions',
 		get: -> @options.descriptions
 		set: (value) -> @options.descriptions = value
-
-	@define 'imageSize',
-		get: -> @options.imageSize
-# 		set: (value) -> @options.descriptions = value
 	
 	
 	
 	update: () =>
 		for image in @images
 			new Layer
-				name: "#{image.split("/").pop()}"
 				parent: @screenView
 				width: @imageSize.width
 				height: @imageSize.height
-				borderRadius: 42
-				image: image
 				x: @screenView.children.length * (@imageSize.width + @imageSize.gap)
+				name: "#{image.split("/").pop()}"
+				image: image
+				
+		
+		@screenView.width = @screenView.children.length * (@imageSize.width + @imageSize.gap) - @imageSize.gap
+		@screenView.height = @imageSize.height
+		@screenView.center()
+
+
+
+# Slide: Prototype
+
+class PrototypeSlide extends Slide
+	constructor: (@options={}) ->
+		
+		_.defaults @options,
+			urls: []
+		
+		@screenView = new Layer
+			name: "screens"
+			backgroundColor: "null"
+		
+		super @options
+		
+		@screenView.parent = @
+		@update()
+	
+	
+	
+	
+	@define 'urls',
+		get: -> @options.urls
+		set: (value) -> @options.urls = value
+
+	@define 'imageSize',
+		get: -> @options.imageSize
+		set: (value) -> @options.imageSize = value
+	
+# 	withURL: (url) =>
+# 		@urls.push url
+	
+	update: () =>
+		for currentURL, i in @urls
+			webView = @createWebView(currentURL)
+			webView.x = @screenView.children.length * (@imageSize.width + @imageSize.gap)
+			webView.parent = @screenView
 		
 		@screenView.width = @screenView.children.length * (@imageSize.width + @imageSize.gap) - @imageSize.gap
 		@screenView.height = @imageSize.height
 		@screenView.center()
 	
 	
-	
-# 	addScreenView: () =>
-# # 		@options.descriptions[..].pop()
-# 		print @imageSize
-# 		new Layer
-# 			parent: @screenView
-# 			width: @imageSize.width
-# 			height: @imageSize.height
-# 			borderRadius: 42
-# 			image: @options.images[..].pop()
-# 			x: @screenView.children.length * (@imageSize.width + @imageSize.gap)
-# 		
-# 		@screenView.width = @screenView.children.length * (@imageSize.width + @imageSize.gap) - @imageSize.gap
-# 		@screenView.height = @imageSize.height
-# 		@screenView.center()
-
-	
-	
-# 	addImages: ( images, descriptions ) =>
-# 		@images = images
-# 		@descriptions = descriptions
-# 		@updateScreenView()
-# 		return @
-	
-# 	addImage: ( url, description = "" ) =>
-# 		@images.push url
-# 		@descriptions.push description
-# 		@updateScreenView()
-
-
-
-# testSlide = new ScreenSlide (title: "hello")
-# testSlide.addImage("images/img1.png")
-# testSlide.addImage("images/img2.png")
-# testSlide.addImage("images/img3.png")
-
+	createWebView: (webURL) =>
+		
+		view = new Layer
+			width: @imageSize.width, height: @imageSize.height
+			name: "webview", backgroundColor: null, borderRadius: @imageRadius
+			clip: true
+		
+		contentView = new Layer
+			parent: view
+			width: @imageSize.width, height: @imageSize.height, backgroundColor: null
+			html: "<iframe style='position: absolute; width: 100%; height: 100%;' src='#{webURL}'></iframe>"
+			ignoreEvents: false, clip: true
+		
+		return view
 
 

@@ -145,8 +145,54 @@ groups.on "change:currentPage", ->
 	else
 		progressView.children[0].stateSwitch("hidden")
 		progressView.children[1].stateSwitch("shown")
+	
+	changeTabNumber(N_forTabs[nextState])
+	siteButtonParent.stateSwitch(nextState)
+	site.stateSwitch(nextState)
+
+
+groups.onTap ->
+	if @states.current.name == "outside"
+		@animate("inside")
 
 # Buttons
+
+N_forTabs =
+	left: 8
+	right: 6
+	left_groupTitle: "Основное"
+	right_groupTitle: "Учу React"
+	left_title: "dtf.ru"
+	right_title: "github.com"
+
+changeTabNumber = (intNumber) ->
+	try tabNumber_Tabs.text = "#{intNumber}"
+	try tabNumber_Site.text = "#{intNumber}"
+	
+	if intNumber == N_forTabs.left
+		site_groupTitle.text = N_forTabs.left_groupTitle
+		site_title.text = N_forTabs.left_title
+	else
+		site_groupTitle.text = N_forTabs.right_groupTitle
+		site_title.text = N_forTabs.right_title
+
+tabNumber_Tabs = new TextLayer
+	color: "white"
+	width: 32, textAlign: "center"
+	fontSize: 14, fontWeight: 800
+	padding: { top: 7 }
+	text: "#{N_forTabs.left}"
+
+tabNumber_Site = new TextLayer
+	color: "black"
+	width: 32, textAlign: "center"
+	fontSize: 14, fontWeight: 800
+	padding: { top: 7 }
+	text: "#{N_forTabs.left}"
+
+
+
+
 
 buttonView = new Layer
 	parent: screen
@@ -167,10 +213,15 @@ for item, i in [0, 1, 2]
 	buttonIcon = new Layer
 		parent: button, size: 32, x: Align.center, y: Align.center
 		image: "images/buttonIcon#{i+1}.png"
+	
+	if i == 2 then tabNumber_Tabs.parent = buttonIcon
+
 
 button1 = buttonView.children[0]
 button2 = buttonView.children[1]
 button3 = buttonView.children[2]
+
+
 
 
 button1.onTap ->
@@ -239,7 +290,9 @@ for item, i in [group1search, group2search]
 		"center": { y: Align.top(278) }
 	item.stateSwitch("bottom")
 
-# Globals
+
+
+# Headers
 
 header = new Layer
 	parent: screen
@@ -262,9 +315,11 @@ group2header = new Layer
 for item in [group1header, group2header]
 	item.originY = 0.72
 	item.states =
-		"shown": { scale: 1 }
-		"hidden": { scale: 0.6 }
+		"shown": { scale: 0.8 }
+		"hidden": { scale: 0.8 }
 	item.stateSwitch("shown")
+
+# Progress
 
 
 progressView = new Layer
@@ -323,14 +378,25 @@ site = new Layer
 	backgroundColor: "white"
 	originX: 0.92
 	originY: 0.64
+	image: "images/site_dtf.jpg"
 	
 
 site.states =
 	"site": { opacity: 1, scaleX: 1, scaleY: 1 }
 	"tabs": { opacity: 0, scaleX: 0.43, scaleY: 0.25 }
+	"left": { image: "images/site_dtf.jpg" }
+	"right": { image: "images/site_react.jpg" }
 site.stateSwitch("tabs")
 
-# site.animate("shown")
+
+site_groupTitle = new TextLayer
+	parent: site, y: 39
+	fontSize: 14, fontWeight: 600
+	width: site.width, textAlign: "center"
+	color: "black", text: "#{N_forTabs.left_groupTitle}"
+
+
+# site.stateSwitch("site")
 
 # SiteBar
 
@@ -348,6 +414,51 @@ arrowSite.states =
 arrowSite.stateSwitch("tabs")
 
 
+arrowSite_fix = new Layer
+	parent: arrowSite, backgroundColor: "white"
+	width: 200, height: 40, x: Align.center, y: Align.center
+
+
+site_title = new TextLayer
+	parent: arrowSite, y: 23
+	fontSize: 18, fontWeight: 500
+	width: site.width, textAlign: "center"
+	color: "black", text: "#{N_forTabs.left_title}"
+
+
+
+buttonViewSite = new Layer
+	parent: screen
+	width: screen.width - 40
+	y: Align.bottom(-34)
+	x: Align.center
+	height: 48
+	backgroundColor: null
+
+buttonViewSite.states =
+	"tabs": { opacity: 0 }
+	"site": { opacity: 1 }
+buttonViewSite.stateSwitch("tabs")
+
+
+for item, i in [0, 1, 2]
+	button = new Layer
+		parent: buttonViewSite
+		width: buttonViewSite.width / 3
+		x: i * buttonViewSite.width / 3
+		height: buttonViewSite.height
+		backgroundColor: null
+	
+	buttonIcon = new Layer
+		parent: button, size: 32, x: Align.center, y: Align.center
+		image: "images/buttonSite#{i+1}.png"
+	
+	if i == 2 then tabNumber_Site.parent = buttonIcon
+
+siteButton1 = buttonViewSite.children[0]
+siteButton2 = buttonViewSite.children[1]
+siteButton3 = buttonViewSite.children[2]
+
 # Open Site
 
 changeSite = (nextState) ->
@@ -356,15 +467,32 @@ changeSite = (nextState) ->
 	
 	site.animate(nextState)
 	arrowSite.stateSwitch(nextState)
+	
+	if nextState == "site" then buttonViewSite.animate(nextState, time: 0.1, delay: 0.1)
+	else buttonViewSite.animate(nextState, time: 0.1)
 
 
 
-siteButton = new Layer
+siteButtonParent = new Layer
 	parent: group1tabs
 	width: 164
 	height: 228
 	x: Align.right(-16)
 	y: Align.bottom(-198)
+	backgroundColor: null
+
+siteButtonParent.states =
+	"left":
+		parent: group1tabs
+	"right":
+		parent: group2tabs
+siteButtonParent.stateSwitch("left")
+
+
+siteButton = new Layer
+	parent: siteButtonParent
+	width: 164
+	height: 228
 
 siteButton.states =
 	"tabs": { opacity: 0 }
@@ -372,6 +500,8 @@ siteButton.states =
 siteButton.stateSwitch("tabs")
 
 siteButton.onTap ->
+	if groups.states.current.name == "outside" then return
+	
 	if @states.current.name == "tabs" then nextState = "site"
 	else nextState = "tabs"
 	

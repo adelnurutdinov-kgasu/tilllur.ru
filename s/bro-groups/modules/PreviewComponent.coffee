@@ -1,5 +1,7 @@
 # Preview Component
+
 Assets = require "PreviewComponentAssets"
+Framer.Extras.Hints.disable()
 
 
 # Preview
@@ -121,7 +123,7 @@ class exports.Preview extends Layer
 	
 	createBars: () =>
 		topBar = new Layer 
-			parent: @, width: @width, y: Align.top, name: "status bar"
+			parent: @, width: @width, y: Align.top, name: ".status bar"
 			opacity: @visible, backgroundColor: null
 		
 		if @viewSize(375, 812) or @viewSize(390, 844) or @viewSize(414, 896) or @viewSize(428, 926) or @viewSize(360, 782)

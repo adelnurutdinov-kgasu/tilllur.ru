@@ -115,6 +115,8 @@ group1.on "change:currentPage", ->
 	try group2search.animate(nextState)
 	try groupHeader.animate(nextHeaderState) for groupHeader in [group1header, group2header]
 	try blurLayer.animate(nextHeaderState) for blurLayer in [blur1, blur2]
+	
+	if nextState == "bottom" then handleTapFor(button3) else handleTapFor(button2)
 
 
 group2.on "change:currentPage", ->
@@ -132,6 +134,8 @@ group2.on "change:currentPage", ->
 	try group2search.animate(nextState)
 	try groupHeader.animate(nextHeaderState) for groupHeader in [group1header, group2header]
 	try blurLayer.animate(nextHeaderState) for blurLayer in [blur1, blur2]
+	
+	if nextState == "bottom" then handleTapFor(button3) else handleTapFor(button2)
 
 
 
@@ -228,16 +232,26 @@ button1.onTap ->
 	if groups.states.current.name == "inside" then nextState = "outside"
 	else nextState = "inside"
 	
+	if nextState == "outside" then handleTapFor(@)
+	else
+		currentGroup = groups.currentPage
+		if currentGroup.currentPage == currentGroup.content.children[0]
+			handleTapFor(button3)
+		else handleTapFor(button2)
+	
 	if site.states.current.name == "site"
 		changeSite("tabs")
 		changeDelay = 0.2
 	else changeDelay = 0
+	
+	
 	
 	Utils.delay changeDelay, =>
 		groups.animate(nextState)
 
 
 button2.onTap ->
+	handleTapFor(@)
 	selectedGroup = groups.currentPage
 	
 	if site.states.current.name == "site"
@@ -256,15 +270,24 @@ button2.onTap ->
 
 
 button3.onTap ->
+	handleTapFor(@)
 	selectedGroup = groups.currentPage
 	
-	if selectedGroup.currentPage == selectedGroup.content.children[1]
-		selectedGroup.snapToPage(selectedGroup.content.children[0])
-	
-	if groups.states.current.name == "outside"
+	if site.states.current.name == "site"
+		changeSite("tabs")
+	else if groups.states.current.name == "outside"
 		groups.animate("inside")
+		selectedGroup.snapToPage(selectedGroup.content.children[0])
+	else if selectedGroup.currentPage == selectedGroup.content.children[1]
+		selectedGroup.snapToPage(selectedGroup.content.children[0])
+	else changeSite("site")
 	
-	if site.states.current.name == "site" then changeSite("tabs")
+
+
+handleTapFor = (buttonLayer) ->
+	for item, i in buttonView.children
+		if item == buttonLayer then item.opacity = 0.3
+		else item.opacity = 1
 
 
 
@@ -527,5 +550,7 @@ backButton.onTap ->
 	if nextState == "tabs"
 		changeSite(nextState)
 
+
+handleTapFor(button3)
 
 

@@ -158,6 +158,11 @@ groups.on "change:currentPage", ->
 groups.onTap ->
 	if @states.current.name == "outside"
 		@animate("inside")
+		
+		currentGroup = groups.currentPage
+		if currentGroup.currentPage == currentGroup.content.children[0]
+			handleTapFor(button3)
+		else handleTapFor(button2)
 
 # Buttons
 

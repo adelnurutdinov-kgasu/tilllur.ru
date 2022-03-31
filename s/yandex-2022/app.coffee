@@ -25,6 +25,8 @@ debugColor = () ->
 		return new Color(r: Utils.randomChoice(array256), g: Utils.randomChoice(array256), b: Utils.randomChoice(array256), a: 0.5)
 	return null
 
+{ Preview } = require "PreviewComponent"
+
 # Screen
 
 screen = new Layer
@@ -33,22 +35,7 @@ screen = new Layer
 	backgroundColor: "FAF9F8"
 
 
-
-if Screen.width == 390
-	Canvas.backgroundColor = "black"
-	screen.scale = 390/375
-	screen.x = Align.center
-	screen.y = 16
-else if Screen.width == 393
-	Canvas.backgroundColor = "black"
-	screen.scale = 393/375
-	screen.x = Align.center
-	screen.y = -44
-else
-	screen.center()
-	screen.borderRadius = 42
-	screen.clip = true
-	screen.scale = (Screen.height - 80) / 812
+new Preview { view: screen }
 
 
 
@@ -1158,25 +1145,4 @@ firstTab_Flow.transition(startPage_ViewController, stackTransition)
 # firstTab_Flow.transition(startPage_ViewController, stackTransition)
 
 # load_StartPageBar(bars.start_yellow_logo)
-
-# System
-
-if !Utils.isMobile()
-	
-	home_bar = new Layer
-		parent: screen
-		width: 375
-		height: 34
-		y: Align.bottom
-		image: "images/home%20bar.png"
-	
-	status_bar = new Layer
-		parent: screen
-		width: 375
-		height: 44
-		image: "images/status%20bar.png"
-	
-	item.bringToFront() for item in [status_bar, home_bar]
- 
-
 

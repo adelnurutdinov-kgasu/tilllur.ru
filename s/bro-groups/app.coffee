@@ -1,0 +1,401 @@
+{ Preview } = require "PreviewComponent"
+
+screen = new Layer
+	width: 375, height: 812
+
+new Preview { view: screen, topTheme: "light", bottomTheme: "light" }
+
+Framer.Defaults.Animation =
+	curve: Spring(damping: 1), time: 0.5
+
+
+# Scroll
+
+groups = new PageComponent
+	parent: screen
+	width: screen.width
+	height: screen.height
+	scrollVertical: false
+	scrollHorizontal: true
+	directionLock: true
+	clip: false
+
+groups.states =
+	"inside": { scale: 1 }
+	"outside": { scale: 0.66 }
+groups.stateSwitch("inside")
+
+groups.on Events.StateSwitchStart, (from, to) ->
+	if from != to
+		if to == "outside"
+			group1.ignoreEvents = true
+			group1.content.ignoreEvents = true
+			group2.ignoreEvents = true
+			group2.content.ignoreEvents = true
+		else if to == "inside"
+			group1.ignoreEvents = false
+			group1.content.ignoreEvents = false
+			group2.ignoreEvents = false
+			group2.content.ignoreEvents = false
+
+
+
+
+group1 = new PageComponent
+	parent: groups.content
+	width: groups.width
+	height: groups.height
+	borderRadius: screen.parent.borderRadius
+	backgroundColor: "red"
+	scrollVertical: true
+	scrollHorizontal: false
+	directionLock: true
+	backgroundColor: null
+	image: "images/wallpaper1.jpg"
+
+group2 = new PageComponent
+	parent: groups.content
+	width: groups.width
+	height: groups.height
+	x: groups.width + 40
+	borderRadius: screen.parent.borderRadius
+	backgroundColor: "blue"
+	scrollVertical: true
+	scrollHorizontal: false
+	directionLock: true
+	backgroundColor: null
+	image: "images/wallpaper2.jpg"
+
+
+group1tabs = new Layer
+	parent: group1.content
+	width: group1.width
+	height: group1.height
+# 	backgroundColor: "sienna"
+	image: "images/tabs1.png"
+
+group1sites = new Layer
+	parent: group1.content
+	width: group1.width
+	height: group1.height
+	y: group1.height
+# 	backgroundColor: "sandybrown"
+	image: "images/ntp1.png"
+
+
+group2tabs = new Layer
+	parent: group2.content
+	width: group2.width
+	height: group2.height
+# 	backgroundColor: "pink"
+	image: "images/tabs2.png"
+
+group2sites = new Layer
+	parent: group2.content
+	width: group2.width
+	height: group2.height
+	y: group2.height
+# 	backgroundColor: "violet"
+	image: "images/ntp2.png"
+
+
+
+group1.on "change:currentPage", ->
+	if @currentPage == @content.children[0] then nextState = "bottom"
+	else nextState = "center"
+	
+	if nextState == "bottom" then otherNextPage = group2.content.children[0]
+	else otherNextPage = group2.content.children[1]
+	
+	if nextState == "bottom" then nextHeaderState = "shown"
+	else nextHeaderState = "hidden"
+	
+	group2.snapToPage(otherNextPage, false)
+	try group1search.animate(nextState)
+	try group2search.animate(nextState)
+	try groupHeader.animate(nextHeaderState) for groupHeader in [group1header, group2header]
+	try blurLayer.animate(nextHeaderState) for blurLayer in [blur1, blur2]
+
+
+group2.on "change:currentPage", ->
+	if @currentPage == @content.children[0] then nextState = "bottom"
+	else nextState = "center"
+	
+	if nextState == "bottom" then otherNextPage = group1.content.children[0]
+	else otherNextPage = group1.content.children[1]
+	
+	if nextState == "bottom" then nextHeaderState = "shown"
+	else nextHeaderState = "hidden"
+	
+	group1.snapToPage(otherNextPage, false)
+	try group1search.animate(nextState)
+	try group2search.animate(nextState)
+	try groupHeader.animate(nextHeaderState) for groupHeader in [group1header, group2header]
+	try blurLayer.animate(nextHeaderState) for blurLayer in [blur1, blur2]
+
+
+
+groups.on "change:currentPage", ->
+	if @currentPage == @content.children[0] then nextState = "left"
+	else nextState = "right"
+	
+	if nextState == "left"
+		progressView.children[0].stateSwitch("shown")
+		progressView.children[1].stateSwitch("hidden")
+	else
+		progressView.children[0].stateSwitch("hidden")
+		progressView.children[1].stateSwitch("shown")
+
+# Buttons
+
+buttonView = new Layer
+	parent: screen
+	width: screen.width - 40
+	y: Align.bottom(-34)
+	x: Align.center
+	height: 48
+	backgroundColor: null
+
+for item, i in [0, 1, 2]
+	button = new Layer
+		parent: buttonView
+		width: buttonView.width / 3
+		x: i * buttonView.width / 3
+		height: buttonView.height
+		backgroundColor: null
+	
+	buttonIcon = new Layer
+		parent: button, size: 32, x: Align.center, y: Align.center
+		image: "images/buttonIcon#{i+1}.png"
+
+button1 = buttonView.children[0]
+button2 = buttonView.children[1]
+button3 = buttonView.children[2]
+
+
+button1.onTap ->
+	if groups.states.current.name == "inside" then nextState = "outside"
+	else nextState = "inside"
+	
+	if site.states.current.name == "site"
+		changeSite("tabs")
+		changeDelay = 0.2
+	else changeDelay = 0
+	
+	Utils.delay changeDelay, =>
+		groups.animate(nextState)
+
+
+button2.onTap ->
+	selectedGroup = groups.currentPage
+	
+	if site.states.current.name == "site"
+		changeSite("tabs")
+		changeDelay = 0.2
+	else changeDelay = 0
+	
+	Utils.delay changeDelay, =>
+		if selectedGroup.currentPage == selectedGroup.content.children[0]
+			selectedGroup.snapToPage(selectedGroup.content.children[1])
+		
+		if groups.states.current.name == "outside"
+			groups.animate("inside")
+	
+	
+
+
+button3.onTap ->
+	selectedGroup = groups.currentPage
+	
+	if selectedGroup.currentPage == selectedGroup.content.children[1]
+		selectedGroup.snapToPage(selectedGroup.content.children[0])
+	
+	if groups.states.current.name == "outside"
+		groups.animate("inside")
+	
+	if site.states.current.name == "site" then changeSite("tabs")
+
+
+
+
+# Search
+
+group1search = new Layer
+	parent: group1
+	width: screen.width
+	height: 68
+	y: Align.bottom(-78)
+
+group2search = new Layer
+	parent: group2
+	width: screen.width
+	height: 68
+	y: Align.bottom(-78)
+
+for item, i in [group1search, group2search]
+	item.image = "images/arrow.png"
+	item.states =
+		"bottom": { y: Align.bottom(-78) }
+		"center": { y: Align.top(278) }
+	item.stateSwitch("bottom")
+
+# Globals
+
+header = new Layer
+	parent: screen
+	width: 375
+	height: 102
+	image: "images/headerGlobal.png"
+
+group1header = new Layer
+	parent: group1
+	width: 375
+	height: 102
+	image: "images/group1header.png"
+
+group2header = new Layer
+	parent: group2
+	width: 375
+	height: 102
+	image: "images/group2header.png"
+
+for item in [group1header, group2header]
+	item.originY = 0.72
+	item.states =
+		"shown": { scale: 1 }
+		"hidden": { scale: 0.6 }
+	item.stateSwitch("shown")
+
+
+progressView = new Layer
+	parent: screen
+	width: 10 * groups.content.children.length + 10 * (groups.content.children.length - 1)
+	height: 10, backgroundColor: null
+	x: Align.center, y: Align.bottom(-156)
+
+for item, i in groups.content.children
+	if i == 0 then g = 0 else g = i - 1
+	
+	dot = new Layer
+		parent: progressView
+		size: 10
+		x: (10 + 10) * i
+		borderRadius: 10
+		backgroundColor: "white"
+	
+	dot.states =
+		"shown": { opacity: 1 }
+		"hidden": { opacity: 0.5 }
+	if i == 0 then dot.stateSwitch("shown")
+	else dot.stateSwitch("hidden")
+
+
+
+
+
+# Blur
+
+
+blur1 = new BackgroundLayer
+	parent: group1
+
+blur2 = new BackgroundLayer
+	parent: group2
+
+for item in [blur1, blur2]
+	item.backgroundColor = null
+	item.style =
+		"-webkit-backdrop-filter": "blur(20px)"
+	
+	item.states =
+		"shown": { opacity: 1 }
+		"hidden": { opacity: 0.5 }
+	item.stateSwitch("shown")
+
+
+
+# Site
+
+site = new Layer
+	parent: screen
+	width: screen.width
+	height: screen.height
+	backgroundColor: "white"
+	originX: 0.92
+	originY: 0.64
+	
+
+site.states =
+	"site": { opacity: 1, scaleX: 1, scaleY: 1 }
+	"tabs": { opacity: 0, scaleX: 0.43, scaleY: 0.25 }
+site.stateSwitch("tabs")
+
+# site.animate("shown")
+
+# SiteBar
+
+
+arrowSite = new Layer
+	parent: screen
+	y: Align.bottom(-78)
+	width: 375
+	height: 68
+	image: "images/arrowSite.png"
+
+arrowSite.states =
+	"site": { opacity: 1 }
+	"tabs": { opacity: 0 }
+arrowSite.stateSwitch("tabs")
+
+
+# Open Site
+
+changeSite = (nextState) ->
+	siteButton.stateSwitch(nextState)
+	backButton.stateSwitch(nextState)
+	
+	site.animate(nextState)
+	arrowSite.stateSwitch(nextState)
+
+
+
+siteButton = new Layer
+	parent: group1tabs
+	width: 164
+	height: 228
+	x: Align.right(-16)
+	y: Align.bottom(-198)
+
+siteButton.states =
+	"tabs": { opacity: 0 }
+	"site": { opacity: 0 }
+siteButton.stateSwitch("tabs")
+
+siteButton.onTap ->
+	if @states.current.name == "tabs" then nextState = "site"
+	else nextState = "tabs"
+	
+	if nextState == "site"
+		changeSite(nextState)
+
+
+
+backButton = new Layer
+	parent: arrowSite
+	width: arrowSite.width / 5
+	height: arrowSite.height
+
+backButton.states =
+	"tabs": { opacity: 0 }
+	"site": { opacity: 0 }
+backButton.stateSwitch("tabs")
+
+backButton.onTap ->
+	if @states.current.name == "tabs" then nextState = "site"
+	else nextState = "tabs"
+	
+	if nextState == "tabs"
+		changeSite(nextState)
+
+
+

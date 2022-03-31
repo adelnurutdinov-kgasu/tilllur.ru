@@ -286,8 +286,8 @@ button3.onTap ->
 
 handleTapFor = (buttonLayer) ->
 	for item, i in buttonView.children
-		if item == buttonLayer then item.opacity = 0.3
-		else item.opacity = 1
+		if item == buttonLayer then item.opacity = 1
+		else item.opacity = 0.3
 
 
 

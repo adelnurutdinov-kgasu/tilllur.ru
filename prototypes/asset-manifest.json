@@ -1,13 +1,17 @@
 {
   "files": {
-    "main.css": "/static/css/main.68af827a.css",
-    "main.js": "/static/js/main.bfdc447a.js",
-    "index.html": "/index.html",
-    "main.68af827a.css.map": "/static/css/main.68af827a.css.map",
-    "main.bfdc447a.js.map": "/static/js/main.bfdc447a.js.map"
+    "main.css": "prototypes/static/css/main.68af827a.css",
+    "main.js": "prototypes/static/js/main.bfdc447a.js",
+    "index.html": "prototypes/index.html",
+    "main.68af827a.css.map": "prototypes/static/css/main.68af827a.css.map",
+    "main.bfdc447a.js.map": "prototypes/static/js/main.bfdc447a.js.map"
   },
   "entrypoints": [
-    "static/css/main.68af827a.css",
-    "static/js/main.bfdc447a.js"
+    "prototypes/static/css/main.68af827a.css",
+    "prototypes/static/js/main.bfdc447a.js"
   ]
 }
+
+
+// https://tilllur.ru/static/js/main.bfdc447a.js
+// https://tilllur.ru/prototypes/static/js/main.bfdc447a.js

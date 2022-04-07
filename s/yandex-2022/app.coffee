@@ -25,8 +25,6 @@ debugColor = () ->
 		return new Color(r: Utils.randomChoice(array256), g: Utils.randomChoice(array256), b: Utils.randomChoice(array256), a: 0.5)
 	return null
 
-{ Preview } = require "PreviewComponent"
-
 # Screen
 
 screen = new Layer
@@ -35,6 +33,7 @@ screen = new Layer
 	backgroundColor: "FAF9F8"
 
 
+{ Preview } = require "PreviewComponent"
 new Preview { view: screen }
 
 

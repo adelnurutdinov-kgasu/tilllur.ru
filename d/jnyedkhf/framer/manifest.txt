@@ -1,0 +1,54 @@
+app.coffee
+index.html
+images/framer-icon.png
+images/screen bg.png
+images/round 2 done.png
+images/enemy round 1.png
+images/map.png
+images/enemy round 2.png
+images/current state.png
+images/round 1 done.png
+images/nav bar.png
+images/enemy round 1 flipped.png
+images/rounds bg.png
+images/go round 2.png
+images/button light.png
+images/my round 2.png
+images/button text.png
+images/enemy round 2 flipped.png
+images/button color.png
+js/paper-core.min.js
+framer/preview.png
+framer/manifest.txt
+framer/images/cursor.png
+framer/images/cursor-active@2x.png
+framer/images/icon-120.png
+framer/images/cursor@2x.png
+framer/images/icon-192.png
+framer/images/icon-76.png
+framer/images/cursor-active.png
+framer/images/icon-152.png
+framer/images/icon-180.png
+framer/config.json
+framer/framer.vekter.js
+framer/framer.modules.js
+framer/version
+framer/style.css
+framer/framer.generated.js
+framer/coffee-script.js
+framer/framer.init.js
+framer/framer.js
+modules/PreviewComponentAssets/androidStatusBar_right_dark.png
+modules/PreviewComponentAssets/oldStatusBar_left_dark.png
+modules/PreviewComponentAssets/statusBar_right_light.png
+modules/PreviewComponentAssets/oldStatusBar_right_dark.png
+modules/PreviewComponentAssets/androidStatusBar_right_light.png
+modules/PreviewComponentAssets/statusBar_right_dark.png
+modules/PreviewComponentAssets/oldStatusBar_left_light.png
+modules/PreviewComponentAssets/oldStatusBar_right_light.png
+modules/PreviewComponentAssets/statusBar_notch.png
+modules/flipCard.coffee
+modules/myModule.coffee
+modules/PreviewComponentAssets.coffee
+modules/PreviewComponent.coffee
+app.js

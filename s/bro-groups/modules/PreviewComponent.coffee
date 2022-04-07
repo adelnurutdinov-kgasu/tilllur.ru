@@ -131,7 +131,7 @@ class exports.Preview extends Layer
 			@createHomeIndicator new Layer
 				parent: @, width: @width, height: 34, y: Align.bottom, name: ".home bar", opacity: @visible, backgroundColor: null
 		
-		else if @viewSize(375, 667) or @viewSize(414, 736)
+		else if @viewSize(375, 667) or @viewSize(414, 736) or @viewSize(320, 568)
 			@createClassicStatusBar(topBar)
 		
 		else if @forceAndroidBar

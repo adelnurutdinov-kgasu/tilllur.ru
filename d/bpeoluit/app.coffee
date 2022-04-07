@@ -24,3 +24,6 @@ spin = () ->
 		spin()
 
 spin()
+
+
+Framer.Extras.Preloader.disable()

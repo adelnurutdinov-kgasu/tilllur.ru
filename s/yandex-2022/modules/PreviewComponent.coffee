@@ -1,7 +1,7 @@
 # Preview Component
 Assets = require "PreviewComponentAssets"
 Framer.Extras.Hints.disable()
-Framer.Extras.Preloader.disable()
+# Framer.Extras.Preloader.disable()
 
 localColors =
 	bg_color_onLight: "#eee"

@@ -21,7 +21,7 @@ class exports.Preview extends Layer
 		
 		_.defaults @options,
 			view: null
-			prototypeCreationYear: "20:22"
+			prototypeCreationYear: "20:15"
 			name: "Preview"
 			backgroundColor: null
 			borderRadius: 42

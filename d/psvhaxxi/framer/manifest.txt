@@ -1,0 +1,68 @@
+app.coffee
+index.html
+images/suggest type 3.png
+images/suggest type 2.png
+images/suggest bg 1.png
+images/icon.png
+images/suggest type 1.png
+images/suggest bg 2.png
+images/suggest type 5.png
+images/title.png
+images/icon green.png
+images/suggest type 4.png
+images/suggest bg 5.png
+images/suggest type 6.png
+images/suggest bg 4.png
+images/cancel.png
+images/placeholder.png
+images/suggest search 2.png
+images/suggest search.png
+images/title2.png
+images/suggest name 2.png
+images/suggest name 3.png
+images/suggest name 1.png
+images/suggest name 4.png
+images/suggest name 5.png
+images/suggest name 6.png
+framer/preview.png
+framer/manifest.txt
+framer/images/cursor.png
+framer/images/icon-framer@2x.png
+framer/images/cursor-active@2x.png
+framer/images/icon-120.png
+framer/images/icon-close@2x.png
+framer/images/icon-close.png
+framer/images/cursor@2x.png
+framer/images/icon-192.png
+framer/images/icon-76.png
+framer/images/cursor-active.png
+framer/images/icon-152.png
+framer/images/icon-180.png
+framer/images/icon-share.png
+framer/images/background.png
+framer/images/icon-arrow@2x.png
+framer/images/icon-share@2x.png
+framer/images/icon-arrow.png
+framer/images/icon-framer.png
+framer/config.json
+framer/framer.vekter.js
+framer/framer.modules.js
+framer/version
+framer/style.css
+framer/framer.generated.js
+framer/coffee-script.js
+framer/mirror.css
+framer/framer.init.js
+framer/framer.js
+modules/PreviewComponentAssets/androidStatusBar_right_dark.png
+modules/PreviewComponentAssets/oldStatusBar_left_dark.png
+modules/PreviewComponentAssets/statusBar_right_light.png
+modules/PreviewComponentAssets/oldStatusBar_right_dark.png
+modules/PreviewComponentAssets/androidStatusBar_right_light.png
+modules/PreviewComponentAssets/statusBar_right_dark.png
+modules/PreviewComponentAssets/oldStatusBar_left_light.png
+modules/PreviewComponentAssets/oldStatusBar_right_light.png
+modules/PreviewComponentAssets/statusBar_notch.png
+modules/myModule.coffee
+modules/PreviewComponentAssets.coffee
+modules/PreviewComponent.coffee

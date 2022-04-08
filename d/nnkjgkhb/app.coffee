@@ -1,11 +1,11 @@
 
+# Framer.Extras.Preloader.setLogo("https://tilllur.ru/shared/avatars/logoForFramer.png")
+
 screen = new Layer
 	width: 375, height: 812
 
 { Preview } = require "PreviewComponent"
 new Preview { view: screen }
-
-
 
 Screen_Recording_2022_04_09_at_00_02_15 = new VideoLayer
 	parent: screen

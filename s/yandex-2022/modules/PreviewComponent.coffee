@@ -1,7 +1,17 @@
 # Preview Component
-
 Assets = require "PreviewComponentAssets"
 Framer.Extras.Hints.disable()
+Framer.Extras.Preloader.disable()
+
+localColors =
+	bg_color_onLight: "#eee"
+	bg_color_onDark: "#222"
+	content_color_onLight: "#000"
+	content_color_onDark: "#FFF"
+
+theme =
+	bg_color: localColors.bg_color_onDark
+	content_color: localColors.content_color_onDark
 
 
 # Preview
@@ -78,7 +88,7 @@ class exports.Preview extends Layer
 	
 	
 	previewDesktop: () =>
-		Canvas.backgroundColor = "#222"
+		Canvas.backgroundColor = theme.bg_color
 		@createBars()
 		@center()
 		@clip = true
@@ -86,7 +96,7 @@ class exports.Preview extends Layer
 	
 	previewMobile: () =>
 		previewCanvas = new BackgroundLayer
-			backgroundColor: "#000", name: ".hiddenPreviewCanvas"
+			backgroundColor: theme.content_color, name: ".hiddenPreviewCanvas"
 		
 		@clip = false
 		@center()

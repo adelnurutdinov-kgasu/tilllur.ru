@@ -12,7 +12,7 @@ nav_bar = new Layer width: 375*retina, height: 64*retina, x: 0*retina, y: 0*reti
 
 content = new Layer width: 375*retina, height: 498*retina, x: 0*retina, y: 64*retina, image: "images/content.png"
 
-reserve_order = new Layer width: 375*retina, height: 150*retina, x: 0*retina, y: Screen.height - 150*retina, image: "images/reserve order.png"
+reserve_order = new Layer width: 375*retina, height: 150*retina, x: 0*retina, y: Align.bottom, image: "images/reserve order.png"
 
 fix = new Layer width: 200*retina, height: 46*retina, x: 0*retina, y: 230*retina, opacity: 0, image: "images/fix.png"
 
@@ -24,7 +24,7 @@ fix.states.add {
 error_message = new Layer width: 375*retina, height: 64*retina, x: 0*retina, y: -70*retina, image: "images/error message.png"
 
 error_message.states.add {
-	show_error: { width: 375*retina, height: 64*retina, x: 0*retina, y: 0*retina}
+	show_error: { width: 375*retina, height: 64*retina, x: 0*retina, y: 20*retina}
 }
 
 
@@ -40,6 +40,8 @@ reserve_order.on Events.Click, ->
 
 for item in [bg, nav_bar, content, reserve_order, fix, error_message]
 	item.parent = screen
+
+reserve_order.y = Align.bottom
 
 statusBar = new Layer
 	parent: screen, height: 20, width: screen.width

@@ -185,3 +185,11 @@ for item in baseArray
 					properties: {scale: 0.5, opacity: 0}
 					time: 0
 					delay: 0.8
+
+
+`window.receiveMessage = function (event) {
+	console.log("ok2")
+	console.log(event.origin)
+}
+window.addEventListener("message", receiveMessage, false);
+`

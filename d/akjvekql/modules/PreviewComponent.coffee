@@ -138,10 +138,10 @@ class exports.Preview extends Layer
 # 		set: (value) -> @options.showBar = value
 	
 	animateStateToNormal: () =>
-		@animate("normal", curve: Spring(damping: 1), time: 0.5)
+		@animate("fill", curve: Spring(damping: 1), time: 0.5)
 	
 	animateStateToFill: () =>
-		@animate("fill", curve: Spring(damping: 1), time: 0.5)
+		@animate("normal", curve: Spring(damping: 1), time: 0.5)
 	
 	stateSwitchToNormal: () =>
 		@stateSwitch("normal")

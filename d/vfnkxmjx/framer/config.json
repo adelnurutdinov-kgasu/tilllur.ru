@@ -1,0 +1,22 @@
+{
+  "orientation" : 0,
+  "updateDelay" : 0.29999999999999999,
+  "designModeSelected" : 0,
+  "cachedDeviceHeight" : 667,
+  "contentScale" : 1,
+  "cachedDeviceWidth" : 375,
+  "fullScreen" : false,
+  "deviceType" : "iphone-6-spacegray",
+  "sharedPrototype" : 1,
+  "propertyPanelToggleStates" : {
+
+  },
+  "projectId" : "33A9ED36-1001-44E6-A907-7301BB30F581",
+  "deviceOrientation" : 0,
+  "selectedHand" : "",
+  "showBezel" : 0,
+  "foldedCodeRanges" : [
+
+  ],
+  "deviceScale" : "fit"
+}

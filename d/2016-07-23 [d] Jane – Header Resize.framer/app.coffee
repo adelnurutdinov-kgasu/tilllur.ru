@@ -43,6 +43,7 @@ content = new Layer
 
 updateLayout = () ->
 	viewSize = returnViewSize()
+	header.width = Canvas.width - 100
 	
 	if viewSize == 3
 		header.height = 44
@@ -61,7 +62,7 @@ updateLayout = () ->
 		logo_mobile.opacity = 0
 		logo_big.opacity = 1
 		
-		profile.x = Canvas.width - 100 -profile.width - 16
+		profile.x = Canvas.width - 100 - profile.width - 16
 		profile.y = 15
 		
 		buttons.opacity = 1
@@ -78,7 +79,7 @@ updateLayout = () ->
 		buttons.opacity = 1
 		
 	
-	header.width = Canvas.width - 100
+	
 	
 	
 	contentSize = 960 / viewSize
@@ -103,11 +104,15 @@ updateLayout = () ->
 	if Canvas.width > 1500
 		logo_big.x = buttons.x - enoughSpace * 2 - enoughSpace / 2
 		profile.x = content.x + content.width - profile.width
+	else
+		logo_big.x = Align.left(27)
 
 for item in [header, profile, buttons, content]
 	item.parent = screen
 
 updateLayout()
+
+logo_big.x = Align.left(27)
 
 Canvas.on "change:width", ->
 	updateLayout()

@@ -209,12 +209,16 @@ updatePoints = (event, layer) ->
 area.on Events.TouchStart, -> 
 	svg.custom.active = true
 	newPolyline()
-	
+
+showAnimateOnce = true
 area.on Events.TouchEnd, ->
 	svg.custom.active = false
-	animateScaleUp()
-	Utils.delay smallDelay/8, ->
-		animateScaleDown()
+	
+	if showAnimateOnce
+		showAnimateOnce = !showAnimateOnce
+		animateScaleUp()
+		Utils.delay smallDelay/8, ->
+			animateScaleDown()
 	
 area.on Events.TouchMove, (event, layer) ->
 	return unless svg.custom.active

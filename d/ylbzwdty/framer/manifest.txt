@@ -1,0 +1,137 @@
+app.coffee
+index.html
+images/card.png
+images/no news button.png
+images/content top.png
+images/popular playlist.png
+images/top section.png
+images/skip news item.png
+images/video popular card.png
+images/content.png
+images/read button.png
+images/studio.png
+images/play random.png
+images/nav bar.png
+images/playlists title.png
+images/shuffle.png
+images/play video icon.png
+images/content bottom.png
+images/no news image.png
+images/card 4.png
+images/no news tips.png
+images/card 0.png
+images/card 1.png
+images/card 3.png
+images/card 2.png
+images/player.png
+framer/preview.png
+framer/manifest.txt
+framer/images/cursor.png
+framer/images/cursor-active@2x.png
+framer/images/icon-120.png
+framer/images/cursor@2x.png
+framer/images/icon-192.png
+framer/images/icon-76.png
+framer/images/cursor-active.png
+framer/images/icon-152.png
+framer/images/icon-180.png
+framer/config.json
+framer/metadata.json
+framer/framer.vekter.js
+framer/framer.modules.js
+framer/version
+framer/style.css
+framer/framer.generated.js
+framer/coffee-script.js
+framer/framer.init.js
+framer/framer.js
+artists/troll/songs/1.mp3
+artists/troll/songs/2.mp3
+artists/troll/status bar.png
+artists/troll/video/covers/1.png
+artists/troll/video/covers/0.png
+artists/troll/video/movies/1.mp4
+artists/troll/video/movies/0.mp4
+artists/troll/video/text/2.png
+artists/troll/video/text/1.png
+artists/troll/video/text/0.png
+artists/troll/closeAlbum.png
+artists/troll/closeNewsPage.png
+artists/troll/navigation darker.png
+artists/troll/news/full/8.jpg
+artists/troll/news/full/9.jpg
+artists/troll/news/full/4.jpg
+artists/troll/news/full/5.jpg
+artists/troll/news/full/7.jpg
+artists/troll/news/full/6.jpg
+artists/troll/news/full/2.jpg
+artists/troll/news/full/3.jpg
+artists/troll/news/full/1.jpg
+artists/troll/news/full/0.jpg
+artists/troll/news/covers/1.jpg
+artists/troll/news/covers/0.jpg
+artists/troll/news/text/8.jpg
+artists/troll/news/text/9.jpg
+artists/troll/news/text/4.jpg
+artists/troll/news/text/6.jpg
+artists/troll/news/text/2.jpg
+artists/troll/news/text/3.jpg
+artists/troll/news/text/1.jpg
+artists/troll/news/text/0.jpg
+artists/troll/pause.png
+artists/troll/navigation header.png
+artists/troll/navTitle 1.png
+artists/troll/next.png
+artists/troll/navTitle 3.png
+artists/troll/navTitle 2.png
+artists/troll/albums/8.jpg
+artists/troll/albums/9.jpg
+artists/troll/albums/4.jpg
+artists/troll/albums/5.jpg
+artists/troll/albums/7.jpg
+artists/troll/albums/6.jpg
+artists/troll/albums/2.jpg
+artists/troll/albums/3.jpg
+artists/troll/albums/1.jpg
+artists/troll/albums/0.jpg
+artists/troll/shareNewsDetailedView.png
+artists/troll/play button.png
+artists/troll/bg.png
+modules/skipCard.coffee
+modules/PreviewComponentAssets/androidStatusBar_right_dark.png
+modules/PreviewComponentAssets/oldStatusBar_left_dark.png
+modules/PreviewComponentAssets/statusBar_right_light.png
+modules/PreviewComponentAssets/oldStatusBar_right_dark.png
+modules/PreviewComponentAssets/androidStatusBar_right_light.png
+modules/PreviewComponentAssets/statusBar_right_dark.png
+modules/PreviewComponentAssets/oldStatusBar_left_light.png
+modules/PreviewComponentAssets/oldStatusBar_right_light.png
+modules/PreviewComponentAssets/statusBar_notch.png
+modules/card.coffee
+modules/albumView.coffee
+modules/play_song.coffee
+modules/detailed_playlist.coffee
+modules/album.coffee
+modules/artist.coffee
+modules/nav.coffee
+modules/text.coffee
+modules/old/youtube backup/youtube.coffee
+modules/old/color backup/troll.coffee
+modules/old/color backup/base.coffee
+modules/old/data backup/troll.coffee
+modules/old/feed backup/troll.coffee
+modules/playlist.coffee
+modules/song.coffee
+modules/artists backup/splean.coffee
+modules/artists backup/splean 2.coffee
+modules/artists backup/troll.coffee
+modules/news.coffee
+modules/PreviewComponentAssets.coffee
+modules/detailed_news.coffee
+modules/contrast.coffee
+modules/timefromsec.coffee
+modules/year.coffee
+modules/create_song.coffee
+modules/detailed_album.coffee
+modules/video.coffee
+modules/PreviewComponent.coffee

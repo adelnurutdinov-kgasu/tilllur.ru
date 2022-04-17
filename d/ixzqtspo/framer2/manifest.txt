@@ -1,0 +1,87 @@
+app.coffee
+index.html
+images/zen item 3.png
+images/refresh icon.png
+images/bookmark 3.png
+images/site2.png
+images/site3.png
+images/omni bg.png
+images/status bar.png
+images/bookmark 2.png
+images/zen item 2.png
+images/ready for search.png
+images/site1.png
+images/site0.png
+images/bookmark 1.png
+images/zen item 1.png
+images/site4.png
+images/protect icon.png
+images/bookmark 4.png
+images/under new button.png
+images/site 2.png
+images/titleOne.png
+images/keyboard.png
+images/site 1.png
+images/address.png
+images/omni box.png
+images/clear.png
+images/search bar shape.png
+images/user button.png
+images/close tab.png
+images/cancel.png
+images/home screen.png
+images/http.png
+images/tabs buttons.png
+images/serp content.png
+images/site buttons main.png
+images/hide tabs button.png
+images/tab name.png
+images/new tab button.png
+images/under others.png
+images/incognito button.png
+images/tabs icom.png
+images/logo.png
+images/history button.png
+images/return site button.png
+images/yandex bg.png
+images/site buttons secondary.png
+images/Screen Shot 2016-11-15 at 3.33.25 PM.png
+images/bar.png
+images/back.png
+images/bookmarks.png
+images/open new tab button.png
+images/site long.png
+images/site in tab.png
+images/titleTwo.png
+framer/preview.png
+framer/manifest.txt
+framer/images/cursor.png
+framer/images/cursor-active@2x.png
+framer/images/icon-120.png
+framer/images/cursor@2x.png
+framer/images/icon-192.png
+framer/images/icon-76.png
+framer/images/cursor-active.png
+framer/images/icon-152.png
+framer/images/icon-180.png
+framer/config.json
+framer/framer.vekter.js
+framer/framer.modules.js
+framer/version
+framer/style.css
+framer/framer.generated.js
+framer/coffee-script.js
+framer/framer.init.js
+framer/framer.js
+modules/PreviewComponentAssets/androidStatusBar_right_dark.png
+modules/PreviewComponentAssets/oldStatusBar_left_dark.png
+modules/PreviewComponentAssets/statusBar_right_light.png
+modules/PreviewComponentAssets/oldStatusBar_right_dark.png
+modules/PreviewComponentAssets/androidStatusBar_right_light.png
+modules/PreviewComponentAssets/statusBar_right_dark.png
+modules/PreviewComponentAssets/oldStatusBar_left_light.png
+modules/PreviewComponentAssets/oldStatusBar_right_light.png
+modules/PreviewComponentAssets/statusBar_notch.png
+modules/site.coffee
+modules/PreviewComponentAssets.coffee
+modules/PreviewComponent.coffee

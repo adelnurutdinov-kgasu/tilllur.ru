@@ -7,7 +7,7 @@ if (window.Framer) {window.Framer.Defaults.DeviceView = {"deviceScale":1,"select
 }
 if (window.Framer) {window.Framer.Defaults.DeviceComponent = {"deviceScale":1,"selectedHand":"","deviceType":"fullscreen","contentScale":1,"hideBezel":true,"orientation":0};
 }
-window.FramerStudioInfo = {"deviceImagesUrl":"\/_server\/resources\/DeviceImages","documentTitle":"2022-02-08 [pp] Yandex 2022 – Flow.framer"};
+window.FramerStudioInfo = {"deviceImagesUrl":"\/_server\/resources\/DeviceImages","documentTitle":"Flow"};
 
 Framer.Device = new Framer.DeviceView();
 Framer.Device.setupContext();

@@ -4,7 +4,7 @@ Framer.Defaults.Animation =
 	curve: Spring(damping: 1), time: 0.5
 
 screen = new Layer
-    width: 375, height: 812, backgroundColor: "white"
+    width: 375, height: 812, backgroundColor: "eee"
 
 # { Preview } = require "PreviewComponent"
 # preview = new Preview { view: screen }

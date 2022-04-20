@@ -1,9 +1,16 @@
+Utils.insertCSS('@import url(css/project.css)')
+
+Framer.Defaults.Animation =
+	curve: Spring(damping: 1), time: 0.5
 
 screen = new Layer
     width: 375, height: 812, backgroundColor: "white"
 
-{ Preview } = require "PreviewComponent"
-new Preview { view: screen }
+# { Preview } = require "PreviewComponent"
+# preview = new Preview { view: screen }
+# preview.backgroundColor = "222"
+
+
 
 # API
 
@@ -64,16 +71,36 @@ clearSearch = () ->
 
 inputLayer = new Layer
 	parent: screen
-	width: 295, height: 132
-	x: 40, y: 200
+	width: 315, height: 132, x: 30
 	backgroundColor: null
-# 	html: "<form id='myForm' onSubmit='search();return false;' action='#'><input id='myInput' multiple type='search' autocapitalize='off' autocomplete='off' autocorrect='off' style='color: rgba(0,0,0,1); background-color: rgba(255, 255, 255, 1); width: 295px; height: 132px; font-size: 32px; resize: vertical;'></form>"
-	html: "<textarea name='Text1' cols='40' rows='5' style='width: 295px; height: 132px; font-size: 32px; border: 0;'></textarea>"
+# 	html: "<form id='myForm' onSubmit='search();return false;' action='#'><input id='myInput' multiple type='search' autocapitalize='off' autocomplete='off' autocorrect='off' style='color: rgba(0,0,0,1); background-color: rgba(255, 255, 255, 1); width: 295px; height: 132px; font-size: 32px; resize: vertical; box-sizing: border-box; text-overflow:ellipsis; -webkit-tap-highlight-color: transparent; -webkit-appearance: none;'></form>"
+	html: "<textarea onmouseover='return false;' id='myInput' name='Text1' rows='5' cols='100' style=' height: 132px; font-size: 32px; border: 0; margin: 0; padding: 0; box-sizing: border-box; width: 100%; -webkit-tap-highlight-color: transparent; -webkit-appearance: none;'></textarea>"
+
+inputLayer.states =
+	"start": { y: 128 }
+	"focus": { y: 208 }
+inputLayer.stateSwitch("start")
+
+# text = new TextLayer
+# 	text: "Найти в Яндексе"
+# 	fontFamily: "YS Text"
+# 	fontSize: 32
+# 	fontWeight: 700
+# 	y: 160
+# 	x: 40
+
+# inputLayer
+
+# `document.on("mousedown", "#reply_msg", function(e) {
+# 	e.preventDefault();
+# 	$(this).hide();
+# 	$("#reply_message").show().focus();
+# });`
 
 
-inputLayer
-
-# inputLayer.querySelector("#myInput").placeholder = "Найти в Яндексе"
+inputLayer.querySelector("#myInput").placeholder = "Найти в Яндексе"
+inputLayer.querySelector("#myInput").style["fontFamily"] = "YS Text"
+inputLayer.querySelector("#myInput").style["fontWeight"] = 700
 
 isEmptyInputText = () ->
 	return inputLayer.querySelector("#myInput").value == ""
@@ -83,16 +110,26 @@ updateInput = () ->
 
 # Events.wrap(inputLayer.querySelector("#myInput")).addEventListener "input", ->
 # 	updateInput()
-# 	
-# 
-# 
+
 # Events.wrap(inputLayer.querySelector("#myForm")).addEventListener "submit", (event) ->
 # 	event.preventDefault()
+
+
+Events.wrap(inputLayer.querySelector("#myInput")).addEventListener "focus", ->
+	inputLayer.animate("focus")
 
 `window.search = function () {
 	document.activeElement.blur();
 	submitSearch()
 }`
+
+`var link = document.createElement("link");
+  link.setAttribute("rel","stylesheet");
+  link.setAttribute("href","https://meyerweb.com/eric/tools/css/reset/reset.css");
+  var head = document.getElementsByTagName("head")[0];
+  head.appendChild(link);
+ `
+
 
 submitSearch = () ->
 	screenState.stateSwitch("search")
@@ -103,4 +140,7 @@ focusHandler = (event, layer) ->
 
 # inputLayer.on(Events.Tap, focusHandler)
 
-# inputLayer.querySelector("#myInput").focus()
+# 
+# Utils.delay 2, ->
+# 	print "ok"
+# 	inputLayer.querySelector("#myInput").focus()

@@ -76,6 +76,7 @@ startPage.states =
 startPage.stateSwitch("start")
 
 
+
 # Input
 
 clearSearch = () ->
@@ -126,12 +127,9 @@ updateInput = () ->
 # 	screenState.stateSwitch("search")
 # 	successQuery = inputLayer.querySelector("#myInput").value
 
-# print htmlInput
-
-
 focusHandler = () ->
-	htmlInput.blur()
-	Utils.delay 0.3, -> htmlInput.focus()
+# 	htmlInput.blur()
+# 	Utils.delay 0.3, -> htmlInput.focus()
 	
 	inputLayer.animate("focus")
 	startPage.animate("focus")

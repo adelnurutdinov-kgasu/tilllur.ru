@@ -1,16 +1,6 @@
+Utils.insertCSS('@import url(css/reset.css)')
+Utils.insertCSS('@import url(css/input.css)')
 Utils.insertCSS('@import url(css/project.css)')
-
-Framer.Defaults.Animation =
-	curve: Spring(damping: 1), time: 0.5
-
-screen = new Layer
-    width: 375, height: 812, backgroundColor: "eee"
-
-# { Preview } = require "PreviewComponent"
-# preview = new Preview { view: screen }
-# preview.backgroundColor = "222"
-
-
 
 # API
 
@@ -63,6 +53,29 @@ DynamicLoader.series(["./vendor/rest.js",]).then(->
 	}.bind(this));
 }`
 
+Framer.Defaults.Animation =
+	curve: Spring(damping: 1), time: 0.4
+
+screen = new Layer
+    width: 375, height: 812,
+    backgroundColor: "white"
+
+{ Preview } = require "PreviewComponent"
+preview = new Preview { view: screen }
+# preview.backgroundColor = "222"
+
+
+startPage = new Layer
+	parent: screen
+	width: 375, height: 812
+	image: "images/start.png"
+
+startPage.states =
+	"start": { opacity: 1 }
+	"focus": { opacity: 0 }
+startPage.stateSwitch("start")
+
+
 # Input
 
 clearSearch = () ->
@@ -81,32 +94,19 @@ inputLayer.states =
 	"focus": { y: 208 }
 inputLayer.stateSwitch("start")
 
-# text = new TextLayer
-# 	text: "Найти в Яндексе"
-# 	fontFamily: "YS Text"
-# 	fontSize: 32
-# 	fontWeight: 700
-# 	y: 160
-# 	x: 40
-
-# inputLayer
-
-# `document.on("mousedown", "#reply_msg", function(e) {
-# 	e.preventDefault();
-# 	$(this).hide();
-# 	$("#reply_message").show().focus();
-# });`
-
-
 inputLayer.querySelector("#myInput").placeholder = "Найти в Яндексе"
 inputLayer.querySelector("#myInput").style["fontFamily"] = "YS Text"
 inputLayer.querySelector("#myInput").style["fontWeight"] = 700
 
+
+htmlInput = inputLayer.querySelector("#myInput")
+
+
 isEmptyInputText = () ->
-	return inputLayer.querySelector("#myInput").value == ""
+	return htmlInput.value == ""
 
 updateInput = () ->
-	inputLayer.querySelector("#myInput").value
+	htmlInput.value
 
 # Events.wrap(inputLayer.querySelector("#myInput")).addEventListener "input", ->
 # 	updateInput()
@@ -115,32 +115,67 @@ updateInput = () ->
 # 	event.preventDefault()
 
 
-Events.wrap(inputLayer.querySelector("#myInput")).addEventListener "focus", ->
+# `window.search = function () {
+# 	document.activeElement.blur();
+# 	submitSearch()
+# }`
+
+
+
+# submitSearch = () ->
+# 	screenState.stateSwitch("search")
+# 	successQuery = inputLayer.querySelector("#myInput").value
+
+# print htmlInput
+
+
+focusHandler = () ->
+# 	if inputLayer.states.current.name == "start"
+	htmlInput.blur()
+	Utils.delay 0.3, -> htmlInput.focus()
+	
 	inputLayer.animate("focus")
+	startPage.animate("focus")
+	backButton.animate("focus")
 
-`window.search = function () {
-	document.activeElement.blur();
-	submitSearch()
-}`
+blurHandler = (event, layer) ->
+	htmlInput.blur()
+# 	if inputLayer.states.current.name == "focus"
+	inputLayer.animate("start")
+	startPage.animate("start")
+	backButton.animate("start")
 
-`var link = document.createElement("link");
-  link.setAttribute("rel","stylesheet");
-  link.setAttribute("href","https://meyerweb.com/eric/tools/css/reset/reset.css");
-  var head = document.getElementsByTagName("head")[0];
-  head.appendChild(link);
- `
+inputLayer.on(Events.Tap, focusHandler)
 
 
-submitSearch = () ->
-	screenState.stateSwitch("search")
-	successQuery = inputLayer.querySelector("#myInput").value
+# StartPage
 
-focusHandler = (event, layer) ->
-	inputLayer.querySelector("#myInput").focus()
+backButton = new Layer
+	parent: screen
+	x: 6, y: 32
+	width: 60, height: 60
+	image: "images/backBig.png"
 
-# inputLayer.on(Events.Tap, focusHandler)
+backButton.states =
+	"start": { opacity: 0 }
+	"focus": { opacity: 1 }
+backButton.stateSwitch("start")
 
-# 
-# Utils.delay 2, ->
-# 	print "ok"
-# 	inputLayer.querySelector("#myInput").focus()
+backButton.on(Events.Tap, blurHandler)
+
+startPage_search = new Layer
+	parent: startPage
+	width: 375, height: 99
+	y: Align.bottom
+	image: "images/searchNewTab.png"
+
+backButton.on(Events.Tap, focusHandler)
+
+
+startPage_avatar = new Layer
+	parent: screen
+	width: 28
+	height: 28
+	x: Align.right(-30), y: Align.top(32 + 16)
+	image: "images/photos.png"
+

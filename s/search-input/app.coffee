@@ -58,7 +58,7 @@ Framer.Defaults.Animation =
 
 screen = new Layer
     width: 375, height: 812,
-    backgroundColor: "white"
+    backgroundColor: "ECECEC"
 
 { Preview } = require "PreviewComponent"
 preview = new Preview { view: screen }
@@ -128,20 +128,21 @@ updateInput = () ->
 # 	successQuery = inputLayer.querySelector("#myInput").value
 
 focusHandler = () ->
-# 	htmlInput.blur()
-# 	Utils.delay 0.3, -> htmlInput.focus()
+	htmlInput.focus()
 	
-	inputLayer.animate("focus")
-	startPage.animate("focus")
-	backButton.animate("focus")
+	if inputLayer.states.current.name == "start"
+		inputLayer.animate("focus")
+		startPage.animate("focus")
+		backButton.animate("focus")
 
 
 blurHandler = (event, layer) ->
 	htmlInput.blur()
 	
-	inputLayer.animate("start")
-	startPage.animate("start")
-	backButton.animate("start")
+	if inputLayer.states.current.name == "focus"
+		inputLayer.animate("start")
+		startPage.animate("start")
+		backButton.animate("start")
 
 
 # StartPage

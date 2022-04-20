@@ -130,7 +130,6 @@ updateInput = () ->
 
 
 focusHandler = () ->
-# 	if inputLayer.states.current.name == "start"
 	htmlInput.blur()
 	Utils.delay 0.3, -> htmlInput.focus()
 	
@@ -138,14 +137,13 @@ focusHandler = () ->
 	startPage.animate("focus")
 	backButton.animate("focus")
 
+
 blurHandler = (event, layer) ->
 	htmlInput.blur()
-# 	if inputLayer.states.current.name == "focus"
+	
 	inputLayer.animate("start")
 	startPage.animate("start")
 	backButton.animate("start")
-
-inputLayer.on(Events.Tap, focusHandler)
 
 
 # StartPage
@@ -179,3 +177,6 @@ startPage_avatar = new Layer
 	x: Align.right(-30), y: Align.top(32 + 16)
 	image: "images/photos.png"
 
+
+startPage_search.on(Events.Tap, focusHandler)
+inputLayer.on(Events.Tap, focusHandler)

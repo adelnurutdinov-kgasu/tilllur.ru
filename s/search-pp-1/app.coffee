@@ -24,15 +24,15 @@ scrollView = new PageComponent
 	scrollHorizontal: false
 	originY: 0.5
 
-scrollView.content.on Events.DragStart, ->
-	try favTagsScroll.content.draggable.enabled = false
-	try themeScroll.content.draggable.enabled = false
-	try storiesScroll.content.draggable.enabled = false
+# scrollView.content.on Events.DragStart, ->
+# 	try favTagsScroll.content.draggable.enabled = false
+# 	try themeScroll.content.draggable.enabled = false
+# 	try storiesScroll.content.draggable.enabled = false
 
-scrollView.content.on Events.DragEnd, ->
-	try favTagsScroll.content.draggable.enabled = true
-	try themeScroll.content.draggable.enabled = true
-	try storiesScroll.content.draggable.enabled = true
+# scrollView.content.on Events.DragEnd, ->
+# 	try favTagsScroll.content.draggable.enabled = true
+# 	try themeScroll.content.draggable.enabled = true
+# 	try storiesScroll.content.draggable.enabled = true
 
 
 # Scroll

@@ -17,6 +17,7 @@ screen = new Layer
 
 new Preview { view: screen }
 
+# screen.parent.scale = 2
 # Proxy
 
 boxProxy = new Layer

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+
+	<meta name="format-detection" content="telephone=no">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+	<script type="text/javascript">
+		// This automatically sets the right viewport scale on mobile devices
+		(function () {
+			var scale = 1 / window.devicePixelRatio
+			var viewport = "width=device-width, height=device-height, initial-scale=" + scale + ", maximum-scale=" + scale + ", user-scalable=no, viewport-fit=cover"
+			var iOS = /iPad|iPhone|iPod/.test(navigator.platform)
+			if (iOS) { viewport += ", shrink-to-fit=no" }
+			document.write("<meta name=\"viewport\" content=\"" + viewport + "\">")
+		})()
+	</script>
+
+	<link rel="apple-touch-icon" href="framer/images/icon-120.png">
+	<link rel="apple-touch-icon" href="framer/images/icon-76.png" sizes="76x76">
+	<link rel="apple-touch-icon" href="framer/images/icon-120.png" sizes="120x120">
+	<link rel="apple-touch-icon" href="framer/images/icon-152.png" sizes="152x152">
+	<link rel="apple-touch-icon" href="framer/images/icon-180.png" sizes="180x180">
+	<link rel="apple-touch-icon" href="framer/images/icon-192.png" sizes="192x192">
+
+	<link rel="stylesheet" type="text/css" href="framer/style.css?nocache=8a7763e1f98d03446d8c533662717537">
+
+	<script src="framer/coffee-script.js"></script>
+	<script src="framer/framer.js?nocache=ccde4b2928c04a5f74598c3c6942c6d5"></script>
+	<script src="framer/framer.generated.js?nocache=53fe0620dad495fd8be970247eea574a"></script>
+	<script src="framer/framer.modules.js?nocache=6d3225aa1337d0d6291d34c40735763b"></script>
+	<script src=""></script>
+	<script src="framer/framer.init.js"></script>
+
+</head>
+
+<body>
+	<script>
+		// Called sometime after postMessage is called
+		function receiveMessage(event) {
+			console.log("ok")
+			// Do we trust the sender of this message?
+			
+			console.log(event.origin)
+
+			if (event.origin !== "http://example.com:8080")
+				return;
+			
+
+			// event.source is window.opener
+			// event.data is "hello there!"
+
+			// Assuming you've verified the origin of the received message (which
+			// you must do in any case), a convenient idiom for replying to a
+			// message is to call postMessage on event.source and provide
+			// event.origin as the targetOrigin.
+			event.source.postMessage("hi there yourself!  the secret response " +
+									"is: rheeeeet!",
+									event.origin);
+		}
+
+		window.addEventListener("message", receiveMessage, false);
+	</script>
+</body>
+
+</html><script src='/_server/resources/FramerStudioViewer/FramerStudioViewer.js'></script>

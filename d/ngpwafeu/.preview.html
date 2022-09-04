@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+
+	<meta name="format-detection" content="telephone=no">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+	<script type="text/javascript">
+		// This automatically sets the right viewport scale on mobile devices
+		(function () {
+			var scale = 1 / window.devicePixelRatio
+			var viewport = "width=device-width, height=device-height, initial-scale=" + scale + ", maximum-scale=" + scale + ", user-scalable=no, viewport-fit=cover"
+			var iOS = /iPad|iPhone|iPod/.test(navigator.platform)
+			if (iOS) { viewport += ", shrink-to-fit=no" }
+			document.write("<meta name=\"viewport\" content=\"" + viewport + "\">")
+		})()
+	</script>
+
+	<link rel="apple-touch-icon" href="framer/images/icon-120.png">
+	<link rel="apple-touch-icon" href="framer/images/icon-76.png" sizes="76x76">
+	<link rel="apple-touch-icon" href="framer/images/icon-120.png" sizes="120x120">
+	<link rel="apple-touch-icon" href="framer/images/icon-152.png" sizes="152x152">
+	<link rel="apple-touch-icon" href="framer/images/icon-180.png" sizes="180x180">
+	<link rel="apple-touch-icon" href="framer/images/icon-192.png" sizes="192x192">
+
+	<link rel="stylesheet" type="text/css" href="framer/style.css?nocache=8a7763e1f98d03446d8c533662717537">
+
+	<script src="framer/coffee-script.js"></script>
+	<script src="framer/framer.js?nocache=ccde4b2928c04a5f74598c3c6942c6d5"></script>
+	<script >;Framer.Defaults.DeviceComponent ={'deviceScale': -1, 'deviceType':'fullscreen', 'contentScale': 1};Framer.Device = new Framer.DeviceComponent();Framer.Device.setupContext();if (Framer.Device.prepareForSnapshot) { Framer.Device.prepareForSnapshot() }print = function(){}//?nocache=528b774958640a88d022b972a3e0601d"></script>
+	<script src="framer/framer.modules.js?nocache=e3ee258df9a3aabb85f4cc444ade465a"></script>
+	<script src="framer/framer.vekter.js"></script>
+	<script>document.addEventListener("DOMContentLoaded", function() {window.__framerClientCodeId = 157;window.__framerNew = function (n,loc,th,i){if (i == null) { return i };i.__framerInstanceInfo = _.defaults({name:n,location:loc,hash:th},i.__framerInstanceInfo);_.defaults(i.__framerInstanceInfo,{name:"Untitled"});return i;};window.__framerAnimation = function (th,a){if (a.isNoop === true) {return a;};var l = a.layer;if (l == null) { return a; };if (l.__framerAnimationInfo == null) {l.__framerAnimationInfo = {};};l.__framerAnimationInfo[th] = {originalState:a._originalState, destinationProperties: a.properties, destinationOptions: a.options};return a;};(function() {
+  var Preview, backFlag, bg, button, content, i, item, len, product_1, product_2, product_3, product_4, product_5, product_6, productsArray, ref, reloadProducts, retina, sTime, screen, selected_1, selected_2;
+
+  retina = 1;
+
+  screen = window.__framerNew("screen", "2:13-4:0", "#af975d78",new Layer({
+    width: 1440,
+    height: 900,
+    backgroundColor: "000"
+  }));
+
+  Preview = require("PreviewComponent").Preview;
+
+  window.__framerNew(undefined, "6:4-6:61", "?",new Preview({
+    view: screen,
+    borderRadius: 16,
+    visible: false
+  }));
+
+  bg = window.__framerNew("bg", "8:9-8:119", "#109ad1c3b",new Layer({
+    width: 1440 * retina,
+    height: 1132 * retina,
+    x: 0 * retina,
+    y: 0 * retina,
+    backgroundColor: "rgba(255,255,255,1)"
+  }));
+
+  content = window.__framerNew("content", "10:14-10:112", "#1798f61e2",new Layer({
+    width: 1440 * retina,
+    height: 961 * retina,
+    x: 0 * retina,
+    y: 0 * retina,
+    image: "images/content.png"
+  }));
+
+  product_1 = window.__framerNew("product_1", "12:16-12:119", "#1496deaa2",new Layer({
+    width: 140 * retina,
+    height: 120 * retina,
+    x: 250 * retina,
+    y: 377 * retina,
+    image: "images/product 1.png"
+  }));
+
+  product_2 = window.__framerNew("product_2", "14:16-14:119", "#119304460",new Layer({
+    width: 140 * retina,
+    height: 120 * retina,
+    x: 410 * retina,
+    y: 377 * retina,
+    image: "images/product 2.png"
+  }));
+
+  product_3 = window.__framerNew("product_3", "16:16-16:119", "#e8f29e1e",new Layer({
+    width: 140 * retina,
+    height: 120 * retina,
+    x: 570 * retina,
+    y: 377 * retina,
+    image: "images/product 3.png"
+  }));
+
+  product_4 = window.__framerNew("product_4", "18:16-18:119", "#b8b4f7dc",new Layer({
+    width: 140 * retina,
+    height: 120 * retina,
+    x: 730 * retina,
+    y: 377 * retina,
+    image: "images/product 4.png"
+  }));
+
+  product_5 = window.__framerNew("product_5", "20:16-20:119", "#10defffe5",new Layer({
+    width: 140 * retina,
+    height: 120 * retina,
+    x: 890 * retina,
+    y: 377 * retina,
+    image: "images/product 5.png"
+  }));
+
+  product_6 = window.__framerNew("product_6", "22:16-22:120", "#ddb259a3",new Layer({
+    width: 140 * retina,
+    height: 120 * retina,
+    x: 1050 * retina,
+    y: 377 * retina,
+    image: "images/product 6.png"
+  }));
+
+  selected_1 = window.__framerNew("selected_1", "24:17-24:119", "#ad82cae2",new Layer({
+    width: 68 * retina,
+    height: 32 * retina,
+    x: 250 * retina,
+    y: 329 * retina,
+    image: "images/selected 1.png"
+  }));
+
+  selected_2 = window.__framerNew("selected_2", "26:17-26:131", "#17d4524a0",new Layer({
+    width: 73 * retina,
+    height: 32 * retina,
+    x: 412 * retina,
+    y: 329 * retina,
+    image: "images/selected 2.png",
+    opacity: 0
+  }));
+
+  button = window.__framerNew("button", "28:13-28:118", "#14ccf205a",new Layer({
+    width: 1011 * retina,
+    height: 253 * retina,
+    x: 202 * retina,
+    y: 280 * retina,
+    backgroundColor: "transparent"
+  }));
+
+  backFlag = false;
+
+  productsArray = [product_1, product_2, product_3, product_4, product_5, product_6];
+
+  sTime = 0.1;
+
+  reloadProducts = function() {
+    var i, item, len;
+    for (i = 0, len = productsArray.length; i < len; i++) {
+      item = productsArray[i];
+      item.opacity = 0;
+      if (backFlag) {
+        item.image = "images/product " + item.image.replace(/\D/g, '') + ".png";
+      } else {
+        item.image = "images/product next " + item.image.replace(/\D/g, '') + ".png";
+      }
+    }
+    if (backFlag) {
+      window.__framerAnimation("#b22ba67e",selected_1.animate({
+        time: sTime,
+        properties: {
+          opacity: 1
+        }
+      }));
+      window.__framerAnimation("#e711e1bf",selected_2.animate({
+        time: sTime,
+        properties: {
+          opacity: 0
+        }
+      }));
+    } else {
+      window.__framerAnimation("#150de5841",selected_1.animate({
+        time: sTime,
+        properties: {
+          opacity: 0
+        }
+      }));
+      window.__framerAnimation("#85c49382",selected_2.animate({
+        time: sTime,
+        properties: {
+          opacity: 1
+        }
+      }));
+    }
+    backFlag = backFlag ^ 1;
+    return Utils.delay(0.1, function() {
+      var current, j, len1, results;
+      current = 1;
+      results = [];
+      for (j = 0, len1 = productsArray.length; j < len1; j++) {
+        item = productsArray[j];
+        window.__framerAnimation("#11a1aeade",item.animate({
+          opacity: 1,
+          options: {
+            time: 0.3,
+            delay: 0.04 * current
+          }
+        }));
+        results.push(current++);
+      }
+      return results;
+    });
+  };
+
+  button.on(Events.Click, function() {
+    return reloadProducts();
+  });
+
+  ref = [bg, content, product_1, product_2, product_3, product_4, product_5, product_6, selected_1, selected_2, button];
+  for (i = 0, len = ref.length; i < len; i++) {
+    item = ref[i];
+    item.parent = screen;
+  }
+
+}).call(this);
+})</script>
+
+</head>
+
+<body>
+</body>
+
+</html>

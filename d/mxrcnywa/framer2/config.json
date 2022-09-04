@@ -1,0 +1,24 @@
+{
+  "orientation" : 0,
+  "updateDelay" : 0.29999999999999999,
+  "designModeSelected" : 0,
+  "delay" : 0.29999999999999999,
+  "cachedDeviceHeight" : 0,
+  "contentScale" : 1,
+  "fullScreen" : false,
+  "cachedDeviceWidth" : 0,
+  "deviceType" : "apple-iphone-5s-silver",
+  "sharedPrototype" : 0,
+  "propertyPanelToggleStates" : {
+
+  },
+  "projectId" : "05B640FA-786D-43D3-A29D-FC255B825D32",
+  "deviceOrientation" : 0,
+  "selectedHand" : "",
+  "showBezel" : 0,
+  "device" : "iPhone 5S Space Gray",
+  "foldedCodeRanges" : [
+
+  ],
+  "deviceScale" : "fit"
+}

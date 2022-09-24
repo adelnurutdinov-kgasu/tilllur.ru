@@ -188,12 +188,12 @@ screen.onTap ->
 	for item in [Plus, Avatar, badgeView]
 		item.stateCycle("delta","normal")
 	
-# 	if tempFlag
-# 		Utils.delay 0.3, ->
-# 			animateBetween()
-# 	else 
-# 		Utils.delay 0.3, ->
-# 			resetBetween()
+	if tempFlag
+		Utils.delay 0.3, ->
+			animateBetween()
+	else 
+		Utils.delay 0.3, ->
+			resetBetween()
 
 
 

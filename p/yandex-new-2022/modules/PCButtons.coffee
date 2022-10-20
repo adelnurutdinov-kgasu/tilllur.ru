@@ -39,8 +39,7 @@ class TextButton extends Text
 	constructor: (@options={}) ->
 		
 		_.defaults @options,
-			tuple: { normal: 0.8, hover: 0.5 }
-			opacity: 0.5
+			tuple: { normal: 0.5, hover: 0.8 }
 			handler: null
 
 		
@@ -49,6 +48,10 @@ class TextButton extends Text
 		
 		@.onMouseOver @Hover
 		@.onMouseOut @HoverOff
+
+		@updateTuple(@tuple)
+	
+	
 		
 	Hover: =>
 		@opacity = @tuple.hover
@@ -148,35 +151,75 @@ class CopyButton extends TextButton
 
 
 
-module.exports = {Text, TextButton, SVGButton, CopyButton}
+# Button: Copy
+
+class LinkButton extends SVGButton
+	constructor: (@options={}) ->
+		
+		_.defaults @options,
+			link: "https://tilllur.ru"
+			borderWidth: 1 * 2
+			borderRadius: 20 * 2
+			tuple: { normal: 1.0, hover: 0.8 }
+			
+		
+		@tintButtonFix = new Layer
+			height: 120 * 2
+			backgroundColor: null
+		
+		@buttonText = new Text
+			fontSize: 32 * 2
+			textAlign: "right"
+			height: 60 * 2
+		
+		@buttonIcon = new SVGLayer
+			width: 24 * 2, height: 24 * 2
+			svg: SVG.openIcon.onLight
+			opacity: 0.6
+			
+
+		
+		super @options
+
+		@buttonText.text = @text
+		@text = ""
+
+		@tintButtonFix.parent = @parent
+		@tintButtonFix.x = Align.right
+		@tintButtonFix.y = Align.top
+		
+		@parent = @tintButtonFix
+		@y = Align.top(30 * 2)
+		@height = 60 * 2
+
+		@buttonText.parent = @
+		@buttonText.x = 16 * 2
+		@buttonText.y = 9 * 2
+
+		@buttonIcon.parent = @
+		@buttonIcon.x = 16 * 2 + @buttonText.width + 16 * 2
+		@buttonIcon.y = Align.center(3 * 2)
+
+		@width = 16 * 2 + @buttonText.width + @buttonIcon.width + 16 * 2 + 16 * 2
+		@tintButtonFix.width = @width + 30 * 2 + 16 * 2
+
+		@tintButtonFix.x = Align.right
+		@x = Align.right(-30 * 2)
+		
+	
+
+	@define 'link',
+		get: -> @options.link
+		set: (value) -> @options.link = value
+	
+	setColor: (color = null) =>
+		if color == null then return
+		@tintButtonFix.backgroundColor = color
+	
 
 
 
 
+module.exports = {Text, TextButton, SVGButton, CopyButton, LinkButton}
 
 
-
-# /* wInformation Delivery in Yandex App */
-
-# width: 715.65px;
-# height: 32px;
-
-# font-family: 'Raleway';
-# font-style: normal;
-# font-weight: 700;
-# font-size: 18px;
-# line-height: 32px;
-# /* identical to box height, or 178% */
-# display: flex;
-# align-items: center;
-# text-align: center;
-# letter-spacing: 0.04em;
-# font-feature-settings: 'ss09' on;
-
-# color: #FFFFFF;
-
-
-# /* Inside auto layout */
-# flex: none;
-# order: 1;
-# flex-grow: 0;

@@ -11,8 +11,10 @@ class exports.Slider5 extends Slider4
 		
 		super @options
 		
+		
 		Framer.Loop.on "render", =>
 			if !@activeDrag and @activePlaying and !@isGrid()
+
 				if @activeProgressSlider != undefined and @activeProgressSlider != null
 					if @activeVideoPlayer != undefined and @activeVideoPlayer != null
 						@activeProgressSlider.value = Utils.modulate(@activeVideoPlayer.currentTime, [0, @activeVideoPlayer.duration], [0, 1], true)

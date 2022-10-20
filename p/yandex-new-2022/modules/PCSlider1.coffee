@@ -8,7 +8,6 @@ SVG = require "PCSVG"
 Buttons = require("PCButtons")
 Text = Buttons.Text
 TextButton = Buttons.TextButton
-TextButton = Buttons.TextButton
 SVGButton = Buttons.SVGButton
 CopyButton = Buttons.CopyButton
 
@@ -46,6 +45,7 @@ class exports.Slider1 extends Slider0
 		@titleText = new Text
 			parent: @topView, name: "title"
 			text: @title, textAlign: "center", y: Align.center
+			# backgroundColor: "red"
 		
 		@copyButton = new CopyButton
 			parent: @topView, name: "copy link"
@@ -91,12 +91,16 @@ class exports.Slider1 extends Slider0
 		@topView.width = anchor.width
 		
 		if anchor.width < 740
+			@titleText.width = anchor.width
+			@titleText.textAlign = "left"
 			@titleText.x = Align.left(@logoButton.x)
 			@titleText.y = Align.top(@topView.height + 10)
 			
 			@copyButton.x = Align.left(@logoButton.x)
 			@copyButton.y = Align.top(@topView.height + 36)
 		else
+			@titleText.width = anchor.width / 2
+			@titleText.textAlign = "center"
 			@titleText.x = Align.center
 			@titleText.y = Align.center(2)
 			

@@ -6,32 +6,43 @@ class exports.Slider0 extends PageComponent
 	constructor: (@options={}) ->
 		
 		canvasBackgroundLayer = new BackgroundLayer
-			name: "canvas"
-		
-		canvasBackgroundLayer.states =
-			"window": { backgroundColor: "#000" }
-			"fullscreen": { backgroundColor: "#222" }
+			name: "backgroundLayer"
 		
 
-		gridScroll = new ScrollComponent
-			parent: canvasBackgroundLayer
+
+		canvasLayer = new Layer
+			name: "canvas"
+			width: Screen.width
+			height: Screen.height
+			custom:
+				localScroll: null
+		
+		canvasLayer.states =
+			"window": { backgroundColor: "#000" }
+			"fullscreen": { backgroundColor: "#222" }
+
+
+		# Legacy
+		legacyScroll = new ScrollComponent
+			parent: canvasLayer
 			name: "grid"
 			width: 1400 * 2, height: 900 * 2
 			scrollVertical: false, scrollHorizontal: false
 			backgroundColor: null
 			ignoreEvents: true
 		
-		gridScroll.states =
+		legacyScroll.states =
 			"window": { scale: 1 }
 			"fullscreen": { scale: 1 }
 
 
 		_.defaults @options,
-			canvas: canvasBackgroundLayer
-			grid: gridScroll
+			canvas: canvasLayer
+			grid: legacyScroll
+			backgroundLayer: canvasBackgroundLayer
 	
-			parent: gridScroll.content
-			width: gridScroll.width, height: gridScroll.height
+			parent: legacyScroll.content
+			width: legacyScroll.width, height: legacyScroll.height
 			scrollVertical: false, scrollHorizontal: true
 			presentationTitle: "Untitled"
 		
@@ -40,11 +51,6 @@ class exports.Slider0 extends PageComponent
 
 		@content.draggable.propagateEvents = false
 
-		@states =
-			"grid": { opacity: 1 }
-			"present": { opacity: 1 }
-		@stateSwitch("present")
-
 		Framer.Extras.Preloader.disable()
 		Framer.Extras.Hints.disable()
 		document.body.style.cursor = "auto"
@@ -52,10 +58,13 @@ class exports.Slider0 extends PageComponent
 		@initScale()
 		
 		@updateSize()
-		@canvas.on "change:size", =>
+		@backgroundLayer.on "change:size", =>
 			@updateSize()
+		
+
+
 	
-	
+
 	@define 'title',
 		get: -> @options.presentationTitle
 		set: (value) -> @options.presentationTitle = value
@@ -68,23 +77,29 @@ class exports.Slider0 extends PageComponent
 		get: -> @options.grid
 		set: (value) -> @options.grid = value
 	
+	@define 'backgroundLayer',
+		get: -> @options.backgroundLayer
+		set: (value) -> @options.backgroundLayer = value
 	
 	
-	isGrid: () =>
-		return @states.current.name == "grid"
+	
+
+	# isGrid: () =>
+	# 	return @states.current.name == "grid"
 	
 	updateSize: () =>
 		@initScale(@grid.states.current.name)
 	
-	
 	initScale: (forState = "window") =>
+		@canvas.width = Screen.width
+		@canvas.height = Screen.height
 
-		scaleX = (@canvas.width - 20) / @grid.width
-		scaleY = (@canvas.height - 120) / @grid.height
+		scaleX = (Screen.width - 20) / @grid.width
+		scaleY = (Screen.height - 120) / @grid.height
 		@grid.states.window.scale = Math.min(scaleX, scaleY)
 		
-		scaleX = @canvas.width / @grid.width
-		scaleY = @canvas.height / @grid.height
+		scaleX = Screen.width / @grid.width
+		scaleY = Screen.height / @grid.height
 		@grid.states.fullscreen.scale = Math.min(scaleX, scaleY)
 		
 		@grid.stateSwitch(forState)

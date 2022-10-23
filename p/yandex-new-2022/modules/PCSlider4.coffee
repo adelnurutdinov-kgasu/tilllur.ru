@@ -38,6 +38,11 @@ class exports.Slider4 extends Slider3
 				return
 
 
+	pauseVideos: () =>
+		for currentVideoSlide in @videoSlides
+			currentVideoSlide.pause()
+
+
 	pauseBackgroundVideos: () =>
 		for currentVideoSlide in @videoSlides
 			if currentVideoSlide != @currentPage

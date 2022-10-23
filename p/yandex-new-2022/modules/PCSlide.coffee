@@ -164,6 +164,7 @@ class SimpleVideoSlide extends Slide
 	source: (video) =>
 		@videoView.video = video
 		@loadingText.text = "Loading"
+		@name = @name + ": " + video
 		return @
 
 

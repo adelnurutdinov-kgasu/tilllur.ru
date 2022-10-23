@@ -75,6 +75,7 @@ class TextButton extends Text
 
 
 
+
 # Button: SVG
 
 class SVGButton extends TextButton
@@ -220,6 +221,32 @@ class LinkButton extends SVGButton
 
 
 
-module.exports = {Text, TextButton, SVGButton, CopyButton, LinkButton}
+
+
+
+
+class PreviewButton extends Text
+	constructor: (@options={}) ->
+
+		_.defaults @options,
+			tuple: { normal: 1.0, hover: 0.8 }
+		
+		super @options
+
+		@removeAllListeners()
+
+		@.onMouseOver @Hover
+		@.onMouseOut @HoverOff
+
+	Hover: =>
+		# @scale = 1.05
+		@opacity = 1.0
+	
+	HoverOff: =>
+		# @scale = 1.0
+		@opacity = 0.8
+
+
+module.exports = {Text, TextButton, SVGButton, CopyButton, LinkButton, PreviewButton}
 
 

@@ -85,7 +85,7 @@ class Slide extends SlideTemplate
 		set: (value) -> @options.shareLink = value
 	
 	
-	link: (url = "https://tilllur.ru", buttonTitle = "Open", type = 0) =>
+	link: (url = "https://tilllur.com", buttonTitle = "Open", type = 0) =>
 		@shareLink = url
 
 		@tintButton = new LinkButton

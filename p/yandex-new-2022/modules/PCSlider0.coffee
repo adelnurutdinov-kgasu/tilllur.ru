@@ -124,12 +124,12 @@ class exports.Slider0 extends PageComponent
 		@snapToPage(@content.children[0], false)
 	
 	
-	openURL: (url = "https://tilllur.ru", isBlank = false) =>
+	openURL: (url = "https://tilllur.com", isBlank = false) =>
 		if isBlank then window.open url, '_blank'
 		else
 # 			window.location.hash = "?slideID"
 			window.location = url
 	
 	openURLHome: =>
-		@openURL("https://tilllur.ru", false)
+		@openURL("https://tilllur.com", false)
 

@@ -118,7 +118,7 @@ class CopyButton extends TextButton
 	constructor: (@options={}) ->
 		
 		_.defaults @options,
-			link: "https://tilllur.ru"
+			link: "https://tilllur.com"
 			handler: @copyHandler
 		
 		@area = new Layer
@@ -158,7 +158,7 @@ class LinkButton extends SVGButton
 	constructor: (@options={}) ->
 		
 		_.defaults @options,
-			link: "https://tilllur.ru"
+			link: "https://tilllur.com"
 			borderWidth: 1 * 2
 			borderRadius: 20 * 2
 			tuple: { normal: 1.0, hover: 0.8 }

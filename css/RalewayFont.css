@@ -1,9 +1,8 @@
 
-
 @font-face {
 	font-family: Raleway;
-	src: url('Raleway.ttf');
-	src: url('Raleway.ttf') format('truetype');
+	src: url('https://tilllur.com/css/Raleway.ttf');
+	src: url('https://tilllur.com/css/Raleway.ttf') format('truetype');
 	font-weight: 700;
 }
 
@@ -24,10 +23,12 @@ body {
 	font-family: Raleway, "PT Sans", "Helvetica", "Tahoma", sans-serif;
 	font-weight: 700;
 	font-size: 28px;
-	-webkit-font-feature-settings: 'ss02' on, 'ss06' on, 'ss09' on, 'ss11' on;
-	-moz-font-feature-settings: 'ss02' on, 'ss06' on, 'ss09' on, 'ss11' on;
-	-ms-font-feature-settings: 'ss02' on, 'ss06' on, 'ss09' on, 'ss11' on;
-	font-feature-settings: 'ss02' on, 'ss06' on, 'ss09' on, 'ss11' on;
-	
+	-webkit-font-feature-settings: 'ss02' on, 'ss06' on, 'ss09' on, 'ss11' on, 'lnum' on;
+	-moz-font-feature-settings: 'ss02' on, 'ss06' on, 'ss09' on, 'ss11' on, 'lnum' on;
+	-ms-font-feature-settings: 'ss02' on, 'ss06' on, 'ss09' on, 'ss11' on, 'lnum' on;
+	font-feature-settings: 'ss02' on, 'ss06' on, 'ss09' on, 'ss11' on, 'lnum' on;
+
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 

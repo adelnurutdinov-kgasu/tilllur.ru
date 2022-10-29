@@ -9,7 +9,7 @@ Primary style
 -------------------------------- */
 html {
   font-size: 62.5%;
-  font-family: "Nunito", sans-serif;
+  /* font-family: "Nunito", sans-serif; */
 }
 
 a {
@@ -28,13 +28,13 @@ a:hover {
 }
 
 h1 {
-  font-family: "Nunito", sans-serif;
+  /* font-family: "Nunito", sans-serif; */
   font-weight: 600;
   font-size: 56px;
 }
 
 h3 {
-  font-family: "Nunito", sans-serif;
+  /* font-family: "Nunito", sans-serif; */
   font-weight: 700;
   opacity: 0.6;
   text-transform: uppercase;
@@ -46,7 +46,7 @@ h3 {
 }
 
 p {
-  font-family: "Mukta", sans-serif;
+  /* font-family: "Mukta", sans-serif; */
   font-size: 24px;
   line-height: 29px;
   letter-spacing: 0.2px;

@@ -1,7 +1,15 @@
 
-tupleW = 8
-tupleH = 14
 
+# Delay
+
+SD = 500
+LD = 3000
+
+shortDelayReference = null
+longDelayReference = null
+
+delay = (time, fn, args...) ->
+	setTimeout fn, time, args...
 
 Canvas.backgroundColor = "222"
 
@@ -11,191 +19,251 @@ Framer.Defaults.Animation =
 
 { Preview } = require "PreviewComponent"
 
-screen = new ScrollComponent
-	width: 390
-	height: 844
-	scrollVertical: true
-	scrollHorizontal: false
-	backgroundColor: "F4F2F0"
-
+screen = new Layer { width: 390, height: 844 }
 new Preview { view: screen }
 
+startPage = new Layer
+	size: screen.size
+	backgroundColor: "white"
 
-# Layers
+# Site Page
 
-Content = new Layer
-	parent: screen.content
+sitePage = new Layer
+	size: screen.size
+	backgroundColor: "white"
+	parent: screen
+
+
+site = new Layer
+	parent: sitePage
+	y: 108
 	width: 390
-	height: 1888
-	image: "images/Content.png"
+	height: 755
+	image: "images/site.jpg"
+
+header = new Layer
+	parent: sitePage
+	width: 390
+	height: 109
+	image: "images/header.png"
+
+headerBack = new Layer
+	parent: header
+	backgroundColor: "null"
+	y: 48
+	width: 60
+	height: 56
+
+headerBack.onTap ->
+	flow.showPrevious()
 
 
-ProfileView = new Layer
+
+ratingView = new Layer
+	parent: header
+	backgroundColor: "null"
 	size: 32
-	parent: Content
-	x: Align.left(25)
-	y: Align.top(24 + 44)
-	backgroundColor: "null"
+	y: 60
+	x: 60
+
+ratingView.states =
+	"hidden": { opacity: 0 }
+	"shown": { opacity: 1 }
+	"negative": { image: "images/negative.png", opacity: 1 }
+	"positive": { image: "images/positive.png", opacity: 1 }
+ratingView.stateSwitch("positive")
 
 
-Plus = new Layer
-	parent: ProfileView
-	width: 36
-	height: 36
+
+titleView = new Layer
+	parent: header
+	width: 182
+	height: 44
 	x: Align.center
-	y: Align.center
-	image: "images/Plus.png"
+	y: 54
+	image: "images/titleView (1).png"
 
-Plus.states =
-	"delta": { opacity: 0, scale: 0.5 }
-	"normal": { opacity: 1, scale: 1 }
-Plus.stateSwitch("normal")
+titleView.states =
+	"base": { y: 54 + 10 }
+	"promo": { y: 57 }
+titleView.stateSwitch("base")
+titleView.stateSwitch("promo")
 
+titleSupportText = new TextLayer
+	parent: titleView
+	width: titleView.width
+	y: 22
+	fontSize: 11
+	textAlign: "center"
+	color: "rgba(0,0,0,0.3)"
 
-
-Avatar = new Layer
-	parent: ProfileView
-	width: 28
-	height: 28
-	x: Align.center
-	y: Align.center
-	image: "images/Avatar.png"
-
-Avatar.states =
-	"delta": { scale: 32/28 }
-	"normal": { scale: 1 }
-Avatar.stateSwitch("normal")
-
-
-badgeView = new Layer
-	parent: ProfileView
-	width: 58
-	height: 32
-	x: Align.left(12)
-	y: Align.top(-14)
-	originX: 0
-	originY: 1
-	image: "images/badgeViewNull.png"
-
-badgeView.states =
-	"normal": { opacity: 0, scale: 0.5 }
-	"delta": { opacity: 1, scale: 1 }
-badgeView.stateSwitch("normal")
+titleSupportText.states =
+	"protect": { text: "3 трекера заблокировано" }
+	"rating": { text: "67 отзывов" }
+	"reader": { text: "доступен режим чтения" }
+	"shown": { opacity: 1 }
+	"hidden": { opacity: 0 }
+titleSupportText.stateSwitch("protect")
 
 
 
 
-badgeView_Text = new Layer
-	parent: badgeView
-	width: 58
-	height: 32
-	image: "images/badgeView_Text.png"
-	opacity: 0
 
-betweenView = new Layer
-	parent: badgeView
-	width: 120
-	height: 16
-	x: 24
-	y: 7.5
-	backgroundColor: "null"
-	clip: true
+shiledIcon = new Layer
+	parent: titleView
+	width: 12
+	height: 12
+	image: "images/shiledIcon.png"
+	x: 25
+	y: 16 - 8
 
-# Generate Lines
+shiledIcon.states =
+	"shown": { opacity: 1 }
+	"hidden": { opacity: 0 }
+shiledIcon.stateSwitch("hidden")
 
-getLength = (number = 1024) ->
-	return number.toString().length
+sitePage.sendToBack()
 
+sitePage.onSwipe ->
+	flow.showPrevious()
 
-getDigits = (numberV, groupSize = 1) ->
-	digitArray = []
-	for i in [groupSize - 1... -1]
-		d = Math.pow(10, i)
-		digitArray.push (numberV - numberV % d) / d % 10
-	return digitArray
+flow = new FlowComponent
+	parent: screen
+	size: screen.size
 
+flow.showNext(startPage)
+# flow.showNext(sitePage)
 
-getValues = (startV = 842, finishV = 1234) ->
-	groupSize = getLength(finishV)
+# Buttons
+
+gapButton = 60
+
+createButton = (title = "Показать сайт") ->
+	button = new TextLayer
+		parent: startPage
+		text: title
+		fontSize: 20
+		padding: 
+			left: 40
+		color: "black"
+		opacity: .8
+
+button0 = createButton("Обычный сайт")
+button0.y = 100
+
+button0.onTap ->
+	ratingView.stateSwitch("hidden")
+	titleView.stateSwitch("base")
+	titleSupportText.stateSwitch("hidden")
+	shiledIcon.stateSwitch("hidden")
 	
-	line1 = getDigits(startV, groupSize)
-	line2 = getDigits(finishV, groupSize)
+	flow.showNext(sitePage)
+
+
+
+
+button1 = createButton("Режим чтения")
+button1.y = button0.y + gapButton
+
+button1.onTap ->
+	ratingView.stateSwitch("hidden")
+	titleView.stateSwitch("base")
+	titleSupportText.stateSwitch("hidden")
+	titleSupportText.stateSwitch("reader")
+	shiledIcon.stateSwitch("hidden")
 	
-	allLines = []
-	for i in [0...groupSize]
-		fullLine = []
-		fullLine.push hackNumber % 10 for hackNumber in [line1[i]..line2[i] + i * 10]
-		allLines.push fullLine
+	clearTimeout(shortDelayReference)
+	clearTimeout(longDelayReference)
 	
-	return allLines
-
-
-# print getValues()
-
-# Tuples
-
-createTuple = (v, isLead = false) ->
+	shortDelayReference = delay SD, ->
+		titleView.animate("promo")
+		titleSupportText.animate("shown")
 	
-	tupleView = new Layer
-		parent: betweenView
-		backgroundColor: "null"
-		width: tupleW
+	longDelayReference = delay LD, ->
+		titleView.animate("base")
+		titleSupportText.animate("hidden")
 	
-	tupleView.states =
-		"hidden": { y: 0 }
-		"shown": { y: -tupleH * v.length + tupleH }
-	tupleView.stateSwitch("hidden")
+	flow.showNext(sitePage)
+
+
+
+button2 = createButton("С отзывами")
+button2.y = button1.y + gapButton
+
+button2.onTap ->
+	ratingView.stateSwitch("hidden")
+	titleView.stateSwitch("base")
+	titleSupportText.stateSwitch("hidden")
+	titleSupportText.stateSwitch("rating")
+	shiledIcon.stateSwitch("hidden")
 	
-	for numberV, i in v
-		tupleView_value = new TextLayer
-			parent: tupleView
-			text: "#{numberV}"
-			fontSize: 13
-			y: tupleH * i
-			fontWeight: "bold"
-			color: "white"
-			textAlign: "center"
-		
-		if numberV == 0 and isLead then tupleView_value.opacity = 0.5
+	clearTimeout(shortDelayReference)
+	clearTimeout(longDelayReference)
 	
-	return tupleView
-
-
-createBetween = (sV = 123, fV = 2341) ->
-	for currentTuple, i in getValues(sV, fV)
-		tupleLayer = createTuple(currentTuple)
-		tupleLayer.x = tupleW * i
+	shortDelayReference = delay SD, ->
+		titleView.animate("promo")
+		titleSupportText.animate("shown")
+		ratingView.animate("shown")
 	
-animateBetween = () ->
-	for item, i in betweenView.children
-		item.animate("shown", time: 1, curve: Spring(damping: .9))
-
-resetBetween = () ->
-	for item, i in betweenView.children
-		item.stateSwitch("hidden")
-
-# createBetween(246, 329)
-createBetween(329, 329)
-
-
-
-
-tempFlag = false
-
-screen.onTap ->
-	tempFlag = !tempFlag
+	longDelayReference = delay LD, ->
+		titleView.animate("base")
+		titleSupportText.animate("hidden")
 	
-	for item in [Plus, Avatar, badgeView]
-		item.stateCycle("delta","normal")
+	flow.showNext(sitePage)
+
+
+
+
+
+button3 = createButton("С блокировщиком")
+button3.y = button2.y + gapButton
+
+button3.onTap ->
+	ratingView.stateSwitch("hidden")
+	titleView.stateSwitch("base")
+	titleSupportText.stateSwitch("hidden")
+	titleSupportText.stateSwitch("protect")
+	shiledIcon.stateSwitch("hidden")
 	
-	if tempFlag
-		Utils.delay 0.3, ->
-			animateBetween()
-	else 
-		Utils.delay 0.3, ->
-			resetBetween()
+	clearTimeout(shortDelayReference)
+	clearTimeout(longDelayReference)
+	
+	shortDelayReference = delay SD, ->
+		titleView.animate("promo")
+		titleSupportText.animate("shown")
+# 		ratingView.animate("shown")
+	
+	longDelayReference = delay LD, ->
+# 		titleView.animate("base")
+# 		titleSupportText.animate("hidden")
+# 		shiledIcon.animate("shown")
+	
+	flow.showNext(sitePage)
 
 
 
-# for item in [Plus, Avatar, badgeView]
-# 		item.stateSwitch("delta")
+button4 = createButton("Отзывы и блокировщик")
+button4.y = button3.y + gapButton
+
+button4.onTap ->
+	ratingView.stateSwitch("shown")
+# 	ratingView.stateSwitch("negative")
+	titleView.stateSwitch("base")
+	titleSupportText.stateSwitch("hidden")
+	titleSupportText.stateSwitch("protect")
+	shiledIcon.stateSwitch("hidden")
+	
+	clearTimeout(shortDelayReference)
+	clearTimeout(longDelayReference)
+	
+	shortDelayReference = delay SD, ->
+		titleView.animate("promo")
+		titleSupportText.animate("shown")
+# 		ratingView.animate("shown")
+	
+	longDelayReference = delay LD, ->
+# 		titleView.animate("base")
+# 		titleSupportText.animate("hidden")
+# 		shiledIcon.animate("shown")
+	
+	flow.showNext(sitePage)

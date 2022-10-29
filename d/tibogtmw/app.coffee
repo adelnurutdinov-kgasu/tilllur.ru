@@ -1,190 +1,256 @@
-Canvas.backgroundColor = "222"
+Framer.Extras.Hints.disable()
+# Utils.insertCSS('@import url(css/project.css)')
 
-Framer.Defaults.Animation =
-	curve: Spring(damping: 1)
-	time: 0.5
+# Canvas.backgroundColor = "222"
+borderValue = 42
 
+Framer.Extras.Preloader.addImage("images/zenViewWithHeader.png")
 
-
-# Screen
 
 { Preview } = require "PreviewComponent"
 
-flow = new FlowComponent
-	width: 390
-	height: 844
+screen = new Layer { width: 390, height: 844, backgroundColor: "ddd" }
+new Preview { view: screen }
 
-new Preview { view: flow }
 
-screen = new Layer
-	width: 390
-	height: 844
+button = new Layer
+	parent: screen
+	size: 120
 	x: Align.center
 	y: Align.center
-	image: "images/test.jpg"
+	borderRadius: "100%"
 
-flow.showNext(screen)
-screen.sendToBack()
+button.on Events.TouchEnd, ->
+	articleView.animate("shown", curve: Spring(damping: 1), time: 0.5)
 
-# Images
 
-startData = [
-	"images/market.png",
-	"images/games.png",
-	"images/maps.png",
-	"images/taxi.png",
-	"images/devices.png",
-	"images/uslugi.png",
-	"images/kinopoisk.png",
-]
-
-moreData = [
-	"images/reader.png",
-	"images/steps.png",
-	"images/football.png",
-]
-
-# Widgets
-
-lastOpenedWidget = null
-
-widgetScroll = new ScrollComponent
-	width: 390
-	height: 120
+articleView = new Layer
 	parent: screen
-	y: 188 + 8
-	scrollVertical: false
-	scrollHorizontal: true
-	directionLock: true
-	contentInset:
-		right: 16
-
-
-Array::remove = (e) -> @[t..t] = [] if (t = @indexOf(e)) > -1
-
-# setLastRecent = (widgetLayer = null) ->
-# 	if widgetLayer == null then return
-# 	
-# 	
-
-# 	if lastOpenedWidget != null and lastOpenedWidget.states.current.name == "normal"
-# 		openedIndex = widgetScroll.content.children.indexOf(lastOpenedWidget)
-# 		widgetScroll.content.children.splice(openedIndex, 1) 
-
-
-addToPinned = (widgetLayer) ->
-	normalArray = widgetScroll.content.children.filter (item) -> item.states.current.name == "normal"
-	
-	
-	pinnedArray = widgetScroll.content.children.filter (item) -> item.states.current.name == "pinned"
-	
-	composedArray = pinnedArray.concat(normalArray)
-	for item, i in composedArray
-		item.x = i * (120 + 8) + 16
-
-
-
-addWidget = (title = "Почта", index = -1) ->
-	widget = createWidget(title, index)
-	
-	widget.x = widgetScroll.content.children.length * (120 + 8) + 16
-	widget.parent = widgetScroll.content
-	widgetScroll.updateContent()
-
-
-
-createWidget = (title = "Почта", index = -1) ->
-	widgetView = new Layer
-		size: 120
-		backgroundColor: Utils.randomColor()
-		borderRadius: 16
-	
-	if index >= 0
-		widgetView.image = startData[index]
-		widgetView.backgroundColor = "null"
-	
-	
-	widgetView.states =
-		"normal": { opacity: 1 }
-		"pinned": { opacity: 1 }
-	widgetView.stateSwitch("normal")
-	
-	
-	widgetView.onClick ->
-		lastOpenedWidget = @
-		flow.transition(modalView, bottomToTopTransition)
-	
-	
-	pin = new Layer
-		parent: widgetView
-		size: 24
-		x: Align.right(-4)
-		y: Align.top(4)
-		borderRadius: 16
-		backgroundColor: "black"
-		animationOptions: 
-			time: 0.3
-			curve: Spring(damping: 1)
-	
-	pin.states =
-		"shown": { opacity: 0.5 }
-		"hidden": { opacity: 0.1 }
-	pin.stateSwitch("hidden")
-	
-	pin.on Events.StateSwitchStart, (from, to) ->
-		if to is "shown"
-			@parent.stateSwitch("pinned")
-		else
-			@parent.stateSwitch("normal")
-		
-		addToPinned(@parent)
-	
-	pin.on Events.Click, (event, layer) ->
-		event.stopPropagation()
-		@stateCycle("shown", "hidden")
-	
-	return widgetView
-
-
-
-for i in [0...5]
-	addWidget("", i)
-
-
-
-# Navigation
-
-modalView = new Layer
 	width: screen.width
 	height: screen.height
 	backgroundColor: "white"
+	image: "images/zenViewWithHeader.png"
+	borderRadius: borderValue
+	clip: true
+	animationOptions: 
+		curve: Spring(damping: 1)
+		time: 0.3
 
-modalView.sendToBack()
+articleView.states =
+	"shown": { x: 0, y: 0, scale: 1 }
+	"hidden": { x: 0, y: 844 + 20 }
+	"hidden-top": { x: 0, y: -(844 + 20) }
+	"hidden-right": { x: 390 + 20, y: 0, scale: 0.8 }
+articleView.stateSwitch("shown")
 
-modalView.onClick ->
-# 	setLastRecent(lastOpenedWidget)
-	flow.showPrevious()
-
-
-
-
-bottomToTopTransition = (nav, layerA, layerB, overlay) ->
-	transition =
-		layerA:
-			show: { opacity: 1 }
-			hide: { opacity: 0.5 }
-		layerB:
-			show: { y: 0 }
-			hide: { y: screen.height + 40 }
+articleView.on Events.StateSwitchEnd, (from, to) ->
+	if to is "hidden"
+		articleView_scroll.scrollToClosestLayer(0, 0)
+	else if to is "hidden-top"
+		@stateSwitch("hidden")
+	else if to is "hidden-right"
+		@stateSwitch("hidden")
 
 
-flow.showNext(modalView, animate: false)
-flow.showPrevious(animate: false)
+articleView.draggable.vertical = true
+articleView.draggable.horizontal = true
 
-topBarFix = new Layer
-	parent: screen, width: screen.width, height: 44
+articleView.draggable.speedX = 0.5
+articleView.draggable.speedY = 0.5
+
+# articleView.content.draggable.momentum = false
+# articleView.content.draggable.overdragScale = 1
+
+
+articleView_scroll = new ScrollComponent
+	parent: articleView
+	y: 100
+	width: articleView.width
+	height: articleView.height - 100
+	scrollVertical: true
+	scrollHorizontal: false
+	directionLock: true
+	contentInset: 
+		bottom: 80
+
+
+
+articleView_scroll.content.on Events.TouchStart, (event, layer) ->
+	articleView.draggable.vertical = false
+
+articleView_scroll.content.on Events.TouchEnd, (event, layer) ->
+	articleView.draggable.vertical = true
+
+articleView_scroll.content.on Events.DragStart, (event, layer) ->
+	
+	if articleView_scroll.scrollY <= 0 and layer.draggable.direction == "down"
+		articleView.draggable.vertical = true
+		articleView.draggable.horizontal = true
+		@draggable.vertical = false
+		return
+	
+	else if articleView_scroll.scrollY >= articleView_content.height - screen.height + articleView_scroll.y + articleView_scroll.contentInset.bottom and layer.draggable.direction == "up"
+		articleView.draggable.vertical = true
+		articleView.draggable.horizontal = true
+		@draggable.vertical = false
+		return
+	
+	articleView.draggable.horizontal = false
+
+
+articleView_scroll.content.on Events.DragEnd, (event, layer) ->
+	articleView.draggable.horizontal = true
+	@draggable.vertical = true
+
+
+
+articleView.on Events.DragStart, (event, layer) ->
+	if @draggable.direction == "right" or @draggable.direction == "left"
+		@draggable.vertical = true
+
+articleView.on Events.DragEnd, (event, layer) ->
+	@animate("shown")
+	if @y > 60 then @animate("hidden")
+	else if @y < -60 then @animate("hidden-top")
+	else if @x > 80 then @animate("hidden-right")
+	
+	consoleLayer.text = @y
+
+articleView.on "change:point", ->
+	if @draggable.isDragging
+		v = Math.hypot(articleView.x, articleView.y)
+		@scale = Utils.modulate(v, [0, 200], [1, 0.9], false)
+
+
+# Article Content
+
+articleView_content = new Layer
+	width: 390
+	height: 2192
 	backgroundColor: "white"
+	borderRadius: borderValue
+	parent: articleView_scroll.content
+	clip: true
 
-bottomBarFix = new Layer
-	parent: screen, width: screen.width, height: 34, y: Align.bottom
+articleView_backButton = new Layer
+	propagateEvents: true
+	parent: articleView
+	width: 48
+	height: 56
+	y: Align.top(44)
+	x: Align.left(0)
+	backgroundColor: "null"
+
+articleView_backButton.onTap ->
+	articleView.animate("hidden")
+
+
+
+createText = (textValue = "text") ->
+	return new TextLayer
+		parent: articleView_content
+		width: screen.width
+		fontSize: 18
+		lineHeight: 28/18
+		color: "black"
+		fontFamily: "YS Web Regular"
+		opacity: .8
+		text: textValue
+		padding: 
+			left: 20
+			right: 20
+			top: 16
+			bottom: 16
+
+createTitle = (textValue = "text") ->
+	return new TextLayer
+		parent: articleView_content
+		width: screen.width
+		fontSize: 20
+		lineHeight: 24/20
+		color: "black"
+		fontWeight: "bold"
+# 		fontFamily: "YS Web Medium"
+		text: textValue
+		padding: 
+			left: 20
+			right: 20
+			top: 8
+			bottom: 8
+
+
+
+
+
+
+
+
+content_head = new TextLayer
+	parent: articleView_content
+	width: screen.width
+	fontSize: 30
+	fontWeight: "bold"
+	color: "black"
+	text: "Прототип закрытия статьи Дзена"
+	padding: 
+		left: 20
+		right: 20
+		top: 16
+
+createText("Как можно закрыть статью:\n1. свайп от левого края экрана\n2. свайп наверху статьи\n3. свайп за шапку статьи\n4. свайп в самом конце статьи")
+
+image = new Layer
+	parent: articleView_content
+	width: 390
+	height: 280
+	image: "images/image.jpg"
+
+createText("К «известным» авторам издательства относят любых инфлюэнсеров со 100+ тысячами фолловеров.")
+
+createTitle("Вариант 1. Выпустить книгу в двух томах")
+createText("Например, первый том более попсовый, второй — более глубокий. Или первый том какие-то общие положения на все случаи жизни, второй том — прикладные аспекты.")
+
+createTitle("Вариант 2. Выпустить книгу в формате «Учебник + воркбук»")
+createText("В учебнике теория, в воркбуке упражнения. Как правило, для этого варианта требуется существенная переработка первоначальной структуры и текста книги. \n\n Крупные издательства предлагают авторам два способа издания первой книги.")
+
+comments = new Layer
+	parent: articleView_content
+	width: 390
+	height: 667
+	image: "images/comments.jpg"
+
+
+
+sumY = 0
+for childLayer, i in articleView_content.children
+	childLayer.y = sumY
+	sumY += childLayer.height
+
+articleView_content.height = 2192 - 290
+articleView_scroll.updateContent()
+
+
+Utils.delay 4, ->
+	sumY = 0
+	for childLayer, i in articleView_content.children
+		childLayer.y = sumY
+		sumY += childLayer.height
+
+
+
+# Console Layer
+
+consoleLayer = new TextLayer
+	parent: screen
+	width: 390
+	height: 40
 	backgroundColor: "white"
+	y: Align.bottom()
+	fontSize: 14
+	textAlign: "center"
+	padding:
+		top: 10
+	opacity: 0
+
+# print articleView_content.height - screen.height + articleView_scroll.y
+

@@ -3,12 +3,13 @@
 Framer.Extras.Hints.disable()
 
 # {PreviewClass1} = require "PreviewClass1"
-{PreviewClass4} = require "PreviewClass4"
+# {PreviewClass4} = require "PreviewClass4"
+{PreviewClass5} = require "PreviewClass5"
 
 # print Preview
 
 
-class FixPreviewExport extends PreviewClass4
+class FixPreviewExport extends PreviewClass5
 class exports.Preview extends FixPreviewExport
 
 

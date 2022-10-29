@@ -1,223 +1,150 @@
-# cp ~/Documents/Git/ControlPanel-for-Framer/ControlPanel.framer/modules/ControlPanel.coffee ~/Documents/Git/Prototyping-Queue/2022-02-18\ \[pp\]\ Fullscreen\ —\ Flow\ 2.framer/modules/
-
 { Preview } = require "PreviewComponent"
 
-Framer.Extras.Hints.disable()
 Canvas.backgroundColor = "222"
+
+isDebugMode = true
+isDebugMode = false
 
 Framer.Defaults.Animation =
 	curve: Spring(damping: 1)
-	time: 0.5
-
-# Screen
+	time: 2
 
 screen = new Layer
-	width: 390
-	height: 844
-	backgroundColor: "white"
-
+	width: 375
+	height: 812
+	image: "images/screen.png"
+	image: "images/12%20%D1%8F%D0%BD%D0%B2%D0%B0%D1%80%D1%8F.png"
+	image: "images/screen2.png"
 
 new Preview { view: screen }
 
-Framer.Extras.Preloader.setLogo("images/v2.mov")
 
-# Slider
+# Proxy
 
-fullScreen = new PageComponent
-	parent: screen
-	width: screen.width
-	height: screen.height
-	backgroundColor: "null"
-	scrollVertical: false
-	scrollHorizontal: false
+boxProxy = new Layer
+	opacity: 0
 
-slide1 = new Layer
-	parent: fullScreen.content
-	width: screen.width
-	height: screen.height
-	backgroundColor: "FDF1E6"
-	image: "images/slide1.png"
+boxProxy.states =
+	"hidden": { opacity: 0 }
+	"shown": { opacity: 0 }
+boxProxy.stateSwitch("shown")
 
-slide2 = new Layer
-	parent: fullScreen.content
-	x: screen.width
-	width: screen.width
-	height: screen.height
-	backgroundColor: "FDF1E6"
-	image: "images/slide2.png"
-# 	backgroundColor: "red"
-
-
-buttonLeft = new Layer
-	parent: fullScreen
-	width: screen.width / 2
-	height: screen.height
-	backgroundColor: "null"
-
-buttonRight = new Layer
-	parent: fullScreen
-	width: screen.width / 2
-	height: screen.height
-	x: screen.width / 2
-	backgroundColor: "null"
-
-
-
-
-# slide1 = new Layer
-# 	width: 375
-# 	height: 812
-# 	image: "images/slide1.png"
-# 
-# slide2 = new Layer
-# 	width: 375
-# 	height: 812
-# 	image: "images/slide2.png"
-
-
-# Steps
-
-step1 = new Layer
-	parent: fullScreen
-	width: 163
-	height: 4
-	borderRadius: 9
-	x: 20
-	y: 64
-
-step1progress = new Layer
-	height: 4
-	borderRadius: 9
-	parent: step1
-	backgroundColor: "black"
-
-step1progress.states =
-	"hidden": { width: 0 }
-	"shown": { width: step1.width }
-step1progress.stateSwitch("hidden")
-
-
-step2 = new Layer
-	parent: fullScreen
-	width: 163
-	height: 4
-	borderRadius: 9
-	x: 192
-	y: 64
-
-step2progress = new Layer
-	height: 4
-	borderRadius: 9
-	parent: step2
-	backgroundColor: "black"
-
-step2progress.states =
-	"hidden": { width: 0 }
-	"shown": { width: step1.width }
-step2progress.stateSwitch("hidden")
-
-for item in [step1, step2]
-	item.backgroundColor = "rgba(0,0,0,0.15)"
-
-
-timeStep1 = 10
-timeStep2 = 10
-
-
-step1progress.on Events.StateSwitchEnd, (from, to) ->
-	@animateStop()
-	if to == "shown"
-		step2progress.stateSwitch("hidden")
-		step2progress.animate("shown", curve: Bezier.linear, time: timeStep2)
-		fullScreen.snapToPage(slide2, false)
-		try v2.player.pause()
-	else
-		step1progress.animate("shown", curve: Bezier.linear, time: timeStep1)
-		step2progress.stateSwitch("hidden")
-		fullScreen.snapToPage(slide1, false)
-		try v2.player.currentTime = 0
-		try v2.player.play()
-
-
-
-buttonLeft.onTap ->
-	step1progress.stateSwitch("hidden")
-
-buttonRight.onTap ->
-	step1progress.stateSwitch("shown")
-
-step1progress.stateSwitch("hidden")
+boxProxy.on Events.StateSwitchEnd, (from, to) ->
+	if from != to
+		clipView.animate(to)
+		breaker.animate(to)
+		
+		Utils.delay 2, =>
+			boxProxy.animate(from)
 
 
 # Video
 
-v2group = new Layer
-	parent: slide1
-	width: 390
-	height: 288
-	y: 360
+getVideoFor = (parentLayer) ->
+	
+	videoClipView = new Layer
+		parent: parentLayer
+		width: 294
+		height: 228
+		borderRadius: 20
+		clip: true
+		backgroundColor: "null"
+	
+# 	video = new VideoLayer
+# 		parent: videoClipView
+# 		width: 1280 / 3.3
+# 		height: 800 / 3.3
+# 		video: "images/small.mp4"
+# 		y: -35
+# 		x: -60
+	
+	video = new VideoLayer
+		parent: videoClipView
+		width: 884 / 2
+		height: 514 / 2
+		x: -50
+		video: "images/david2.mov"
+		opacity: 0
+	
+	video.player.currentTime = 10
+	video.player.loop = true
+	video.player.volume = 0
+	video.player.autoplay = !isDebugMode
+	
+	return videoClipView
+
+
+
+
+
+
+
+imageView = new Layer
+	parent: screen
+	width: 294
+	height: 220
+	x: Align.center
+	y: Align.top(370)
+	backgroundColor: "null"
+
+bottomVideo = getVideoFor(imageView)
+
+
+clipView = new Layer
+	parent: imageView
+	width: 294 / 2
+	height: 228
 	clip: true
 	backgroundColor: "null"
 
-v2 = new VideoLayer
-	parent: v2group
-	width: 390
-	height: 844
-	y: -360
-	backgroundColor: "null"
-	video: "images/v2.mov"
+clipView.states =
+	"hidden": { width: 16 }
+	"shown": { width: 294 - 16 }
+clipView.stateSwitch("hidden")
 
-v2.player.loop = true
-v2.player.volume = 0
-v2.player.autoplay = true
-v2.player.play()
+breaker = new Layer
+	parent: imageView
+	width: 2
+	height: 220
+	x: clipView.states.hidden.width
+	y: Align.center
+	borderRadius: 2
+	backgroundColor: "#826262"
+
+breaker.states =
+	"hidden": { x: clipView.states.hidden.width }
+	"shown": { x: clipView.states.shown.width }
+breaker.stateSwitch("hidden")
+
+# imageRu = new Layer
+# 	parent: clipView
+# 	width: 287
+# 	height: 180
+# 	image: "images/imageRu.png"
+
+topVideo = getVideoFor(clipView)
 
 
-# Set
-
-set = (dataInput, value) ->
-	if dataInput == "1" then timeStep1 = value
-	else timeStep2 = value
-	
-	if dataInput == "1" then step1progress.stateSwitch("hidden")
-	else step1progress.stateSwitch("shown")
-# 	print "#{dataInput} #{value}"
-
-setOne5 = (event, layer, setValue = 5) ->
-	set("1", setValue)
-
-setOne10 = (event, layer, setValue = 10) ->
-	set("1", setValue)
-
-setOne15 = (event, layer, setValue = 15) ->
-	set("1", setValue)
+boxProxy.stateSwitch("hidden")
 
 
 
-setTwo5 = (event, layer, setValue = 5) ->
-	set("2", setValue)
-
-setTwo10 = (event, layer, setValue = 10) ->
-	set("2", setValue)
-
-setTwo15 = (event, layer, setValue = 15) ->
-	set("2", setValue)
-
-setTwo20 = (event, layer, setValue = 20) ->
-	set("2", setValue)
+# progress = new Layer
+# 	parent: imageView
+# 	width: 294
+# 	height: 63
+# 	y: Align.bottom(6)
+# 	image: "images/progress.png"
 
 
+img1 = new Layer
+	parent: topVideo
+	width: 294
+	height: 220
+	image: "images/img1.png"
 
-panel = require 'ControlPanel'
-
-panel.header("Первый слайд", "left")
-panel.button("5", setOne5, "left", "toggle")
-panel.button("10", setOne10, "left", "toggle")
-panel.button("15", setOne15, "left", "toggle")
-
-panel.header("Второй слайд", "left")
-panel.button("5", setTwo5, "left", "toggle2")
-panel.button("10", setTwo10, "left", "toggle2")
-panel.button("15", setTwo15, "left", "toggle2")
-panel.button("20", setTwo20, "left", "toggle2")
-
+img2 = new Layer
+	parent: bottomVideo
+	width: 294
+	height: 220
+	image: "images/img2.png"

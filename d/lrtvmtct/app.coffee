@@ -28,13 +28,14 @@ debugColor = () ->
 # Screen
 
 screen = new Layer
+	name: "screen"
 	width: 375
 	height: 812
 	backgroundColor: "FAF9F8"
 
 
 { Preview } = require "PreviewComponent"
-new Preview { view: screen }
+preview = new Preview { view: screen }
 
 
 
@@ -92,6 +93,7 @@ firstTab_Flow_prevSwipe = Utils.throttle 0.5, (event, layer) ->
 
 
 globalTabs_View = new Layer
+	name: "globalTabs_View"
 	parent: screen
 	width: screen.width
 	height: screen.height
@@ -114,6 +116,7 @@ firstTab_Flow.stateSwitch("shown")
 
 
 startPage_ViewController = new Layer
+	name: "startPage_ViewController"
 	width: screen.width
 	height: screen.height
 	backgroundColor: debugColor()
@@ -123,6 +126,7 @@ startPage_ViewController = new Layer
 
 
 secondTab_Flow = new Layer
+	name: "secondTab_Flow"
 	parent: globalTabs_View
 	width: screen.width
 	height: screen.height
@@ -135,6 +139,7 @@ secondTab_Flow.stateSwitch("hidden")
 secondTab_Flow.sendToBack()
 
 reels = new Layer
+	name: "reels"
 	parent: secondTab_Flow
 	width: screen.width
 	height: screen.height
@@ -163,11 +168,13 @@ thirdTab_Flow.sendToBack()
 # Under View
 
 tabsView = new Layer
+	name: "tabsView"
 	width: screen.width
 	height: screen.height
 	backgroundColor: "black"
 
 tabs = new Layer
+	name: "tabs"
 	parent: tabsView
 	width: screen.width
 	height: screen.height
@@ -209,6 +216,7 @@ updateTabs()
 
 
 startPage = new Layer
+	name: "startPage"
 	parent: startPage_ViewController
 	width: screen.width
 	height: screen.height
@@ -223,6 +231,7 @@ startPage = new Layer
 
 
 feedScroll = new ScrollComponent
+	name: "feedScroll"
 	parent: startPage
 	width: 375
 	height: 812 - 100
@@ -278,6 +287,7 @@ changeStartBar = () ->
 
 
 scrollDirectionProxy = new Layer
+	name: "scrollDirectionProxy"
 	opacity: 0
 	x: -3000
 
@@ -300,6 +310,7 @@ scrollDirectionProxy.on Events.StateSwitchEnd, (from, to) ->
 
 # Bottom Part (Static)
 startPage_BottomView = new Layer
+	name: "startPage_BottomView"
 	parent: startPage
 	width: 375
 	height: 84
@@ -309,6 +320,7 @@ startPage_BottomView = new Layer
 
 
 startPage_BottomImage = new Layer
+	name: "startPage_BottomImage"
 	parent: startPage_BottomView
 	width: 375
 	height: 146
@@ -322,6 +334,7 @@ startPage_BottomImage.stateSwitch("start yellow")
 
 # Bottom Part (Dynamic)
 startPage_TopView = new Layer
+	name: "startPage_TopView"
 	parent: startPage
 	width: 375
 	height: startPage_BottomImage.height - startPage_BottomView.height
@@ -334,6 +347,7 @@ startPage_TopView.states =
 	"hidden": { y: Align.bottom(-startPage_BottomView.height + startPage_TopView.height) }
 
 startPage_TopImage = new Layer
+	name: "startPage_TopImage"
 	parent: startPage_TopView
 	width: 375
 	height: 146
@@ -344,7 +358,7 @@ startPage_TopImage.states =
 	"start yellow logo": { image: "images/startBar_2.png" }
 	"shown": { opacity: 1 }
 	"hidden": { opacity: 0 }
-startPage_TopImage.stateSwitch("start yellow")
+startPage_TopImage.stateSwitch("start yellow logo")
 
 
 
@@ -353,6 +367,7 @@ startPage_TopView.placeBehind(startPage_BottomView)
 
 # TODO
 startPage_BottomView_Alice = new Layer
+	name: "startPage_BottomView_Alice"
 	parent: startPage_TopImage
 	width: 32, height: 32, x: 26, y: 18
 	image: "images/aliceField.png"
@@ -369,21 +384,25 @@ startPage_BottomView_Alice.stateSwitch("hidden")
 
 
 article_card_with_embed = new Layer
+	name: "article_card_with_embed"
 	width: 375
 	height: 440
 	image: "images/article%20card%20with%20embed.png"
 
 article_card = new Layer
+	name: "article_card"
 	width: 375
 	height: 423
 	image: "images/Cardsasds.png"
 
 news_card = new Layer
+	name: "news_card"
 	width: 375
 	height: 495
 	image: "images/news%20card.png"
 
 shortcutView = new ScrollComponent
+	name: "shortcutView"
 	width: 375
 	height: 136
 	scrollVertical: false
@@ -454,10 +473,10 @@ updateShortcuts()
 # Site
 
 sites =
-	vc: "vc.ru"
-	search: "куда пойти?"
-	news: "Новости"
-	weather: "Погода"
+	vc: "apple.com"
+	search: "how to cook buckwheat"
+	news: "News"
+	weather: "Weather"
 	
 
 
@@ -472,12 +491,12 @@ loadSite = (title) ->
 	else if title == sites.search
 		siteContent.image = "images/search_feed.jpg"
 		siteContent.height = 1465
-		siteScroll.scrollToPoint({ x: 0, y: 88 }, false)
+		siteScroll.scrollToPoint({ x: 0, y: 0 }, false)
 	
 	else if title == sites.news
 		siteContent.image = "images/newsContent.jpg"
 		siteContent.height = 1260
-		siteScroll.scrollToPoint({ x: 0, y: 128 }, false)
+		siteScroll.scrollToPoint({ x: 0, y: 0 }, false)
 	
 	else if title == sites.weather
 		siteContent.image = "images/weather.jpg"
@@ -493,6 +512,7 @@ loadSite = (title) ->
 
 
 site_ViewController = new Layer
+	name: "site_ViewController"
 	width: screen.width
 	height: screen.height
 	backgroundColor: "white"
@@ -503,6 +523,7 @@ site_ViewController.on(Events.SwipeRightEnd, firstTab_Flow_prevSwipe)
 
 
 siteScroll = new ScrollComponent
+	name: "siteScroll"
 	parent: site_ViewController
 	width: 375
 	height: 812 - 44 - 50
@@ -512,6 +533,7 @@ siteScroll = new ScrollComponent
 	directionLock: true
 
 siteContent = new Layer
+	name: "siteContent"
 	parent: siteScroll.content
 	width: 375
 	height: 821
@@ -522,6 +544,7 @@ siteContent = new Layer
 
 
 site_Bar = new Layer
+	name: "site_Bar"
 	parent: site_ViewController
 	width: 375
 	height: 146
@@ -535,6 +558,7 @@ site_Bar.stateSwitch("shown")
 
 
 site_Bar_Image = new Layer
+	name: "site_Bar_Image"
 	parent: site_Bar
 	width: site_Bar.width
 	height: site_Bar.height
@@ -550,6 +574,7 @@ site_Bar_Image.stateSwitch("shown")
 
 
 site_title = new TextLayer
+	name: "site_title"
 	parent: site_Bar_Image
 	backgroundColor: "white"
 	width: 231, height: 40, x: 72, y: 12
@@ -559,6 +584,7 @@ site_title = new TextLayer
 	padding:  { top: 10 }
 
 site_title_small = new TextLayer
+	name: "site_title_small"
 	parent: site_Bar
 	width: 231, x: 72
 	fontSize: 14
@@ -572,6 +598,7 @@ site_title_small.placeBehind(site_Bar_Image)
 
 
 site_Bar_alice = new Layer
+	name: "site_Bar_alice"
 	parent: site_Bar_Image
 	width: 32, height: 32, x: 26, y: 18
 	image: "images/aliceField.png"
@@ -588,6 +615,7 @@ site_Bar_alice.stateSwitch("hidden")
 
 
 site_backButton = new Layer
+	name: "site_backButton"
 	parent: site_Bar
 	width: 109, height: 50, x: 18, y: 68
 	backgroundColor: debugColor()
@@ -596,6 +624,7 @@ site_backButton.on(Events.Tap, firstTab_Flow_prev)
 
 
 site_homeButton = new Layer
+	name: "site_homeButton"
 	parent: site_Bar
 	width: 109, height: 50, y: 68
 	x: Align.center
@@ -605,6 +634,7 @@ site_homeButton.on(Events.Tap, firstTab_Flow_prev)
 
 
 site_tabsButton = new Layer
+	name: "site_tabsButton"
 	parent: site_Bar
 	x: 242, y: 68, width: 109, height: 50
 	backgroundColor: debugColor()
@@ -623,6 +653,7 @@ site_tabsButton.onTap ->
 # Scroll: Site
 
 siteScrollProxy = new Layer
+	name: "siteScrollProxy"
 	opacity: 0
 	x: -3000
 
@@ -654,6 +685,7 @@ siteScroll.content.on "change:y", ->
 # Article
 
 article_ViewController = new Layer
+	name: "article_ViewController"
 	width: screen.width
 	height: screen.height
 	backgroundColor: "white"
@@ -664,6 +696,7 @@ article_ViewController.on(Events.SwipeRightEnd, firstTab_Flow_prevSwipe)
 
 
 articleScroll = new ScrollComponent
+	name: "articleScroll"
 	parent: article_ViewController
 	width: 375
 	height: 812 - 100 - 78
@@ -673,6 +706,7 @@ articleScroll = new ScrollComponent
 	directionLock: true
 
 articleContent = new Layer
+	name: "articleContent"
 	parent: articleScroll.content
 	width: 375
 	height: 1286
@@ -682,6 +716,7 @@ articleContent = new Layer
 
 
 article_Bar = new Layer
+	name: "article_Bar"
 	parent: article_ViewController
 	width: 375
 	height: 78
@@ -690,6 +725,7 @@ article_Bar = new Layer
 
 
 article_Header = new Layer
+	name: "article_Header"
 	parent: article_ViewController
 	width: 376
 	height: 101
@@ -698,6 +734,7 @@ article_Header = new Layer
 
 
 article_Header_back = new Layer
+	name: "article_Header_back"
 	parent: article_Header
 	y: 44
 	height: 56
@@ -718,7 +755,7 @@ article_card_with_embed.onTap ->
 news_card.onTap ->
 	loadSite(sites.news)
 	firstTab_Flow.transition(site_ViewController, stackTransition)
-	siteScroll.scrollToPoint({ x: 0, y: 128 }, false)
+	siteScroll.scrollToPoint({ x: 0, y: 0 }, false)
 
 article_card.onTap ->
 	firstTab_Flow.transition(article_ViewController, stackTransition)
@@ -734,6 +771,7 @@ shortcutView.content.children[1].onTap ->
 
 # Feed — Bottom Bar ->
 startPage_SearchButton = new Layer
+	name: "startPage_SearchButton"
 	parent: startPage_TopImage
 	x: 65, y: Align.top, width: 245, height: startPage_TopView.height
 	backgroundColor: debugColor()
@@ -741,11 +779,12 @@ startPage_SearchButton = new Layer
 startPage_SearchButton.onTap ->
 	loadSite(sites.search)
 	firstTab_Flow.transition(site_ViewController, stackTransition)
-	siteScroll.scrollToPoint({ x: 0, y: 88 }, false)
+	siteScroll.scrollToPoint({ x: 0, y: 0 }, false)
 
 
 
 startPage_ScrollToTop_Button = new Layer
+	name: "startPage_ScrollToTop_Button"
 	parent: startPage_BottomView
 	x: Align.left(15)
 	y: Align.bottom, width: 115, height: startPage_BottomView.height
@@ -757,6 +796,7 @@ startPage_ScrollToTop_Button.onTap ->
 
 
 startPage_NavigateToReels_Button = new Layer
+	name: "startPage_NavigateToReels_Button"
 	parent: startPage_BottomImage
 	x: Align.center, y: Align.bottom, width: 115, height: startPage_BottomView.height
 	backgroundColor: debugColor()
@@ -767,6 +807,7 @@ startPage_NavigateToReels_Button.onTap ->
 
 
 startPage_NavigateToTabs_Button = new Layer
+	name: "startPage_NavigateToTabs_Button"
 	parent: startPage_BottomView
 	x: Align.right(-15)
 	y: Align.bottom, width: 115, height: startPage_BottomView.height
@@ -782,6 +823,7 @@ startPage_NavigateToTabs_Button.onTap ->
 
 # Reels -> 
 secondTab_Flow_NavigateToFeed_Button = new Layer
+	name: "secondTab_Flow_NavigateToFeed_Button"
 	parent: secondTab_Flow
 	x: Align.left(20)
 	y: Align.bottom(-24)
@@ -793,6 +835,7 @@ secondTab_Flow_NavigateToFeed_Button.onTap ->
 
 
 secondTab_Flow_NavigateToTabs_Button = new Layer
+	name: "secondTab_Flow_NavigateToTabs_Button"
 	parent: secondTab_Flow
 	x: Align.right(-20)
 	y: Align.bottom(-24)
@@ -807,6 +850,7 @@ secondTab_Flow_NavigateToTabs_Button.onTap ->
 
 # Tabs ->
 tabsView_NavigateToFeed_Button = new Layer
+	name: "tabsView_NavigateToFeed_Button"
 	parent: tabsView
 	x: Align.left(20), y: Align.bottom(-24)
 	width: 103, height: 55
@@ -817,6 +861,7 @@ tabsView_NavigateToFeed_Button.onTap ->
 
 
 tabsView_NavigateToReels_Button = new Layer
+	name: "tabsView_NavigateToReels_Button"
 	parent: tabsView
 	width: 103, height: 55
 	x: Align.center, y: Align.bottom(-24)
@@ -828,6 +873,7 @@ tabsView_NavigateToReels_Button.onTap ->
 
 
 tabsView_NavigateBack_Button = new Layer
+	name: "tabsView_NavigateBack_Button"
 	parent: tabsView
 	x: 276, y: 718, width: 99, height: 54
 	backgroundColor: debugColor()
@@ -858,6 +904,7 @@ stackTransition = (firstTab_Flow, layerA = startPage_ViewController, layerB = si
 # Scroll: Feed 
 
 scrollProxy = new Layer
+	name: "scrollProxy"
 	opacity: 0
 	y: -3000
 
@@ -879,6 +926,7 @@ scrollProxy.on Events.StateSwitchEnd, (from, to) ->
 
 
 startPage_Header = new Layer
+	name: "startPage_Header"
 	parent: startPage
 	width: 375
 	height: 100
@@ -888,6 +936,7 @@ startPage_Header = new Layer
 
 
 startPage_HeaderTitleYandex = new Layer
+	name: "startPage_HeaderTitleYandex"
 	parent: startPage_Header
 	width: 160
 	height: 60
@@ -902,6 +951,7 @@ startPage_HeaderTitleYandex.stateSwitch("shown")
 
 
 startPage_HeaderTitleZen = new Layer
+	name: "startPage_HeaderTitleZen"
 	parent: startPage_Header
 	width: 160
 	height: 60
@@ -941,6 +991,7 @@ updateAliceFab = () ->
 
 
 aliceBar = new Layer
+	name: "aliceBar"
 	parent: globalTabs_View
 	width: 375
 	height: 80
@@ -960,6 +1011,7 @@ updateAliceFab()
 # Settings -> Move to Module
 
 screen_settings = new Layer
+	name: "screen_settings"
 	parent: screen
 	width: 390
 	height: 844
@@ -974,17 +1026,20 @@ screen_settings.stateSwitch("hidden")
 
 
 screen_settings_header = new Layer
+	name: "screen_settings_header"
 	width: 390
 	height: 100
 	image: "modules/settingsHeader.png"
 	parent: screen_settings
 
 screen_settings_header_back = new Layer
+	name: "screen_settings_header_back"
 	parent: screen_settings_header, height: 56, width: 56, y: 44, x: -8
 	backgroundColor: "null"
 
 
 settingsView_scroll = new ScrollComponent
+	name: "settingsView_scroll"
 	parent: screen_settings
 	width: 390
 	height: 844 - 100
@@ -997,6 +1052,7 @@ settingsView_scroll = new ScrollComponent
 
 getSettingsTitle = (title = "Дзен") ->
 	settings_breaker1 = new TextLayer
+		name: "settings_breaker1"
 		name: "breaker"
 		parent: settingsView_scroll.content
 		fontSize: 24
@@ -1013,6 +1069,7 @@ getSettingsTitle = (title = "Дзен") ->
 
 getSettingsLine = (title = "Строчка") ->
 	settings_zenArticleOpenTypeText = new TextLayer
+		name: "settings_zenArticleOpenTypeText"
 		parent: settingsView_scroll.content
 		fontSize: 16
 		width: 390 - 20
@@ -1057,9 +1114,9 @@ getSegmentedControl = (itemArray = ["On", "Off", "sd"], customWidth = 200) ->
 
 screen_settings.on(Events.SwipeRightEnd, firstTab_Flow_prevSwipe)
 
-
+isAliceFab = !isAliceFab
 settings_showTips = new iOSSwitch
-	parent: getSettingsLine("Алиса как FAB")
+	parent: getSettingsLine("Alice as FAB")
 	isOn: isAliceFab
 	x: Align.right(-32)
 
@@ -1067,10 +1124,14 @@ settings_showTips.parent.y = Align.top(40)
 settings_showTips.onValueChange (value) ->
 	changeAliceFab()
 
+changeAliceFab()
+changeAliceFab()
 
 
+
+isOrder_StartWithNews = !isOrder_StartWithNews
 settings_showTips = new iOSSwitch
-	parent: getSettingsLine("Карточка новостей на первом")
+	parent: getSettingsLine("News card on top")
 	isOn: isOrder_StartWithNews
 	x: Align.right(-32)
 
@@ -1078,10 +1139,13 @@ settings_showTips.parent.y = Align.top(100)
 settings_showTips.onValueChange (value) ->
 	changeOrder()
 
+changeOrder()
+changeOrder()
 
 
+isNewShortcuts = !isNewShortcuts
 settings_showTips = new iOSSwitch
-	parent: getSettingsLine("Новые шорткаты")
+	parent: getSettingsLine("New Shortcuts")
 	isOn: isNewShortcuts
 	x: Align.right(-32)
 
@@ -1089,10 +1153,13 @@ settings_showTips.parent.y = Align.top(160)
 settings_showTips.onValueChange (value) ->
 	changeShortcuts()
 
+# isNewShortcuts = !isNewShortcuts
+changeShortcuts()
+changeShortcuts()
 
 
 settings_showTips = new iOSSwitch
-	parent: getSettingsLine("Вкладки как третий таб")
+	parent: getSettingsLine("Tabs as TabBar Item")
 	isOn: isTabs_AsThirdTab
 	x: Align.right(-32)
 
@@ -1100,9 +1167,12 @@ settings_showTips.parent.y = Align.top(220)
 settings_showTips.onValueChange (value) ->
 	changeTabs()
 
+changeTabs()
+changeTabs()
+
 
 settings_showTips = new iOSSwitch
-	parent: getSettingsLine("Логотип в строке")
+	parent: getSettingsLine("Logo in seach Arrow")
 	isOn: isRedLogo()
 	x: Align.right(-32)
 
@@ -1110,6 +1180,8 @@ settings_showTips.parent.y = Align.top(280)
 settings_showTips.onValueChange (value) ->
 	changeStartBar()
 
+changeStartBar()
+changeStartBar()
 
 
 
@@ -1145,3 +1217,5 @@ firstTab_Flow.transition(startPage_ViewController, stackTransition)
 
 # load_StartPageBar(bars.start_yellow_logo)
 
+
+# preview.printTree()

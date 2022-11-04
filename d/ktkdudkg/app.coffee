@@ -4,7 +4,7 @@ screen = new Layer
 	width: 360, height: 640, backgroundColor: "white"
 
 { Preview } = require "PreviewComponent"
-new Preview { view: screen, borderRadius: 16, topTheme: "dark", forceAndroidBar: true }
+new Preview { view: screen, borderRadius: 8, topTheme: "dark", forceAndroidBar: true }
 
 # Animation Timing
 MaterialCurve = "cubic-bezier(0.2, 0, 0.1, 1)"

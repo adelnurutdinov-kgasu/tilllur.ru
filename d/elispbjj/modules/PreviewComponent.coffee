@@ -4,12 +4,13 @@ Framer.Extras.Hints.disable()
 
 # {PreviewClass1} = require "PreviewClass1"
 # {PreviewClass4} = require "PreviewClass4"
-{PreviewClass5} = require "PreviewClass5"
+# {PreviewClass5} = require "PreviewClass5"
+{PreviewClass6} = require "PreviewClass6"
 
 # print Preview
 
 
-class FixPreviewExport extends PreviewClass5
+class FixPreviewExport extends PreviewClass6
 class exports.Preview extends FixPreviewExport
 
 
@@ -36,6 +37,12 @@ window.addEventListener("animateFill", receiveMessage, false);
 `
 
 
+
+
+# preview.addSection("Section Title", [
+# 	{ title: "Title1", handler: handler1 },
+# 	{ title: "Title2", handler: handler2 },
+# ])
 
 
 

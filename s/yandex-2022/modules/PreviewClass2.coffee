@@ -76,7 +76,7 @@ class exports.PreviewClass2 extends PreviewClass1
 		temp.height = 32
 		
 		@createClassicAndroidStatusBar new Layer
-			parent: temp, width: temp.width - 16, x: Align.center, y: Align.top(6)
+			parent: temp, width: temp.width - 16, x: Align.center, y: Align.center()
 			backgroundColor: null
 	
 	
@@ -84,13 +84,13 @@ class exports.PreviewClass2 extends PreviewClass1
 		barLayer.height = 20
 		
 		classicCenterComponent = new TextLayer
-			parent: barLayer, width: 52, height: 20, x: Align.left, y: Align.top(-2)
+			parent: barLayer, width: 52, height: 20, x: Align.left, y: Align.top(2)
 			color: @assets.color[@statusBar], backgroundColor: null
 			fontSize: 14, fontWeight: 600, textAlign: "center", fontFamily: ".system, SF Pro Text"
 			text: @prototypeCreationYear
 		
 		classicRightomponent = new Layer
-			parent: barLayer, width: 100, height: 20, x: Align.right, y: Align.top(-4.5)
+			parent: barLayer, width: 100, height: 20, x: Align.right, y: Align.top()
 			image: @assets.androidStatusBarRightImage[@statusBar]
 	
 	

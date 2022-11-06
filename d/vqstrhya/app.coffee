@@ -188,7 +188,7 @@ flow.showNext(startPage)
 
 gapButton = 60
 
-createButton = (title = "Показать сайт", faded = true) ->
+createButton = (title = "Show site", faded = true) ->
 	button = new TextLayer
 		parent: startPage
 		text: title
@@ -200,7 +200,7 @@ createButton = (title = "Показать сайт", faded = true) ->
 
 
 
-buttonGroup1 = createButton("Смелый", false)
+buttonGroup1 = createButton("Risky", false)
 buttonGroup1.y = 100
 
 buttonGroup1.onTap ->
@@ -209,7 +209,7 @@ buttonGroup1.onTap ->
 		item.stateSwitch("group1")
 
 
-buttonGroup2 = createButton("Безопасный", false)
+buttonGroup2 = createButton("Safe", false)
 buttonGroup2.y = buttonGroup1.y + gapButton
 
 buttonGroup2.onTap ->
@@ -220,7 +220,7 @@ buttonGroup2.onTap ->
 
 
 
-button1 = createButton("Картинка (база)")
+button1 = createButton("With Smart Camera (basic)")
 button1.y = buttonGroup2.y + gapButton*2
 
 button1.onTap ->
@@ -231,7 +231,7 @@ button1.onTap ->
 
 
 
-button2 = createButton("Картинка (промо)")
+button2 = createButton("With Smart Camera (promo)")
 button2.y = button1.y + gapButton
 
 button2.onTap ->
@@ -243,7 +243,7 @@ button2.onTap ->
 
 
 
-button3 = createButton("Картинка (смелый)")
+button3 = createButton("With Smart Camera (brave)")
 button3.y = button2.y + gapButton
 
 button3.onTap ->
@@ -253,7 +253,7 @@ button3.onTap ->
 
 
 
-button4 = createButton("Пусто (смелый)")
+button4 = createButton("None (brave)")
 button4.y = button3.y + gapButton
 
 button4.onTap ->
@@ -263,7 +263,7 @@ button4.onTap ->
 
 
 
-button5 = createButton("Пусто (промо)")
+button5 = createButton("None (promo)")
 button5.y = button4.y + gapButton
 
 button5.onTap ->

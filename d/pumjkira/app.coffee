@@ -14,9 +14,10 @@ flow = new FlowComponent
 	width: 390
 	height: 844
 
-new Preview { view: flow }
+preview = new Preview { view: flow }
 
 screen = new Layer
+	name: "screen"
 	width: 390
 	height: 844
 	x: Align.center
@@ -49,6 +50,7 @@ moreData = [
 lastOpenedWidget = null
 
 widgetScroll = new ScrollComponent
+	name: "widgetScroll"
 	width: 390
 	height: 120
 	parent: screen
@@ -95,6 +97,7 @@ addWidget = (title = "Почта", index = -1) ->
 
 createWidget = (title = "Почта", index = -1) ->
 	widgetView = new Layer
+		name: "widgetView"
 		size: 120
 		backgroundColor: Utils.randomColor()
 		borderRadius: 16
@@ -110,12 +113,14 @@ createWidget = (title = "Почта", index = -1) ->
 	widgetView.stateSwitch("normal")
 	
 	
-	widgetView.onClick ->
-		lastOpenedWidget = @
-		flow.transition(modalView, bottomToTopTransition)
+	# widgetView.onClick ->
+	# 	lastOpenedWidget = @
+	# 	# flow.transition(modalView, bottomToTopTransition)
+	# 	flow.transition(modalView, bottomToTopTransition)
 	
 	
 	pin = new Layer
+		name: "pin"
 		parent: widgetView
 		size: 24
 		x: Align.right(-4)
@@ -155,20 +160,22 @@ for i in [0...5]
 # Navigation
 
 modalView = new Layer
+	name: "modalView"
 	width: screen.width
 	height: screen.height
 	backgroundColor: "white"
 
-modalView.sendToBack()
+# modalView.sendToBack()
 
-modalView.onClick ->
+modalView.onTap ->
+	print "?"
 # 	setLastRecent(lastOpenedWidget)
 	flow.showPrevious()
 
 
 
 
-bottomToTopTransition = (nav, layerA, layerB, overlay) ->
+bottomToTopTransition = (nav, layerA, layerB, overlay = null) ->
 	transition =
 		layerA:
 			show: { opacity: 1 }
@@ -182,9 +189,15 @@ flow.showNext(modalView, animate: false)
 flow.showPrevious(animate: false)
 
 topBarFix = new Layer
+	name: "topBarFix"
 	parent: screen, width: screen.width, height: 44
 	backgroundColor: "white"
 
 bottomBarFix = new Layer
+	name: "bottomBarFix"
 	parent: screen, width: screen.width, height: 34, y: Align.bottom
 	backgroundColor: "white"
+
+
+
+# preview.printTree()

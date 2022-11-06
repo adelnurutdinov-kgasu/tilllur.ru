@@ -7,8 +7,40 @@ class exports.PreviewClass2 extends PreviewClass1
 	constructor: (@options={}) ->
 
 		_.defaults @options,
+			statusBar: "dark" # light/dark
+			homeBar: "dark" # light/dark
+
+			visible: true # true / false
+			forceAndroidBar: false # true / false
+
+			prototypeCreationYear: "20:20" # generated from json
+			
 		
 		super @options
+	
+
+
+	@define 'statusBar',
+		get: -> @options.statusBar
+		set: (value) -> @options.statusBar = value
+	
+	@define 'homeBar',
+		get: -> @options.homeBar
+		set: (value) -> @options.homeBar = value
+
+	@define 'forceAndroidBar',
+		get: -> @options.forceAndroidBar
+		set: (value) -> @options.forceAndroidBar = value
+	
+	@define 'visible',
+		get: -> if @options.visible then return 1 else return 0
+		set: (value) -> @options.visible = value
+	
+
+
+	@define 'prototypeCreationYear',
+		get: -> @options.prototypeCreationYear
+		set: (value) -> @options.prototypeCreationYear = value
 
 
 
@@ -37,57 +69,64 @@ class exports.PreviewClass2 extends PreviewClass1
 	
 	
 	
-	createAndroidStatusBar: (temp) =>
-		temp.height = 32
+
+
+
+	createAndroidStatusBar: (barLayer) =>
+		barLayer.height = 32
 		
-		@createClassicAndroidStatusBar new Layer
-			parent: temp, width: temp.width - 16, x: Align.center, y: Align.top(6)
-			backgroundColor: null
+		classicCenterComponent = new TextLayer
+			parent: barLayer, width: 52, height: 20, x: Align.left(4), y: Align.top(2 + 5)
+			color: @assets.color[@statusBar], backgroundColor: null
+			fontSize: 14, fontWeight: 600, textAlign: "center", fontFamily: ".system, SF Pro Text"
+			text: @prototypeCreationYear
+		
+		classicRightomponent = new Layer
+			parent: barLayer, width: 100, height: 20, x: Align.right(-4), y: Align.top(5)
+			image: @assets.androidStatusBarRightImage[@statusBar]
 	
 	
 	createClassicAndroidStatusBar: (barLayer) =>
 		barLayer.height = 20
 		
 		classicCenterComponent = new TextLayer
-			parent: barLayer, width: 52, height: 20, x: Align.left, y: Align.center(1)
-			color: @assets.color["dark"], backgroundColor: null
+			parent: barLayer, width: 52, height: 20, x: Align.left, y: Align.top(2)
+			color: @assets.color[@statusBar], backgroundColor: null
 			fontSize: 14, fontWeight: 600, textAlign: "center", fontFamily: ".system, SF Pro Text"
 			text: @prototypeCreationYear
 		
 		classicRightomponent = new Layer
-			parent: barLayer, width: 100, height: 20, x: Align.right, y: Align.center(-1)
-			image: @assets.androidStatusBarRightImage["dark"]
+			parent: barLayer, width: 100, height: 20, x: Align.right, y: Align.top()
+			image: @assets.androidStatusBarRightImage[@statusBar]
 	
 	
-	
-	
-	
-	
+
+
+
 	createClassicStatusBar: (barLayer) =>
 		barLayer.height = 20
 		
 		classicLeftComponent = new Layer
 			parent: barLayer, width: 100, height: barLayer.height, x: Align.left
-			image: @assets.oldStatusBarLeftImage["dark"]
+			image: @assets.oldStatusBarLeftImage[@statusBar]
 		
 		classicCenterComponent = new TextLayer
 			parent: barLayer, width: 54, height: 16, x: Align.center, y: Align.center
-			color: @assets.color["dark"], backgroundColor: null
+			color: @assets.color[@statusBar], backgroundColor: null
 			fontSize: 12, fontWeight: 600, textAlign: "center", fontFamily: ".system, SF Pro Text"
 			text: @prototypeCreationYear
 		
 		classicRightomponent = new Layer
 			parent: barLayer, width: 100, height: barLayer.height, x: Align.right
-			image: @assets.oldStatusBarRightImage["dark"]
+			image: @assets.oldStatusBarRightImage[@statusBar]
 		
-	
 	
 	createNotchStatusBar: (barLayer) =>
 		barLayer.height = 44
 		
 		notchLeftComponent = new TextLayer
 			parent: barLayer, width: 54, height: 21, x: Align.left(21), y: Align.top(12)
-			color: @assets.color["dark"], backgroundColor: null, letterSpacing: -0.17
+			color: @assets.color[@statusBar], backgroundColor: null, letterSpacing: -0.17
 			fontSize: 15, fontWeight: 600, textAlign: "center", fontFamily: ".system, SF Pro Text"
 			text: @prototypeCreationYear
 		
@@ -97,13 +136,16 @@ class exports.PreviewClass2 extends PreviewClass1
 		
 		notchRightComponent = new Layer
 			parent: barLayer, width: 100, height: barLayer.height, x: Align.right
-			image: @assets.statusBarRightImage["dark"]
+			image: @assets.statusBarRightImage[@statusBar]
 	
 	
 	
+
+
+
 	createHomeIndicator: (barLayer) =>
 		homeIndicator = new Layer
 			parent: barLayer, width: 135, height: 5, x: Align.center, y: Align.bottom(-8)
-			backgroundColor: @assets.color["dark"], borderRadius: 20
+			backgroundColor: @assets.color[@homeBar], borderRadius: 20
 	
 	

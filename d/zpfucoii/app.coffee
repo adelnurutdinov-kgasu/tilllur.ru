@@ -13,7 +13,7 @@ temp = new Layer
 	originX: 0, originY: 0
 
 { Preview } = require "PreviewComponent"
-new Preview { view: screen, borderRadius: 16, topTheme: "light" }
+new Preview { view: screen, borderRadius: 16, statusBar: "light" }
 
 screen_bg = new Layer width: 414*retina, height: 736*retina, x: 0, y: 0, image: "images/screen bg.png"
 nav_bar = new Layer width: 414*retina, height: 104*retina, x: -10*retina, y: -6*retina, image: "images/nav bar.png", opacity: 0

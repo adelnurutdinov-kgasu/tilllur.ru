@@ -65,6 +65,7 @@ DynamicLoader.series(["./vendor/rest.js",]).then(->
 # Screen Guard
 
 screenGuard = new Layer
+	name: "screenGuard"
 	opacity: 0
 	x: -2000
 
@@ -102,6 +103,7 @@ flow_withoutTabBar = new FlowComponent
 
 
 screen_WithTabBar = new Layer
+	name: "screen_WithTabBar"
 # 	parent: flow_withoutTabBar
 	width: screen.width
 	height: screen.height
@@ -121,12 +123,14 @@ flow_withTabBar = new FlowComponent
 
 
 screen_main = new Layer
+	name: "screen_main"
 	parent: flow_withTabBar
 	width: screen.width
 	height: screen.height
 	backgroundColor: "F3F3F3"
 
 # mainHeader = new Layer
+	name: "# mainHeader"
 # 	parent: screen_main
 # 	width: 375
 # 	height: 101
@@ -135,12 +139,14 @@ screen_main = new Layer
 
 
 screen_main_header = new Layer
+	name: "screen_main_header"
 	parent: screen_main
 	width: 375
 	height: 358
 	image: "images/screen_main_header.png"
 
 screen_main_card = new Layer
+	name: "screen_main_card"
 	parent: screen_main
 	width: 375
 	height: 451
@@ -149,6 +155,7 @@ screen_main_card = new Layer
 
 
 shortcutsScroll = new ScrollComponent
+	name: "shortcutsScroll"
 	width: 375
 	height: 8 + 8 + 108
 	parent: screen_main_header
@@ -161,6 +168,7 @@ shortcutsScroll = new ScrollComponent
 
 for item, i in ["vc", "seamless", "search", "01", "02", "03", "04", "05", "06", "07"]
 	shortcut = new Layer
+		name: "shortcut"
 		parent: shortcutsScroll.content
 		size: 108
 		x: 16 + i * (108 + 8)
@@ -202,6 +210,7 @@ flow_site_handler = Utils.throttle 0.5, (event, layer) ->
 
 # site
 # box = new Layer
+	name: "# box"
 # 	x: Align.right, size: 58
 # 
 # box.onTap ->
@@ -230,6 +239,7 @@ gapButton = 48
 
 createButton = (title = "Показать сайт") ->
 	button = new TextLayer
+		name: "button"
 		parent: screen_main
 		text: title
 		fontSize: 16
@@ -282,12 +292,14 @@ checkDecoration = () ->
 
 
 screen_article = new Layer
+	name: "screen_article"
 	parent: screen
 	width: screen.width
 	height: screen.height
 	backgroundColor: "white"
 
 screen_article_header = new Layer
+	name: "screen_article_header"
 	parent: screen_article
 	width: 375
 	height: 101
@@ -296,10 +308,12 @@ screen_article_header = new Layer
 
 
 screen_article_header_back = new Layer
+	name: "screen_article_header_back"
 	parent: screen_article_header, height: 56, width: 48, y: 44, x: -8
 
 
 screen_article_header_profileButton = new Layer
+	name: "screen_article_header_profileButton"
 	parent: screen_article_header, height: 56, width: 240, y: 44, x: -8 + 48
 
 screen_article_header_profileButton.onTap ->
@@ -312,6 +326,7 @@ screen_article_header_profileButton.onTap ->
 
 
 article_actionBar = new Layer
+	name: "article_actionBar"
 	parent: screen_article
 	width: 375
 	height: 83
@@ -326,18 +341,21 @@ decorateButton(screen_article_header_profileButton)
 
 
 screen_profile = new Layer
+	name: "screen_profile"
 	parent: screen
 	width: screen.width
 	height: screen.height
 	backgroundColor: "white"
 
 profileView = new Layer
+	name: "profileView"
 	parent: screen_profile
 	width: 375
 	height: 812
 	image: "images/profileView.png"
 
 screen_profile_header = new Layer
+	name: "screen_profile_header"
 	parent: screen_profile
 	width: 375
 	height: 101
@@ -345,6 +363,7 @@ screen_profile_header = new Layer
 	backgroundColor: "null"
 
 screen_profile_header_back = new Layer
+	name: "screen_profile_header_back"
 	parent: screen_profile_header, size: 56, y: 44, x: -8
 
 decorateButton(screen_profile_header_back)
@@ -355,21 +374,25 @@ decorateButton(screen_profile_header_back)
 # Search
 
 screen_search = new Layer
+	name: "screen_search"
 	parent: screen
 	width: screen.width
 	height: screen.height
 	backgroundColor: "white"
 
 screen_search_header = new Layer
+	name: "screen_search_header"
 	parent: screen_search
 	width: 375
 	height: 153
 	image: "images/searchHeader.png"
 
 screen_search_header_back = new Layer
+	name: "screen_search_header_back"
 	parent: screen_search_header, size: 48, y: 48, x: 14
 
 screen_search_actionbar = new Layer
+	name: "screen_search_actionbar"
 	parent: screen_search
 	width: 375
 	height: 83
@@ -377,12 +400,14 @@ screen_search_actionbar = new Layer
 	image: "images/web_actionbar.png"
 
 screen_search_actionbar_back = new Layer
+	name: "screen_search_actionbar_back"
 	parent: screen_search_actionbar, size: 48, x: 18, y: 2
 
 screen_search_actionbar_back.onTap ->
 	flow_withoutTabBar.showPrevious()
 
 screen_search_actionbar_home = new Layer
+	name: "screen_search_actionbar_home"
 	parent: screen_search_actionbar, size: 48, x: Align.right(-18), y: 2
 
 screen_search_actionbar_home.onTap ->
@@ -412,22 +437,26 @@ decorateButton(screen_search_actionbar_home)
 # Site
 
 screen_site = new Layer
+	name: "screen_site"
 	parent: screen
 	width: screen.width
 	height: screen.height
 	backgroundColor: "white"
 
 screen_site_header = new Layer
+	name: "screen_site_header"
 	parent: screen_site
 	width: 375
 	height: 105
 	image: "images/siteHeader.png"
 
 screen_site_header_back = new Layer
+	name: "screen_site_header_back"
 	parent: screen_site_header, size: 48, y: 48, x: 14
 
 
 screen_site_actionbar = new Layer
+	name: "screen_site_actionbar"
 	parent: screen_site
 	width: 375
 	height: 83
@@ -435,6 +464,7 @@ screen_site_actionbar = new Layer
 	image: "images/web_actionbar.png"
 
 screen_site_actionbar_back = new Layer
+	name: "screen_site_actionbar_back"
 	parent: screen_site_actionbar, size: 48, x: 18, y: 2
 
 
@@ -455,6 +485,7 @@ screen_site.on(Events.SwipeRightEnd, site_backHandler)
 
 
 screen_site_actionbar_home = new Layer
+	name: "screen_site_actionbar_home"
 	parent: screen_site_actionbar, size: 48, x: Align.right(-18), y: 2
 
 screen_site_actionbar_home.onTap ->
@@ -473,6 +504,7 @@ flow_site = new FlowComponent
 
 createSitePage = (name = "inside page") ->
 	page = new Layer
+		name: "page"
 		width: screen.width
 		height: screen.height - screen_site_header.height - screen_site_actionbar.height
 		backgroundColor: "white"
@@ -501,22 +533,26 @@ decorateButton(screen_site_actionbar_home)
 # Settings
 
 screen_settings = new Layer
+	name: "screen_settings"
 	parent: screen
 	width: 390
 	height: 844
 	backgroundColor: "white"
 
 screen_settings_header = new Layer
+	name: "screen_settings_header"
 	width: 390
 	height: 100
 	image: "images/settingsHeader.png"
 	parent: screen_settings
 
 screen_settings_header_back = new Layer
+	name: "screen_settings_header_back"
 	parent: screen_settings_header, height: 56, width: 56, y: 44, x: -8
 
 
 settingsView_scroll = new ScrollComponent
+	name: "settingsView_scroll"
 	parent: screen_settings
 	width: 390
 	height: 844 - 100
@@ -529,6 +565,7 @@ settingsView_scroll = new ScrollComponent
 
 getSettingsTitle = (title = "Дзен") ->
 	settings_breaker1 = new TextLayer
+		name: "settings_breaker1"
 		name: "breaker"
 		parent: settingsView_scroll.content
 		fontSize: 24
@@ -545,6 +582,7 @@ getSettingsTitle = (title = "Дзен") ->
 
 getSettingsLine = (title = "Строчка") ->
 	settings_zenArticleOpenTypeText = new TextLayer
+		name: "settings_zenArticleOpenTypeText"
 		parent: settingsView_scroll.content
 		fontSize: 16
 		width: 390 - 20
@@ -592,6 +630,7 @@ settings_showTips.onValueChange (value) ->
 
 
 # box = new TextLayer
+	name: "# box"
 # 	parent: settingsView_scroll.content
 # 	text: "Зарепортить баг"
 # 	html: "<button type='button' onclick='alert('Hello world!')'>Click Me!</button>"
@@ -629,6 +668,7 @@ buttonOpenSite.onTap ->
 
 
 buttonOpenArticle = new Layer
+	name: "buttonOpenArticle"
 	parent: screen_main_card
 	width: 375
 	height: screen_main_card.height - 60
@@ -644,6 +684,7 @@ buttonOpenArticle.onTap ->
 	
 
 buttonOpenProfile = new Layer
+	name: "buttonOpenProfile"
 	width: 375
 	height: 60
 	x: 6
@@ -669,6 +710,7 @@ decorateButton(buttonOpenProfile)
 
 
 buttonOpenSettings = new Layer
+	name: "buttonOpenSettings"
 	parent: screen_main_header
 	width: 120
 	height: 80
@@ -690,12 +732,14 @@ decorateButton(screen_settings_header_back)
 # Seamless Exp
 
 screen_seamless = new Layer
+	name: "screen_seamless"
 	parent: screen
 	width: 375
 	height: 812
 	backgroundColor: "white"
 
 screen_seamless_header = new Layer
+	name: "screen_seamless_header"
 	width: 375
 	height: 100
 # 	image: "images/settingsHeader.png"
@@ -703,12 +747,15 @@ screen_seamless_header = new Layer
 	parent: screen_seamless
 
 screen_seamless_header_back = new Layer
+	name: "screen_seamless_header_back"
 	parent: screen_seamless_header, height: 64, width: 60, y: 44
 
 screen_seamless_header_search = new Layer
+	name: "screen_seamless_header_search"
 	parent: screen_seamless_header, height: 64, width: 246, y: 44, x: 60
 
 screen_seamless_header_clear = new Layer
+	name: "screen_seamless_header_clear"
 	parent: screen_seamless_header
 	width: 70, height: 64, x: Align.right(), y: 44
 	image: "images/clear.png"
@@ -719,6 +766,7 @@ screen_seamless_header_clear.states =
 screen_seamless_header_clear.stateSwitch("hidden")
 
 screen_seamless_header_title = new TextLayer
+	name: "screen_seamless_header_title"
 	parent: screen_seamless_header_search
 	text: ""
 	width: screen_seamless_header_search.width
@@ -738,6 +786,7 @@ decorateButton(screen_seamless_header_clear)
 
 
 seamlessView = new Layer
+	name: "seamlessView"
 	parent: screen_seamless
 	width: 375
 	height: 812
@@ -747,6 +796,7 @@ seamlessView.sendToBack()
 
 
 seamlessView_tabs = new Layer
+	name: "seamlessView_tabs"
 	parent: seamlessView
 	width: 375
 	height: 40
@@ -761,6 +811,7 @@ seamlessView_tabs.stateSwitch("hidden")
 
 
 seamlessScroll = new ScrollComponent
+	name: "seamlessScroll"
 	parent: seamlessView
 	width: 375
 	height: seamlessView.height - 149
@@ -773,6 +824,7 @@ seamlessScroll = new ScrollComponent
 
 # dark pattern
 seamlessScroll_trash = new ScrollComponent
+	name: "seamlessScroll_trash"
 	parent: seamlessView
 	x: 3000
 	width: 1
@@ -781,30 +833,35 @@ seamlessScroll_trash = new ScrollComponent
 
 
 seamlessScroll_null = new Layer
+	name: "seamlessScroll_null"
 	parent: seamlessScroll.content
 	width: 375
 	height: 579
 	image: "images/null%20suggest.png"
 
 results1 = new Layer
+	name: "results1"
 	parent: seamlessScroll_trash.content
 	width: 375
 	height: 922
 	image: "images/results1.jpg"
 
 results2 = new Layer
+	name: "results2"
 	parent: seamlessScroll_trash.content
 	width: 375
 	height: 951
 	image: "images/results2.jpg"
 
 results3 = new Layer
+	name: "results3"
 	parent: seamlessScroll_trash.content
 	width: 375
 	height: 987
 	image: "images/results3.jpg"
 
 results4 = new Layer
+	name: "results4"
 	parent: seamlessScroll_trash.content
 	width: 375
 	height: 1557
@@ -833,6 +890,7 @@ results4 = new Layer
 
 
 seamlessActionBar = new Layer
+	name: "seamlessActionBar"
 	parent: seamlessView
 	width: 375
 	height: 83
@@ -842,6 +900,7 @@ seamlessActionBar = new Layer
 
 
 keyboardProxy = new Layer
+	name: "keyboardProxy"
 	opacity: 0	
 	y: -3000
 
@@ -857,6 +916,7 @@ keyboardProxy.on Events.StateSwitchStart, (from, to) ->
 
 
 keyboard = new Layer
+	name: "keyboard"
 	parent: seamlessView
 	width: 375
 	height: 378
@@ -870,6 +930,7 @@ keyboard.stateSwitch("hidden")
 
 
 keyboard_clear = new Layer
+	name: "keyboard_clear"
 	parent: keyboard
 	y: 195
 	x: 325
@@ -880,6 +941,7 @@ decorateButton(keyboard_clear)
 
 
 submitButton = new Layer
+	name: "submitButton"
 	parent: keyboard
 	width: 88
 	height: 43
@@ -897,6 +959,7 @@ decorateButton(keyboard_clear)
 
 
 keyboard_suggest_items = new ScrollComponent
+	name: "keyboard_suggest_items"
 	parent: keyboard
 	width: 375
 	height: 45
@@ -910,6 +973,7 @@ fixColor = new Layer { size: 1, parent: keyboard_suggest_items.content }
 
 
 keyboard_suggest_null = new Layer
+	name: "keyboard_suggest_null"
 	parent: keyboard
 	width: 375
 	height: 45
@@ -932,6 +996,7 @@ updateSuggest = (suggestData = []) ->
 	sumX = 0
 	for textData in suggestData
 		button = new TextLayer
+			name: "button"
 			parent: keyboard_suggest_items.content
 			fontSize: 16
 			backgroundColor: "white"
@@ -961,6 +1026,7 @@ buttonOpenSeamless.onTap ->
 
 
 buttonOpenSeamless_fromInput = new Layer
+	name: "buttonOpenSeamless_fromInput"
 	parent: screen_main_header
 	y: 122
 	height: 68
@@ -1078,6 +1144,7 @@ screen_seamless_header_title.on "change:text", ->
 
 
 tabBar = new Layer
+	name: "tabBar"
 	parent: screen_WithTabBar
 	y: Align.bottom
 	width: 375
@@ -1090,3 +1157,4 @@ tabBar.bringToFront()
 item.sendToBack() for item in [screen_profile, screen_article, screen_search, screen_site, screen_settings, screen_seamless]
 
 checkDecoration()
+

@@ -97,6 +97,7 @@ inputLayer.stateSwitch("start")
 
 inputLayer.querySelector("#myInput").placeholder = "Найти в Яндексе"
 inputLayer.querySelector("#myInput").style["fontFamily"] = "YS Text"
+inputLayer.querySelector("#myInput").style["background"] = "rgba(0,0,0,0)"
 inputLayer.querySelector("#myInput").style["fontWeight"] = 700
 
 
@@ -128,21 +129,24 @@ updateInput = () ->
 # 	successQuery = inputLayer.querySelector("#myInput").value
 
 focusHandler = () ->
+	# print "?"
 	htmlInput.focus()
 	
-	if inputLayer.states.current.name == "start"
-		inputLayer.animate("focus")
-		startPage.animate("focus")
-		backButton.animate("focus")
+	# if inputLayer.states.current.name == "start"
+	inputLayer.animate("focus")
+	startPage.animate("focus")
+	backButton.animate("focus")
 
 
 blurHandler = (event, layer) ->
 	htmlInput.blur()
+	# print inputLayer.querySelector("#myInput")
+	inputLayer.querySelector("#myInput").blur()
 	
-	if inputLayer.states.current.name == "focus"
-		inputLayer.animate("start")
-		startPage.animate("start")
-		backButton.animate("start")
+	# if inputLayer.states.current.name == "focus"
+	inputLayer.animate("start")
+	startPage.animate("start")
+	backButton.animate("start")
 
 
 # StartPage
@@ -160,13 +164,14 @@ backButton.stateSwitch("start")
 
 backButton.on(Events.Tap, blurHandler)
 
+
 startPage_search = new Layer
 	parent: startPage
 	width: 375, height: 99
 	y: Align.bottom
 	image: "images/searchNewTab.png"
 
-backButton.on(Events.Tap, focusHandler)
+startPage_search.on(Events.Tap, focusHandler)
 
 
 startPage_avatar = new Layer
@@ -177,5 +182,5 @@ startPage_avatar = new Layer
 	image: "images/photos.png"
 
 
-startPage_search.on(Events.Tap, focusHandler)
+# startPage_search.on(Events.Tap, focusHandler)
 inputLayer.on(Events.Tap, focusHandler)

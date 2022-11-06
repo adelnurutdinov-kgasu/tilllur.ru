@@ -4,7 +4,7 @@
 screen = new Layer { width: 360, height: 760, image: "images/screen.png" }
 preview = new Preview { view: screen, borderRadius: 24 }
 
-panel = require 'ControlPanel'
+# panel = require 'ControlPanel'
 
 
 # Tips
@@ -63,10 +63,18 @@ showTipHorizontal = () ->
 showTipCorner = () ->
 	cornerTip.stateCycle(["shown", "hidden"])
 
-panel.header("Show tip", "left")
-panel.button("Horizontal", showTipHorizontal, "left", "online")
-panel.button("Diagonal", showTipCorner, "left", "online")
-panel.button("Vertical", showTipVertical, "left", "online")
+
+
+preview.addSection("Show tip", [
+	{ title: "Horizontal", handler: showTipHorizontal },
+	{ title: "Diagonal", handler: showTipCorner },
+	{ title: "Vertical", handler: showTipVertical },
+])
+
+# panel.header("Show tip", "left")
+# panel.button("Horizontal", showTipHorizontal, "left", "online")
+# panel.button("Diagonal", showTipCorner, "left", "online")
+# panel.button("Vertical", showTipVertical, "left", "online")
 
 
 for item in [tooltipView, sideTip, cornerTip]
@@ -84,5 +92,5 @@ avatarFix = new Layer
 	x: Align.right(-30), y: Align.bottom(-10)
 	size: 28, borderRadius: 100
 	backgroundColor: "white"
-	image: "https://tilllur.ru/shared/avatars/tilllur.png"
+	image: "https://tilllur.com/shared/avatars/tilllur.png"
 

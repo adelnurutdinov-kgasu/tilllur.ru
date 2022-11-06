@@ -87,16 +87,12 @@ class exports.PreviewClass4 extends PreviewClass3
 		@center()
 		@originY = 0.5
 		@originX = 0.5
+
+		# print @width + ' ' + @height
+		
 		
 		if @viewSize(375, 812) or @viewSize(390, 844) or @viewSize(414, 896) or @viewSize(428, 926)
-			
-			if @screenSize(375, 768) or @screenSize(390, 797) or @screenSize(414, 852) or @screenSize(428, 879)
-				@scale = Screen.width / @width
-			else
-				@setCustomPreview()
-		
-# 		else if @view.width == 360
-			
+			@scale = Screen.width / @width
 		else
 			@setCustomPreview()
 	

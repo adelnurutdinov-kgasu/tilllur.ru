@@ -1,0 +1,22 @@
+{
+  "orientation" : 0,
+  "updateDelay" : 0.29999999999999999,
+  "designModeSelected" : 0,
+  "cachedDeviceHeight" : 640,
+  "contentScale" : 1,
+  "cachedDeviceWidth" : 360,
+  "fullScreen" : false,
+  "deviceType" : "google-nexus-5x",
+  "sharedPrototype" : 0,
+  "propertyPanelToggleStates" : {
+
+  },
+  "projectId" : "6951C8B5-CE41-4911-A505-CD8C9F934C70",
+  "deviceOrientation" : 0,
+  "selectedHand" : "",
+  "showBezel" : false,
+  "foldedCodeRanges" : [
+    "{0, 3006}"
+  ],
+  "deviceScale" : "fit"
+}

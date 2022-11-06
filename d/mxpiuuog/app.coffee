@@ -98,9 +98,9 @@ titleSupportText = new TextLayer
 	color: "rgba(0,0,0,0.3)"
 
 titleSupportText.states =
-	"protect": { text: "3 трекера заблокировано" }
-	"rating": { text: "67 отзывов" }
-	"reader": { text: "доступен режим чтения" }
+	"protect": { text: "3 trackers blocked" }
+	"rating": { text: "67 reviews" }
+	"reader": { text: "reading mode available" }
 	"shown": { opacity: 1 }
 	"hidden": { opacity: 0 }
 titleSupportText.stateSwitch("protect")
@@ -138,7 +138,7 @@ flow.showNext(startPage)
 
 gapButton = 60
 
-createButton = (title = "Показать сайт") ->
+createButton = (title = "Show site") ->
 	button = new TextLayer
 		parent: startPage
 		text: title
@@ -148,7 +148,7 @@ createButton = (title = "Показать сайт") ->
 		color: "black"
 		opacity: .8
 
-button0 = createButton("Обычный сайт")
+button0 = createButton("Regular site")
 button0.y = 100
 
 button0.onTap ->
@@ -162,7 +162,7 @@ button0.onTap ->
 
 
 
-button1 = createButton("Режим чтения")
+button1 = createButton("Reading Mode")
 button1.y = button0.y + gapButton
 
 button1.onTap ->
@@ -187,7 +187,7 @@ button1.onTap ->
 
 
 
-button2 = createButton("С отзывами")
+button2 = createButton("With Reviews")
 button2.y = button1.y + gapButton
 
 button2.onTap ->
@@ -215,7 +215,7 @@ button2.onTap ->
 
 
 
-button3 = createButton("С блокировщиком")
+button3 = createButton("With Ad Blockers")
 button3.y = button2.y + gapButton
 
 button3.onTap ->
@@ -242,7 +242,7 @@ button3.onTap ->
 
 
 
-button4 = createButton("Отзывы и блокировщик")
+button4 = createButton("Reviews & Ad Blockers")
 button4.y = button3.y + gapButton
 
 button4.onTap ->

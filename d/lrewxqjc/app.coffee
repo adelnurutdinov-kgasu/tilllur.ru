@@ -804,4 +804,4 @@ avatarFix = new Layer
 	x: Align.right(-27), y: Align.bottom(-10)
 	size: 28, borderRadius: 100
 	backgroundColor: "white"
-	image: "https://tilllur.ru/shared/avatars/tilllur.png"
+	image: "https://tilllur.com/shared/avatars/tilllur.png"

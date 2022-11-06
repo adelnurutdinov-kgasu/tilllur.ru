@@ -1,0 +1,28 @@
+{
+  "orientation" : 0,
+  "updateDelay" : 0.29999999999999999,
+  "designModeSelected" : 0,
+  "cachedDeviceHeight" : 640,
+  "contentScale" : 1,
+  "cachedDeviceWidth" : 360,
+  "fullScreen" : false,
+  "deviceType" : "google-nexus-5x",
+  "sharedPrototype" : true,
+  "propertyPanelToggleStates" : {
+    "Filters" : false
+  },
+  "projectId" : "8FAD2578-D9E3-441C-8F66-FE3992060F77",
+  "deviceOrientation" : 0,
+  "selectedHand" : "",
+  "showBezel" : false,
+  "foldedCodeRanges" : [
+    "{25, 1095}",
+    "{1309, 962}",
+    "{2377, 1479}",
+    "{3857, 1101}",
+    "{4961, 1212}",
+    "{6174, 1012}",
+    "{7187, 854}"
+  ],
+  "deviceScale" : "fit"
+}

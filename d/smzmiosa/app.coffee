@@ -17,7 +17,7 @@ screen = new Layer
 	backgroundColor: "white"
 
 
-new Preview { view: screen }
+preview = new Preview { view: screen }
 
 Framer.Extras.Preloader.setLogo("images/v2.mov")
 
@@ -208,16 +208,15 @@ setTwo20 = (event, layer, setValue = 20) ->
 
 
 
-panel = require 'ControlPanel'
+preview.addSection("First Slide Timing", [
+	{ title: "5", handler: setOne5 },
+	{ title: "10 secs", handler: setOne10 },
+	{ title: "15", handler: setOne15 }
+])
 
-panel.header("Первый слайд", "left")
-panel.button("5", setOne5, "left", "toggle")
-panel.button("10", setOne10, "left", "toggle")
-panel.button("15", setOne15, "left", "toggle")
-
-panel.header("Второй слайд", "left")
-panel.button("5", setTwo5, "left", "toggle2")
-panel.button("10", setTwo10, "left", "toggle2")
-panel.button("15", setTwo15, "left", "toggle2")
-panel.button("20", setTwo20, "left", "toggle2")
-
+preview.addSection("Second Slide Timing", [
+	{ title: "5", handler: setTwo5 },
+	{ title: "10", handler: setTwo10 },
+	{ title: "15 secs", handler: setTwo15 },
+	{ title: "20", handler: setTwo20 },
+])

@@ -160,7 +160,7 @@ figmaView.on Events.Click, ->
 
 
 { Preview } = require "PreviewComponent"
-new Preview { view: figmaView, borderRadius: 24, topTheme: "light" }
+new Preview { view: figmaView, borderRadius: 24, statusBar: "light" }
 
 nextStateHandler = () ->
 

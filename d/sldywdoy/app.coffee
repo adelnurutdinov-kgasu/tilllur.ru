@@ -11,7 +11,7 @@ createCard = (cardHeight = 375) ->
 { Preview } = require "PreviewComponent"
 
 screen = new Layer { width: 375, height: 812, backgroundColor: "111" }
-new Preview { view: screen, topTheme: "light", bottomTheme: "light" }
+new Preview { view: screen, statusBar: "light", homeBar: "light" }
 
 # Scroll
 
@@ -58,6 +58,9 @@ feedScroll.on "change:currentPage", ->
 		video1.player.pause()
 
 # View
+
+
+
 
 header = new Layer
 	parent: screen
@@ -111,6 +114,17 @@ card2.stateSwitch("page0")
 
 
 
+fixHeader = new Layer
+	parent: screen
+	width: 375
+	height: 100
+	backgroundColor: "black"
+
+fixHeader.states =
+	"page0": { opacity: 0 }
+	"page1": { opacity: 1 }
+fixHeader.stateSwitch("page0")
+
 zenHeader = new Layer
 	parent: screen
 	width: 375
@@ -138,7 +152,7 @@ gaps = [
 	[deltaData[0], deltaData[1]]
 ]
 
-fastHide = [0, deltaData[0] / 2 + 20]
+fastHide = [0, deltaData[0] / 2 - 30]
 lateHide = [deltaData[0] / 2 - 20, deltaData[0]]
 
 feedScroll.content.on "change:y", ->
@@ -156,6 +170,7 @@ feedScroll.content.on "change:y", ->
 									[card2, "y", gaps[0]],
 									[header, "opacity", fastHide],
 									[zenHeader, "opacity", gaps[0]],
+									[fixHeader, "opacity", gaps[0]],
 			
 		]
 	

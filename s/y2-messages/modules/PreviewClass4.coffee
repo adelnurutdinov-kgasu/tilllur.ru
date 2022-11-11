@@ -91,7 +91,7 @@ class exports.PreviewClass4 extends PreviewClass3
 		# print @width + ' ' + @height
 		
 		
-		if @viewSize(360, 640) or @viewSize(375, 667) or @viewSize(375, 812) or @viewSize(390, 844) or @viewSize(414, 896) or @viewSize(428, 926)
+		if @viewSize(375, 812) or @viewSize(390, 844) or @viewSize(414, 896) or @viewSize(428, 926)
 			@scale = Screen.width / @width
 		else
 			@setCustomPreview()

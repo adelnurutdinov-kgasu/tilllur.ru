@@ -88,17 +88,19 @@ inputLayer = new Layer
 	width: 315, height: 132, x: 30
 	backgroundColor: null
 # 	html: "<form id='myForm' onSubmit='search();return false;' action='#'><input id='myInput' multiple type='search' autocapitalize='off' autocomplete='off' autocorrect='off' style='color: rgba(0,0,0,1); background-color: rgba(255, 255, 255, 1); width: 295px; height: 132px; font-size: 32px; resize: vertical; box-sizing: border-box; text-overflow:ellipsis; -webkit-tap-highlight-color: transparent; -webkit-appearance: none;'></form>"
-	html: "<textarea onmouseover='return false;' id='myInput' name='Text1' rows='5' cols='100' style=' height: 132px; font-size: 32px; border: 0; margin: 0; padding: 0; box-sizing: border-box; width: 100%; -webkit-tap-highlight-color: transparent; -webkit-appearance: none;'></textarea>"
+	html: "<textarea onmouseover='return false;' id='myInput' name='Text1' rows='5' cols='100' style=' height: 132px; font-size: 32px; border: 0; margin: 0; padding: 0; box-sizing: border-box; width: 100%; -webkit-tap-highlight-color: transparent; -webkit-appearance: none; outline-width: 0; outline: none;'></textarea>"
 
 inputLayer.states =
 	"start": { y: 128 }
 	"focus": { y: 208 }
 inputLayer.stateSwitch("start")
 
-inputLayer.querySelector("#myInput").placeholder = "Найти в Яндексе"
-inputLayer.querySelector("#myInput").style["fontFamily"] = "YS Text"
+inputLayer.querySelector("#myInput").placeholder = "search everything"
+inputLayer.querySelector("#myInput").style["fontFamily"] = "Verdana, SF Pro UI, System"
 inputLayer.querySelector("#myInput").style["background"] = "rgba(0,0,0,0)"
 inputLayer.querySelector("#myInput").style["fontWeight"] = 700
+
+# inputLayer.querySelector("body").style["outline-width"] = 0
 
 
 htmlInput = inputLayer.querySelector("#myInput")

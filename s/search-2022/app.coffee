@@ -134,10 +134,15 @@ storiesScroll.content.on Events.DragEnd, ->
 
 storiesContent = new Layer
 	parent: storiesScroll.content
-	width: 736
+	width: 664
 	height: 128
-	image: "images/stories2.png"
+	image: "images/stories3.png"
 
+
+# stories3 = new Layer
+# 	width: 664.0
+# 	height: 128.0
+# 	image: "images/stories3.png"
 
 
 

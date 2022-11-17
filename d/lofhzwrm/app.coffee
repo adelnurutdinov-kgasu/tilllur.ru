@@ -67,12 +67,20 @@ scrollView.snapToPage(pageMid, false)
 
 # Content
 
-themes = new Layer
+# themes = new Layer
+# 	parent: pageLeft
+# 	width: 375
+# 	height: 353
+# 	y: 114
+# 	image: "images/themes.png"
+
+film = new Layer
 	parent: pageLeft
-	width: 375
-	height: 353
-	y: 114
-	image: "images/themes.png"
+	width: 375.0
+	height: 614.0
+	y: 106
+	image: "images/film.png"
+
 
 navigationView = new Layer
 	parent: pageRight

@@ -22,7 +22,7 @@ class SlideTemplate extends Layer
 			backgroundColor: "#222"
 			width: 1400 * 2
 			height: 900 * 2
-			borderRadius: 16 * 2
+			borderRadius: 8 * 2
 			title: ""
 			image: null
 			clip: true
@@ -54,6 +54,23 @@ class SlideTemplate extends Layer
 		topImage = new Layer
 			parent: @, width: 1400 * 2, height: 900 * 2
 			image: image
+		return @
+	
+	background: (image) =>
+		bottomImage = new Layer
+			parent: @, width: 1400 * 2, height: 900 * 2
+			image: image
+		bottomImage.sendToBack()
+		return @
+
+
+
+	blend: (image) =>
+		topImage = new Layer
+			parent: @, width: 1400 * 2, height: 900 * 2
+			image: image
+			blending: "exclusion"
+			borderRadius: @borderRadius
 		return @
 	
 	randomColor: () =>
@@ -100,6 +117,8 @@ class Slide extends SlideTemplate
 		else if type == 1
 			@tintButton.backgroundColor = "rgba(0,0,0,0.25)"
 			@tintButton.borderColor = null
+		
+		return @
 	
 	openPrototypeURL: () =>
 		presentation = @parent.parent
@@ -135,16 +154,16 @@ class SimpleVideoSlide extends Slide
 		@videoView = new VideoLayer
 			width: 1680, height: 1080
 			name: "videoView", backgroundColor: "null"
-		
-		
-		
-		@videoView.player.muted = true
-		@videoView.player.autoplay = false
-		@videoView.player.loop = true
+			clip: true
 		
 		
 		super @options
 
+		@videoView.player.muted = true
+		@videoView.player.autoplay = false
+		@videoView.player.loop = false
+
+		@videoView.borderRadius = @borderRadius
 		
 		@loadingText.parent = @
 		@loadingText.center()
@@ -163,6 +182,8 @@ class SimpleVideoSlide extends Slide
 	# override
 	source: (video) =>
 		@videoView.video = video
+		@videoView.player.loop = false
+
 		@loadingText.text = "Loading"
 		@name = @name + ": " + video
 		return @
@@ -171,7 +192,7 @@ class SimpleVideoSlide extends Slide
 
 
 	loop: (value = true) =>
-		@videoView.player.loop = true
+		@videoView.player.loop = value
 		return @
 	
 	mute: (value = true) =>
@@ -304,7 +325,12 @@ class VideoSlide extends SimpleVideoSlide
 				@playerSlider.soundButton.stateSwitch("sound")
 
 				
-		
+
+
+
+
+
+
 class HDVideoSlide extends VideoSlide
 	constructor: (@options={}) ->
 		super @options
@@ -314,17 +340,45 @@ class HDVideoSlide extends VideoSlide
 		@videoView.x = 440
 		@videoView.y = 286
 
-		@videoView.borderRadius = 8 * 2
+		# @backgroundColor = "red"
+		# @videoView.backgroundColor = "blue"
+
+		@videoView.borderRadius = @borderRadius
+		@videoView.clip = true
+
+		@videoView.originX = 0.5
+		@videoView.originY = 0.5
+		@videoView.scale = 1.3666
+
+		@playerSlider.parent.stateSwitch("wide")
+		@playerSlider.parent.x = Align.center()
+		@playerSlider.parent.y = Align.bottom(-32 * 2)
+
+
+
+class PhoneVideoSlideCenter extends HDVideoSlide
+	constructor: (@options={}) ->
+		super @options
+		
+		# @backgroundColor = "red"
+		@videoView.width = 375
+		@videoView.height = 812
+		@videoView.x = Align.center
+		@videoView.y = Align.center
+
+		@videoView.borderRadius = 42
 		@videoView.clip = true
 
 
 		@videoView.originX = 0.5
 		@videoView.originY = 0.5
 
-		@videoView.scale = 1.3666
-
-
-		@playerSlider.updateForScaleDown()
+		@videoView.scale = (900 - 44 * 2) * 2 / 812
+		
+		@playerSlider.parent.stateSwitch("compact")
+		@playerSlider.parent.x = Align.left(98*2)
+		@playerSlider.parent.y = Align.bottom(-60 * 2)
+		# @playerSlider.updateForScaleLeft()
 
 
 			
@@ -348,6 +402,7 @@ class PrototypeSlide extends Slide
 		@prototypeView = new Layer
 			name: "prototype"
 			backgroundColor: null
+			# backgroundColor: "red"
 			borderRadius: 42
 			clip: true
 		
@@ -395,6 +450,7 @@ class PrototypeSlide extends Slide
 	source: (originURL) =>
 		url = originURL + "?logo=off&button=off"
 		
+		# print "?"
 		contentView = new Layer
 			parent: @prototypeView
 			width: @prototypeView.width, height: @prototypeView.height, backgroundColor: null
@@ -405,21 +461,21 @@ class PrototypeSlide extends Slide
 	
 	
 	
-	createWebView: (webURL) =>
+	# createWebView: (webURL) =>
 		
-		view = new Layer
-			width: @imageSize.width, height: @imageSize.height
-			name: "webview", backgroundColor: null, borderRadius: @imageRadius
-			clip: true
+	# 	view = new Layer
+	# 		width: @imageSize.width, height: @imageSize.height
+	# 		name: "webview", backgroundColor: null, borderRadius: @imageRadius
+	# 		clip: true
 		
-		contentView = new Layer
-			parent: view
-			width: @imageSize.width, height: @imageSize.height, backgroundColor: null
-			html: "<iframe style='position: absolute; width: 100%; height: 100%;' src='#{webURL}'></iframe>"
-			ignoreEvents: false, clip: true
+	# 	contentView = new Layer
+	# 		parent: view
+	# 		width: @imageSize.width, height: @imageSize.height, backgroundColor: null
+	# 		html: "<iframe style='position: absolute; width: 100%; height: 100%;' src='#{webURL}'></iframe>"
+	# 		ignoreEvents: false, clip: true
 		
-		return view
+	# 	return view
 
 
 
-module.exports = {Slide, SimpleVideoSlide, VideoSlide, HDVideoSlide, PrototypeSlide}
+module.exports = {Slide, SimpleVideoSlide, VideoSlide, HDVideoSlide, PrototypeSlide, PhoneVideoSlideCenter}

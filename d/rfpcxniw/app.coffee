@@ -146,7 +146,7 @@ storiesContent = new Layer
 	parent: storiesScroll.content
 	width: 796
 	height: 194
-	image: "images/stories.png"
+	image: "images/stories4.png"
 
 
 
@@ -382,3 +382,6 @@ scrollView.content.on "change:y", ->
 
 
 # screen.scale = 1.7
+
+
+

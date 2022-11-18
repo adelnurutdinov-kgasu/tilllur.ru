@@ -2,8 +2,9 @@
 
 screen = new Layer
 	width: 375, height: 812
+	backgroundColor: "333"
 
-new Preview { view: screen, topTheme: "light", bottomTheme: "light" }
+preview = new Preview { view: screen, statusBar: "light", homeBar: "light" }
 
 Framer.Defaults.Animation =
 	curve: Spring(damping: 1), time: 0.5
@@ -51,7 +52,7 @@ group1 = new PageComponent
 	scrollHorizontal: false
 	directionLock: true
 	backgroundColor: null
-	image: "images/wallpaper1.jpg"
+	image: "images/img1.jpg"
 
 group2 = new PageComponent
 	parent: groups.content
@@ -64,7 +65,7 @@ group2 = new PageComponent
 	scrollHorizontal: false
 	directionLock: true
 	backgroundColor: null
-	image: "images/wallpaper2.jpg"
+	image: "images/img2.jpg"
 
 
 group1tabs = new Layer
@@ -169,9 +170,9 @@ groups.onTap ->
 N_forTabs =
 	left: 8
 	right: 6
-	left_groupTitle: "Основное"
-	right_groupTitle: "Учу React"
-	left_title: "dtf.ru"
+	left_groupTitle: "Just my space"
+	right_groupTitle: "Learning React"
+	left_title: "techcrunch.com"
 	right_title: "github.com"
 
 changeTabNumber = (intNumber) ->
@@ -292,7 +293,7 @@ button3.onTap ->
 handleTapFor = (buttonLayer) ->
 	for item, i in buttonView.children
 		if item == buttonLayer then item.opacity = 1
-		else item.opacity = 0.3
+		else item.opacity = 0.8
 
 
 
@@ -434,7 +435,7 @@ arrowSite = new Layer
 	y: Align.bottom(-78)
 	width: 375
 	height: 68
-	image: "images/arrowSite.png"
+	image: "images/arrowSite 1.png"
 
 arrowSite.states =
 	"site": { opacity: 1 }

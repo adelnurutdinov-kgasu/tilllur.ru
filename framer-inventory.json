@@ -1,0 +1,45 @@
+{
+    "title": "Framer Inventory 2014",
+    "slides": [
+        {
+            "video": "https://timurnurutdinov.github.io/temp/slides/yandex-new-2022/videos/page01/cover"
+        },
+        {
+            "image": "https://timurnurutdinov.github.io/temp/slides/yandex-new-2022/images/page03.jpg",
+            "video": "https://timurnurutdinov.github.io/temp/slides/vision-2022-p2/videos/page02/cover"
+        },
+        {
+            "image": "https://timurnurutdinov.github.io/temp/slides/yandex-new-2022/images/page02.jpg",
+            "button": {
+                "title": "Read",
+                "url": "https://medium.com/framer-inventory"
+            }
+        },
+        {
+            "image": "https://timurnurutdinov.github.io/temp/slides/yandex-new-2022/images/page04.jpg"
+        },
+        {
+            "image": "https://timurnurutdinov.github.io/temp/slides/yandex-new-2022/images/page05.jpg"
+        },
+        {
+            "image": "https://timurnurutdinov.github.io/temp/slides/yandex-new-2022/images/page06.jpg"
+        },
+        {
+            "image": "https://timurnurutdinov.github.io/temp/slides/yandex-new-2022/images/page07.jpg"
+            
+        },
+        {
+            "image": "https://timurnurutdinov.github.io/temp/slides/yandex-new-2022/images/page08.jpg"
+        },
+        {
+            "image": "https://timurnurutdinov.github.io/temp/slides/yandex-new-2022/images/page09.jpg"
+        },
+        {
+            "image": "https://timurnurutdinov.github.io/temp/slides/yandex-new-2022/images/page10.jpg"
+        },
+        {
+            "image": "https://timurnurutdinov.github.io/temp/slides/yandex-new-2022/images/page11.jpg"
+        }
+    ]
+}
+

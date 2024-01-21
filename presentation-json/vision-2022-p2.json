@@ -1,0 +1,53 @@
+{
+    "title": "Vision 2022 p2",
+    "id": "vision-2022-p2",
+    "slides": [
+        { "image": "page01.jpg" },
+        {
+            "video": {
+                "src": "page02",
+                "player": {
+                    "type": "shown",
+                    "sound": true
+                }
+            }
+        },
+        { "image": "page03.jpg" },
+        { "image": "page04.jpg" },
+        { "image": "page05.jpg" },
+        { "image": "page06.jpg" },
+        { "image": "page07.jpg" },
+        { "image": "page08.jpg" },
+        { "image": "page09.jpg" },
+        { "image": "page10.jpg" },
+        { "image": "page11.jpg" },
+        { "image": "page12.jpg" },
+        { "image": "page13.jpg" },
+        { "image": "page14.jpg" },
+        { "image": "page15.jpg" },
+        { "image": "page16.jpg" },
+        { "image": "page17.jpg" },
+        { "image": "page18.jpg" },
+        { "image": "page19.jpg" },
+        {
+            "video": {
+                "src": "page20",
+                "player": {
+                    "type": "shown",
+                    "sound": true
+                }
+            }
+        },
+        { "image": "page21.jpg" },
+        { "image": "page22.jpg" },
+        { "image": "page23.jpg" },
+        {
+            "image": "page24.jpg",
+            "button": {
+                "title": "Next",
+                "url": "https://tilllur.com/show/yandex-new-2022"
+            }
+        }
+    ]
+}
+

@@ -1,0 +1,17 @@
+{
+    "title": "Test Prototype",
+    "id": "vision-2022-p1",
+    "slides": [
+        {
+            "image": "page34.jpg",
+            "prototype": {
+                "url": "https://tilllur.com/prototypes/lrtvmtct"
+            },
+            "button": {
+                "title": "Open",
+                "url": "https://tilllur.com/prototypes/lrtvmtct"
+            }
+        },
+    ]
+}
+

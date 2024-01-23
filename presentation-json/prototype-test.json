@@ -1,0 +1,17 @@
+{
+    "title": "Test",
+    "id": "vision-2022-p1",
+    "slides": [
+        {
+            "image": "page01.jpg",
+            "prototype": { "id": "lrtvmtct" }
+        },
+        { "image": "page02.jpg" },
+        { "image": "page04.jpg" },
+        { "image": "page05.jpg" },
+        { "image": "page06.jpg" },
+        { "image": "page07.jpg" },
+        { "image": "page03.jpg" }
+    ]
+}
+

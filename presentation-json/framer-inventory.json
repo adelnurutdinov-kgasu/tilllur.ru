@@ -1,0 +1,146 @@
+{
+    "title": "Framer Inventory 2014",
+    "id": "framer-inventory",
+    "slides": [
+        { "image": "page01.jpg" },
+        { 
+            "video": {
+                "src": "page02",
+                "position": {
+                    "left": "3%",
+                    "top": "2.7%",
+                    "width": "94%",
+                    "height": "82.2%",
+                    "radius": "1vh"
+                },
+                "player": {
+                    "type": "shown",
+                    "sound": true
+                }
+            }
+        },
+        { "image": "page03.jpg" },
+        { "image": "page04.jpg" },
+        { "image": "page05.jpg" },
+        { "image": "page06.jpg" },
+        { "image": "page07.jpg" },
+        { "image": "page08.jpg" },
+        { 
+            "video": {
+                "src": "page09",
+                "position": {
+                    "left": "3%",
+                    "top": "2.7%",
+                    "width": "93.71%",
+                    "height": "82%",
+                    "radius": "1vh"
+                },
+                "player": {
+                    "type": "shown",
+                    "sound": true
+                }
+            }
+        },
+        { "image": "page10.jpg" },
+        { 
+            "video": {
+                "src": "page11",
+                "position": {
+                    "left": "3%",
+                    "top": "2.7%",
+                    "width": "94%",
+                    "height": "82.2%",
+                    "radius": "1vh"
+                },
+                "player": {
+                    "type": "shown",
+                    "sound": true
+                }
+            }
+        },
+        { "image": "page12.jpg" },
+        { "image": "page13.jpg" },
+        { 
+            "video": {
+                "src": "page14",
+                "position": {
+                    "left": "3%",
+                    "top": "2.7%",
+                    "width": "94%",
+                    "height": "82.2%",
+                    "radius": "1vh"
+                },
+                "player": {
+                    "type": "shown",
+                    "sound": true
+                }
+            }
+        },
+        { "image": "page15.jpg" },
+        { "image": "page16.jpg" },
+        { "image": "page17.jpg" },
+        { "image": "page18.jpg" },
+        {
+            "image": "page19.jpg",
+            "button": {
+                "title": "Open",
+                "url": "https://timurnurutdinov.github.io/framerinventory/"
+            }
+        },
+        {
+            "image": "page20.jpg",
+            "button": {
+                "title": "Open",
+                "url": "https://www.producthunt.com/products/framer#framer-inventory-3-for-sketch"
+            }
+        },
+        {
+            "image": "page21.jpg",
+            "button": {
+                "title": "Read",
+                "url": "https://medium.com/framer-inventory"
+            }
+        },
+        { "image": "page22.jpg" },
+        {
+            "image": "page23.jpg",
+            "button": {
+                "title": "More",
+                "url": "https://github.com/ccgus/CocoaScript"
+            }
+        },
+        { "image": "page24.jpg" },
+        { "image": "page25.jpg" },
+        {
+            "image": "page26.jpg",
+            "button": {
+                "title": "Open",
+                "url": "https://github.com/timurnurutdinov/Framer-Inventory-for-Sketch"
+            }
+        },
+        { "image": "page27.jpg" },
+        { "image": "page28.jpg" },
+        { "image": "page29.jpg" },
+        { 
+            "video": {
+                "src": "page30",
+                "position": {
+                    "left": "8%",
+                    "top": "2.7%",
+                    "width": "83.85%",
+                    "height": "82.2%",
+                    "radius": "1vh"
+                },
+                "player": { "type": "shown" }
+            }
+        },
+        { 
+            "image": "page31.jpg",
+            "button": {
+                "title": "Read X",
+                "url": "https://x.com/tilllur/status/1259935602281189376?cxt=HHwWgMC03aewmPwiAAAA"
+            }
+        }
+    ]
+}
+

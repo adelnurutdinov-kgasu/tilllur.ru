@@ -1,0 +1,110 @@
+{
+    "title": "Yandex New 2022",
+    "id": "yandex-new-2022",
+    "slides": [
+        {   
+            "video": {
+                "src": "page01",
+                "position": {
+                    "left": "3%",
+                    "top": "2.7%",
+                    "width": "94%",
+                    "height": "82.7%",
+                    "radius": "1.2%"
+                },
+                "player": {
+                    "type": "right",
+                    "sound": false,
+                    "loop": true,
+                    "preload": true
+                }
+            }
+        },
+        {   
+            "video": {
+                "src": "page09",
+                "position": {
+                    "left": "10%",
+                    "top": "5%",
+                    "width": "80%",
+                    "height": "80%",
+                    "radius": "1.2%"
+                }
+                
+            }
+        },
+        {   
+            "video": {
+                "src": "page21",
+                "position": {
+                    "left": "10%",
+                    "top": "5%",
+                    "width": "80%",
+                    "height": "80%"
+                }
+            }
+        },
+        {   
+            "image": "page01.jpg",
+            "layers": [
+                {   
+                    "src": "page21.jpg",
+                    "position": {
+                        "left": "25%",
+                        "top": "25%",
+                        "width": "50%",
+                        "height": "50%"
+                    }
+                },
+                {   
+                    "src": "page04.jpg",
+                    "position": {
+                        "left": "80%",
+                        "top": "80%",
+                        "width": "20%",
+                        "height": "10%"
+                    }
+                }
+            ],
+            "button": {
+                "title": "Read",
+                "url": "https://example-url.com/article-link"
+            }
+        },
+        { "image": "page03.jpg" },
+        { "image": "page04.jpg" },
+        { "image": "page05.jpg" },
+        { "image": "page06.jpg" },
+        { "image": "page07.jpg" },
+        { "image": "page08.jpg" },
+        { "image": "page09.jpg" },
+        { "image": "page10.jpg" },
+        { "image": "page11.jpg" },
+        { "image": "page12.jpg" },
+        { "image": "page13.jpg" },
+        { "image": "page14.jpg" },
+        { "image": "page15.jpg" },
+        { "image": "page16.jpg" },
+        { "image": "page17.jpg" },
+        { "image": "page18.jpg" },
+        { "image": "page19.jpg" },
+        { "image": "page20.jpg" },
+        { "image": "page21.jpg" },
+        { "image": "page22.jpg" },
+        { "image": "page23.jpg" },
+        { "image": "page24.jpg" },
+        { "image": "page25.jpg" },
+        { "image": "page26.jpg" },
+        { "image": "page27.jpg" },
+        { "image": "page28.jpg" },
+        { "image": "page29.jpg" },
+        { "image": "page30.jpg" },
+        { "image": "page31.jpg" },
+        { "image": "page32.jpg" },
+        { "image": "page33.jpg" },
+        { "image": "page34.jpg" },
+        { "image": "page35.jpg" },
+        { "image": "page36.jpg" }
+    ]
+}
+

@@ -1,0 +1,110 @@
+{
+    "title": "Yandex New 2022",
+    "id": "yandex-new-2022",
+    "slides": [
+        {   
+            "video": {
+                "src": "page01",
+                "position": {
+                    "left": "3%",
+                    "top": "2.7%",
+                    "width": "94%",
+                    "height": "82.2%",
+                    "radius": "1vh"
+                },
+                "player": {
+                    "type": "shown",
+                    "sound": true,
+                    "preload": true
+                }
+            }
+        },
+        { "image": "page02.jpg" },
+        {
+            "image": "page03.jpg",
+            "button": {
+                "title": "Read",
+                "url": "https://techcrunch.com/2022/03/16/russia-yandex-news-vk/"
+            }
+        },
+        { "image": "page04.jpg" },
+        { "image": "page05.jpg" },
+        { "image": "page06.jpg" },
+        { "image": "page07.jpg" },
+        { "image": "page08.jpg" },
+        {   
+            "video": {
+                "src": "page09",
+                "position": {
+                    "left": "8.78%",
+                    "top": "2.7%",
+                    "width": "82.44%",
+                    "height": "82.0%",
+                    "radius": "1vh"
+                },
+                "player": {
+                    "type": "shown"
+                }
+            }
+        },
+        { "image": "page10.jpg" },
+        { "image": "page11.jpg" },
+        { "image": "page12.jpg" },
+        { "image": "page13.jpg" },
+        { "image": "page14.jpg" },
+        { "image": "page15.jpg" },
+        { "image": "page16.jpg" },
+        { "image": "page17.jpg" },
+        { "image": "page18.jpg" },
+        { "image": "page19.jpg" },
+        { "image": "page20.jpg" },
+        {   
+            "video": {
+                "src": "page21",
+                "position": {
+                    "left": "36.6%",
+                    "top": "4.888%",
+                    "width": "26.7857%",
+                    "height": "90.22%",
+                    "radius": "4vh"
+                },
+                "player": {
+                    "type": "left",
+                    "sound": false
+                }
+            },
+            "button": {
+                "title": "Store",
+                "url": "https://apps.apple.com/app/id1050704155"
+            }
+        },
+        { "image": "page22.jpg" },
+        { "image": "page23.jpg" },
+        { "image": "page24.jpg" },
+        { "image": "page25.jpg" },
+        { "image": "page26.jpg" },
+        { "image": "page27.jpg" },
+        { "image": "page28.jpg" },
+        {
+            "image": "page29.jpg",
+            "button": {
+                "title": "Read",
+                "url": "https://yandex.com/company/press_center/press_releases/2022/2022-08-23"
+            }
+        },
+        {
+            "image": "page30.jpg",
+            "button": {
+                "title": "Read",
+                "url": "https://yandex.com/company/press_center/press_releases/2022/2022-09-12"
+            }
+        },
+        { "image": "page31.jpg" },
+        { "image": "page32.jpg" },
+        { "image": "page33.jpg" },
+        { "image": "page34.jpg" },
+        { "image": "page35.jpg" },
+        { "image": "page36.jpg" }
+    ]
+}
+

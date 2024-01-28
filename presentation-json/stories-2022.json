@@ -1,0 +1,49 @@
+{
+    "title": "Stories 2022",
+    "id": "stories-2022",
+    "slides": [
+        {
+            "video": {
+                "src": "page01",
+                "player": { "type": "hidden" }
+            }
+        },
+        { "image": "page02.jpg" },
+        { "image": "page03.jpg" },
+        { "image": "page04.jpg" },
+        { "image": "page05.jpg" },
+        { "image": "page06.jpg" },
+        { "image": "page07.jpg" },
+        { "image": "page08.jpg" },
+        { "image": "page09.jpg" },
+        { "image": "page10.jpg" },
+        { "image": "page11.jpg" },
+        { "image": "page12.jpg" },
+        { "image": "page13.jpg" },
+        { "image": "page14.jpg" },
+        { "image": "page15.jpg" },
+        { "image": "page16.jpg" },
+        { "image": "page17.jpg" },
+        { "image": "page18.jpg" },
+        { "image": "page19.jpg" },
+        { "image": "page20.jpg" },
+        { "image": "page21.jpg" },
+        { "image": "page22.jpg" },
+        { "image": "page23.jpg" },
+        { "image": "page24.jpg" },
+        { "image": "page25.jpg" },
+        { "image": "page26.jpg" },
+        { "image": "page27.jpg" },
+        {
+            "image": "page28.jpg",
+            "prototype": {
+                "url": "https://tilllur.com/show/stories-2022"
+            },
+            "button": {
+                "title": "Open",
+                "url": "https://tilllur.com/prototypes/smzmiosa"
+            }
+        }
+    ]
+}
+

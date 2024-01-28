@@ -1,0 +1,90 @@
+{
+  "title-2022": {
+    "height": 4,
+    "grid": [
+      {
+        "size": { "w": 6, "h": 4 },
+        "id": "yandex-new-2022",
+        "type": "video",
+        "url": "/show/yandex-new-2022",
+        "meta": true
+      },
+      {
+        "size": { "w": 1, "h": 1 },
+        "id": "prototypes_top",
+        "type": "video",
+        "url": "/prototypes",
+        "meta": true
+      },
+      {
+        "size": { "w": 1, "h": 1 },
+        "id": "prototypes_all",
+        "type": "video",
+        "url": "/prototypes#all",
+        "meta": true
+      },
+      {
+        "size": { "w": 2, "h": 3 },
+        "id": "tibogtmw",
+        "type": "video",
+        "url": "/demo/tibogtmw"
+      }
+    ]
+  },
+    "section-a-2022": {
+      "height": 3,
+      "grid": [
+        {
+          "size": { "w": 2, "h": 2 },
+          "id": "vision-2022-p2",
+          "type": "image",
+          "url": "/show/vision-2022-p2",
+          "meta": true
+        },
+        {
+          "size": { "w": 2, "h": 3 },
+          "id": "urcpukgk",
+          "type": "video",
+          "url": "/demo/urcpukgk"
+        },
+        {
+          "size": { "w": 4, "h": 3 },
+          "id": "vision-2022-p1",
+          "type": "image",
+          "url": "/show/vision-2022-p1",
+          "meta": true
+        },
+        {
+          "size": { "w": 1, "h": 1 },
+          "id": "dqpvsned",
+          "type": "video",
+          "url": "/demo/dqpvsned"
+        },
+        {
+          "size": { "w": 1, "h": 1 },
+          "id": "nvifdtwk",
+          "type": "video",
+          "url": "/demo/nvifdtwk"
+        }
+      ]
+  },
+    "section-b-2022": {
+      "height": 3,
+      "grid": [
+        {
+          "size": { "w": 2, "h": 2 },
+          "id": "framer-inventory",
+          "type": "image",
+          "url": "/show/framer-inventory",
+          "meta": true
+        },
+        {
+          "size": { "w": 4, "h": 3 },
+          "id": "stories-2022",
+          "type": "image",
+          "url": "/show/stories-2022",
+          "meta": true
+        }
+      ]
+  }
+}

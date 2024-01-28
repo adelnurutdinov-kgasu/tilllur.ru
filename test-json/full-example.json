@@ -1,0 +1,46 @@
+{
+    "title": "Name",
+    "slides": [
+        {
+            "background": [{
+                "video": "https://example-url.com/video.mp4"
+            }],
+            "layers": [{
+                "layerA": {
+                    "x": 0.4,
+                    "y": 0.4,
+                    "width": 0.5,
+                    "height": 0.5,
+                    "image": "https://example-url.com/image.png"
+                },
+                "layerB": {
+                    "x": 0.4,
+                    "y": 0.4,
+                    "width": 0.5,
+                    "height": 0.5,
+                    "video": "https://example-url.com/layer-video.mp4",
+                    "player": {
+                        "loop": true,
+                        "sound": true
+                    }
+                }
+            }],
+            "cover": [{
+                "image": "https://example-url.com/some-cover.png"
+            }],
+            "preview": "https://example-url.com/preview.jpg",
+            "button": {
+                "title": "Read",
+                "url": "https://example-url.com/article-link"
+            }
+        },
+        {
+            "image": "https://example-url.com/preview.jpg"
+        },
+        {
+            "video": "https://example-url.com/video.mp4"
+        }
+
+    ]
+}
+

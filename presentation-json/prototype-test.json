@@ -4,7 +4,10 @@
     "slides": [
         {
             "image": "page01.jpg",
-            "prototype": { "id": "lrtvmtct" }
+            "prototype": {
+                "id": "lrtvmtct",
+                "type": "mobile"
+            }
         },
         { "image": "page02.jpg" },
         { "image": "page04.jpg" },

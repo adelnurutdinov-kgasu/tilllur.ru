@@ -1,16 +1,16 @@
 {
-  "name-1": "первая модель",
-  "name-2": "вторая модель",
+  "name-1": "белая модель",
+  "name-2": "цветная модель",
   "pairs": [
     {
         "prompt": "сравнение двух квадратных изображений",
         "src-1": "https://avatars.mds.yandex.net/get-shedevrum/11476535/7c908d81c44611eea1b5a67ef26bc006/orig",
-        "src-2": "https://avatars.mds.yandex.net/get-shedevrum/11473245/f9228cbec44311ee84014225b8a7f943/orig"
+        "src-2": "https://avatars.mds.yandex.net/get-shedevrum/11451254/5ad4071fbed211ee9e36baaee90618f0/orig"
     },
     {
         "prompt": "сравнение двух изображений с произвольным aspect ratio",
-        "src-1": "https://avatars.mds.yandex.net/get-images-similar-mturk/5396204/FpXvTYzrh4YzH/orig",
-        "src-2": "https://avatars.mds.yandex.net/get-images-similar-mturk/5396204/FpfMEnORPl_xF/orig"
+        "src-1": "https://tilllur.com/shared/json/horizontal.jpg",
+        "src-2": "https://tilllur.com/shared/json/vertical.jpg"
     },
     {
         "prompt": "сравнение двух квадратных видео (формат mp4)",

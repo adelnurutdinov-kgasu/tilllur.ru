@@ -9,31 +9,31 @@
     },
     {
         "prompt": "сравнение двух изображений с произвольным aspect ratio",
-        "src-1": "https://tilllur.com/shared/json/horizontal.jpg",
-        "src-2": "https://tilllur.com/shared/json/vertical.jpg"
+        "src-1": "https://tilllur.com/shared/json/samples/horizontal.png",
+        "src-2": "https://tilllur.com/shared/json/samples/vertical.jpg"
     },
     {
         "prompt": "сравнение двух квадратных видео (формат mp4)",
-        "src-1": "http://cvlab.s3.yandex.net/sbs/a9e910ffcc6a9e8dd65ba4a1976ef21f.mp4",
-        "src-2": "http://cvlab.s3.yandex.net/sbs/1c7dcddf0f583bffe7b12cf696bcb3bb.mp4"
+        "src-1": "https://masterpiecer-videos.s3.yandex.net/f6b689cd4cc811ee929956181a0358a2",
+        "src-2": "https://masterpiecer-videos.s3.yandex.net/4d12e2b84cc811eea5e83a06614cf266"
     },
     {
         "prompt": "сравнение двух видео с произвольным aspect ratio (форматы mov и webm)",
-        "src-1": "https://timurnurutdinov.github.io/temp/covers/tibogtmw/cover.webm",
-        "src-2": "https://timurnurutdinov.github.io/temp/covers/yandex-new-2022/cover.mov"
+        "src-1": "https://tilllur.com/shared/json/samples/horizontal.mp4",
+        "src-2": "https://tilllur.com/shared/json/samples/vertical.mp4"
     },
     {
-        "src-1": "https://avatars.mds.yandex.net/get-shedevrum/11451254/f6b65022c22011eea317feda328ae3aa/orig",
-        "src-2": "https://avatars.mds.yandex.net/get-shedevrum/12154225/2b3aa5e6c22111ee81fc0272250bcc9d/orig",
+        "src-1": "https://avatars.mds.yandex.net/get-shedevrum/12154225/2b3aa5e6c22111ee81fc0272250bcc9d/orig",
+        "src-2": "https://avatars.mds.yandex.net/get-shedevrum/11451254/f6b65022c22011eea317feda328ae3aa/orig",
         "image-prompt": [
-            "https://avatars.mds.yandex.net/get-shedevrum/12800065/debb7836c2cc11eea90b7ab0f2fccf97/orig",
-            "https://avatars.mds.yandex.net/get-shedevrum/12161431/27af4b10c1e711ee93ba7acfd41307a6/orig"
+            "https://avatars.mds.yandex.net/get-shedevrum/12161431/27af4b10c1e711ee93ba7acfd41307a6/orig",
+            "https://avatars.mds.yandex.net/get-shedevrum/12800065/debb7836c2cc11eea90b7ab0f2fccf97/orig"
         ]
     },
     {
         "prompt": "несколько изображений и текст на входе",
-        "src-1": "https://avatars.mds.yandex.net/get-shedevrum/12961523/fc070e89c1bc11eeb19a123c9da969d2/orig",
-        "src-2": "https://avatars.mds.yandex.net/get-shedevrum/11451254/ff5b6be7c15211eeaac92e0a4af00d3d/orig",
+        "src-1": "https://avatars.mds.yandex.net/get-shedevrum/11451254/ff5b6be7c15211eeaac92e0a4af00d3d/orig",
+        "src-2": "https://avatars.mds.yandex.net/get-shedevrum/12961523/fc070e89c1bc11eeb19a123c9da969d2/orig",
         "image-prompt": [
             "https://avatars.mds.yandex.net/get-shedevrum/12363575/342a77ebc1bd11eeac51c6a5b577b9fe/orig",
             "https://avatars.mds.yandex.net/get-shedevrum/11478110/2b0e5348c1b411ee88c2aa41dd3abb64/orig",
@@ -42,16 +42,16 @@
     },
     {
         "prompt": "несколько изображений (разный aspect ratio) и текст на входе",
-        "src-1": "https://masterpiecer-images.s3.yandex.net/dda9c4ba717811ee87c22aa0df1cd6e5:upscaled",
-        "src-2": "https://masterpiecer-images.s3.yandex.net/cb0f21e162cd11eea6e3d20dae950626:upscaled",
+        "src-1": "https://masterpiecer-images.s3.yandex.net/7a1d0b11472a11ee8fe55a1112d6d6c5:upscaled",
+        "src-2": "https://masterpiecer-images.s3.yandex.net/d9fdc860407811eebedf86fcb22e0c5e:upscaled",
         "image-prompt": [
-            "https://avatars.mds.yandex.net/get-images-similar-mturk/5396204/FpXvTYzrh4YzH/orig",
-            "https://avatars.mds.yandex.net/get-images-similar-mturk/5396204/FpfMEnORPl_xF/orig"
+            "https://tilllur.com/shared/json/samples/horizontal.png",
+            "https://tilllur.com/shared/json/samples/vertical.png"
         ]
     },
     {
-        "src-1": "https://avatars.mds.yandex.net/get-shedevrum/12370558/13cd181fc15011eeb43cb2bae0cf569f/orig",
-        "src-2": "https://avatars.mds.yandex.net/get-shedevrum/12370990/cb13b9a9c1cb11ee88c2aa41dd3abb64/orig"
+        "src-1": "https://avatars.mds.yandex.net/get-shedevrum/12370990/cb13b9a9c1cb11ee88c2aa41dd3abb64/orig",
+        "src-2": "https://avatars.mds.yandex.net/get-shedevrum/12370558/13cd181fc15011eeb43cb2bae0cf569f/orig"
     }
   ]
 }

@@ -1,0 +1,156 @@
+{
+    "name-1": "deforum_v7_rl_12_2023",
+    "name-2": "deforum_v7_rl_09_2023",
+    "pairs": [
+        {
+            "src-1": "http://cvlab.s3.yandex.net/sbs/39c41f72ad0b6428bde01751203e920d.mp4",
+            "src-2": "http://cvlab.s3.yandex.net/sbs/90904961c9ecb0fd32dfef5040be182e.mp4",
+            "prompt": "Van Gogh-style artificial intelligence+broken pixels+artifacts+numbers+letters+screen flashing, green, orange, black, creamy"
+        },
+        {
+            "src-1": "http://cvlab.s3.yandex.net/sbs/338a05b2a42df9d61aa74cd39e636b13.mp4",
+            "src-2": "http://cvlab.s3.yandex.net/sbs/41ad7af25f2b67de058254ed5c4197de.mp4",
+            "prompt": "an anthropomorphic catgirl with a jetpack flies into space through the stratosphere, leaving traces in the form of fiery stripes"
+        },
+        {
+            "src-1": "http://cvlab.s3.yandex.net/sbs/e0f8e2706844caaa68cfc5949569ac9e.mp4",
+            "src-2": "http://cvlab.s3.yandex.net/sbs/aafdbb1d958ca5c96eeaf87c40d144d1.mp4",
+            "prompt": "digital art, cutie in the image of a skier in a ski suit, skiing, big shining eyes like Blythe, long eyelashes, plump lips, snowy mountains, sunny, watercolour"
+        },
+        {
+            "src-1": "http://cvlab.s3.yandex.net/sbs/0a06d43adca8790330c0474a166bebe1.mp4",
+            "src-2": "http://cvlab.s3.yandex.net/sbs/a2a81be8232334e2beab3a083778d356.mp4",
+            "prompt": "beautiful winter bouquet of filigree snowflakes and ice, frozen flowers, radiance, shine"
+        },
+        {
+            "src-1": "http://cvlab.s3.yandex.net/sbs/dce2d2a737755676eac696c6db6f9dc1.mp4",
+            "src-2": "http://cvlab.s3.yandex.net/sbs/8792b0686777cd8973316439466a7037.mp4",
+            "prompt": "third person view, male, blond fashionably dressed, beautiful eyes, fashionable glasses, standing next to a yellow sports car"
+        },
+        {
+            "src-1": "http://cvlab.s3.yandex.net/sbs/e392013fce085dc300362a2d108244fb.mp4",
+            "src-2": "http://cvlab.s3.yandex.net/sbs/439d74e9d7b6b2cdef8c3353c5cd7bd0.mp4",
+            "prompt": "a man walks wide on the ground bottom view super fisheye lens 235 degrees overview , big moon in the sky , comic , planets flash ,bright buildings , cartoon , coherent ,futuristic"
+        },
+        {
+            "src-1": "http://cvlab.s3.yandex.net/sbs/3c4bfd9da674efa07dfbdae72bebeff6.mp4",
+            "src-2": "http://cvlab.s3.yandex.net/sbs/ae4c04e8726c359bf7ab1e2c433127f8.mp4",
+            "prompt": "labyrinth of horrors"
+        },
+        {
+            "src-1": "http://cvlab.s3.yandex.net/sbs/83dc454d5438058b5157d40cb4da37ed.mp4",
+            "src-2": "http://cvlab.s3.yandex.net/sbs/1247f18e8e55d59c7f54a72c2e42046d.mp4",
+            "prompt": "the last human settlement. depressing view. water hopelessness. bones all around"
+        },
+        {
+            "src-1": "http://cvlab.s3.yandex.net/sbs/29875351e32ef47f51cc6bc444784bc0.mp4",
+            "src-2": "http://cvlab.s3.yandex.net/sbs/9bcd54f124950db255db89fde93d6b17.mp4",
+            "prompt": "children run the relay race"
+        },
+        {
+            "src-1": "http://cvlab.s3.yandex.net/sbs/2ada537121495f2a3237197af719a625.mp4",
+            "src-2": "http://cvlab.s3.yandex.net/sbs/706adb01e01f9c5588d46f3bfb8f9461.mp4",
+            "prompt": "Winter Palace in St. Petersburg"
+        },
+        {
+            "src-1": "http://cvlab.s3.yandex.net/sbs/df3507fd990f0c991d8a67cff40511d3.mp4",
+            "src-2": "http://cvlab.s3.yandex.net/sbs/09c532c0a8c5fe921f6a314a200ee76f.mp4",
+            "prompt": "children's drawing sun, house, family"
+        },
+        {
+            "src-1": "http://cvlab.s3.yandex.net/sbs/b6bf7f7b66f15eb19d13273a9604e2ae.mp4",
+            "src-2": "http://cvlab.s3.yandex.net/sbs/c549da0118d1eb7097e3458cc444af54.mp4",
+            "prompt": "goes to attack the ship of the villains a brutal fight anime, unusual combat transformer"
+        },
+        {
+            "src-1": "http://cvlab.s3.yandex.net/sbs/e09628321d68bc80663dc54f5eddb16b.mp4",
+            "src-2": "http://cvlab.s3.yandex.net/sbs/c44b4e3d524778f17f0035c996e6baca.mp4",
+            "prompt": "Dumplings are cooked in a saucepan"
+        },
+        {
+            "src-1": "http://cvlab.s3.yandex.net/sbs/5c731a315c80a08f0d71cbe9e7557296.mp4",
+            "src-2": "http://cvlab.s3.yandex.net/sbs/fffd533d45c3aa1200112b8fcd408c9b.mp4",
+            "prompt": "butterfly, she's out of water, mysticism, fantasy, close-up, from the water, the wings shimmer with the waves of the oceans"
+        },
+        {
+            "src-1": "http://cvlab.s3.yandex.net/sbs/f86bee27b0755e44e5cf1fbdf772fbee.mp4",
+            "src-2": "http://cvlab.s3.yandex.net/sbs/0ffc6fe6b2feea92ece7f5d395a9e521.mp4",
+            "prompt": "20-year-old girl, short white hair, shy look, perfect build, soft skin, smooth, tanned skin, embarrassingly covers a large bust with her palms, hug girl, long hair, comes out of the water and spreads his palms to the sides, wide-open eyes, front view, from the cover of a fashion magazine, comes out of the water and spreads his palms to the sides, wide-open eyes, photo realism"
+        },
+        {
+            "src-1": "http://cvlab.s3.yandex.net/sbs/86c7eefc5cfe19b8154a0772405ef947.mp4",
+            "src-2": "http://cvlab.s3.yandex.net/sbs/d0d44e4016b399134f4b602043dbd594.mp4",
+            "prompt": "A big and proud bird, the kozuar."
+        },
+        {
+            "src-1": "http://cvlab.s3.yandex.net/sbs/5a1b1c451611aff303fb4e3c328eef83.mp4",
+            "src-2": "http://cvlab.s3.yandex.net/sbs/535d713d350e727f3016cc0f0e9b2953.mp4",
+            "prompt": "Cosplay is a type of performance rooted in masquerade, in which cosplayers not only dress up in costumes to represent a certain character, but also transform into various roles"
+        },
+        {
+            "src-1": "http://cvlab.s3.yandex.net/sbs/917da05b8ecc149617a910e941c5c215.mp4",
+            "src-2": "http://cvlab.s3.yandex.net/sbs/f34d0b12ef8d43e7ca1d6cf2441f9c24.mp4",
+            "prompt": "girl with very long hair, byzantium, Greece, DOLCE&GABBANA model large pupils, plump lips, oil painting fine drawing"
+        },
+        {
+            "src-1": "http://cvlab.s3.yandex.net/sbs/4432521a7b1cb88f09765f1e06d2c701.mp4",
+            "src-2": "http://cvlab.s3.yandex.net/sbs/a8d6ffe126dcdeff13f2e685d178fcda.mp4",
+            "prompt": "Create a captivating and lifelike winter scene, where a tranquil river meanders through a pristine forest covered in a fresh layer of snow, all bathed in the soft, golden hues of sunset. Pay meticulous attention to the portrayal of the forest and the frozen river. Employ a minimal depth of field to emphasize the delicate intricacies of the snow-covered branches and the shimmering, ice-clad river's surface, revealing the raw, untouched beauty of this tranquil winter wonderland"
+        },
+        {
+            "src-1": "http://cvlab.s3.yandex.net/sbs/722729c26a0e6781f4026b709864e715.mp4",
+            "src-2": "http://cvlab.s3.yandex.net/sbs/ba9524faac7bece39ff9f37c376d5549.mp4",
+            "prompt": "Love@Passionate tango, the Groom+The bride is full-length, love theme grace tenderness drawing wet acrylic broad strokes vogue style fantasy accent heartAsh Red, Ash pink, White, Black, Gold Filigree"
+        },
+        {
+            "src-1": "http://cvlab.s3.yandex.net/sbs/3a68ea96c8ab715d0fb704eec8d22be7.mp4",
+            "src-2": "http://cvlab.s3.yandex.net/sbs/dc0a7f5103a231809750b120f1f81920.mp4",
+            "prompt": "planet in space"
+        },
+        {
+            "src-1": "http://cvlab.s3.yandex.net/sbs/a4a36154db89ed28ec24c5492b73a3bb.mp4",
+            "src-2": "http://cvlab.s3.yandex.net/sbs/08faa022ce8e012135812818bcdcf8da.mp4",
+            "prompt": "dragon in the sky above the castle by the cliff, a storm broke out, gloomy, dull, gray"
+        },
+        {
+            "src-1": "http://cvlab.s3.yandex.net/sbs/ad745a384c9d8cf097fc31b51e762720.mp4",
+            "src-2": "http://cvlab.s3.yandex.net/sbs/48edbad3a0f8b2f1b15f7aae7131a612.mp4",
+            "prompt": "Starry night, sanctuary,idols wooden statues of deities, forest, bonfire sparks flame, a girl of Slavic appearance alive in a national costume raised her hands to the sky, clear focus"
+        },
+        {
+            "prompt": "A black angel girl sits on the edge of a moonlit night tower",
+            "deforum_v7_rl_12_2023": "http://cvlab.s3.yandex.net/sbs/1c7dcddf0f583bffe7b12cf696bcb3bb.mp4",
+            "deforum_v7_rl_09_2023": "http://cvlab.s3.yandex.net/sbs/a590eb1034b56c6cc2facc6f5bb1db9d.mp4"
+        },
+        {
+            "src-1": "http://cvlab.s3.yandex.net/sbs/b3f05e5d2127cfd286b399670a4b7e2f.mp4",
+            "src-2": "http://cvlab.s3.yandex.net/sbs/7fd2502647f78ac0b7d902271eb5846d.mp4",
+            "prompt": "a white fox cub in green and purple balls of thread, hid in a basket with flowers, aesthetics of color"
+        },
+        {
+            "src-1": "http://cvlab.s3.yandex.net/sbs/6e5142bcf5af405ae04f40f5a71ab0c2.mp4",
+            "src-2": "http://cvlab.s3.yandex.net/sbs/8a991cf79ebe920e21901ad5a4835620.mp4",
+            "prompt": "monochrome, x-ray, red heart beats inside muscular man"
+        },
+        {
+            "src-1": "http://cvlab.s3.yandex.net/sbs/1a52514628f1eca4d668f65701ff76c1.mp4",
+            "src-2": "http://cvlab.s3.yandex.net/sbs/13ed915202fbacbd7811b877dc13c85a.mp4",
+            "prompt": "Brown-eyed blond man with a bear's head on his head, fantasy"
+        },
+        {
+            "src-1": "http://cvlab.s3.yandex.net/sbs/4a4596f897ab0c55c9293a418470ebd4.mp4",
+            "src-2": "http://cvlab.s3.yandex.net/sbs/0ebeaa4b9d236f252cc3ebaf41c093fc.mp4",
+            "prompt": "From the depths of the absolute darkness of the soul, a stream of light breaks out"
+        },
+        {
+            "src-1": "http://cvlab.s3.yandex.net/sbs/a9e910ffcc6a9e8dd65ba4a1976ef21f.mp4",
+            "src-2": "http://cvlab.s3.yandex.net/sbs/5af4f349a750fd3f7c30a1c33089bd10.mp4",
+            "prompt": "two sisters in an embrace are metamorphs: intertwined, woven from an openwork sparkling sparkling fine mesh structure in the form of tree branches - coral."
+        },
+        {
+            "src-1": "http://cvlab.s3.yandex.net/sbs/99d5c28b018d55fe33ce3c3d90aeaaec.mp4",
+            "src-2": "http://cvlab.s3.yandex.net/sbs/85b6ecd395448548df131377fccbd604.mp4",
+            "prompt": "Double exposure, transparent bidouin, desert, camels and sunset. long eyelashes, art botanical, gothic art+connected, filigree, amazing eyes, bright colors, from afar"
+        }
+    ]
+}

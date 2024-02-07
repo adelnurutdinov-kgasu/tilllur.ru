@@ -1,6 +1,6 @@
 {
-  "name-1": "белая модель",
-  "name-2": "цветная модель",
+  "name-1": "белые",
+  "name-2": "цветные",
   "pairs": [
     {
         "prompt": "сравнение двух квадратных изображений",
@@ -10,7 +10,7 @@
     {
         "prompt": "сравнение двух изображений с произвольным aspect ratio",
         "src-1": "https://tilllur.com/shared/json/samples/horizontal.png",
-        "src-2": "https://tilllur.com/shared/json/samples/vertical.jpg"
+        "src-2": "https://tilllur.com/shared/json/samples/v.png"
     },
     {
         "prompt": "сравнение двух квадратных видео (формат mp4)",
@@ -20,20 +20,20 @@
     {
         "prompt": "сравнение двух видео с произвольным aspect ratio (форматы mov и webm)",
         "src-1": "https://tilllur.com/shared/json/samples/horizontal.mp4",
-        "src-2": "https://tilllur.com/shared/json/samples/vertical.mp4"
+        "src-2": "https://tilllur.com/shared/json/samples/v.mp4"
     },
     {
-        "src-1": "https://avatars.mds.yandex.net/get-shedevrum/12154225/2b3aa5e6c22111ee81fc0272250bcc9d/orig",
-        "src-2": "https://avatars.mds.yandex.net/get-shedevrum/11451254/f6b65022c22011eea317feda328ae3aa/orig",
+        "src-1": "https://masterpiecer-images.s3.yandex.net/d742f52d28b611eeaf61963c1ee369ba:upscaled",
+        "src-2": "https://masterpiecer-images.s3.yandex.net/8248101428b711ee809c06311dffedfc:upscaled",
         "image-prompt": [
-            "https://avatars.mds.yandex.net/get-shedevrum/12161431/27af4b10c1e711ee93ba7acfd41307a6/orig",
-            "https://avatars.mds.yandex.net/get-shedevrum/12800065/debb7836c2cc11eea90b7ab0f2fccf97/orig"
+            "https://masterpiecer-images.s3.yandex.net/48982d3228af11ee8a6daa24e39cd74a:upscaled",
+            "https://masterpiecer-images.s3.yandex.net/66ae8b6828ad11ee986b06d64eab8f23:upscaled"
         ]
     },
     {
         "prompt": "несколько изображений и текст на входе",
-        "src-1": "https://avatars.mds.yandex.net/get-shedevrum/11451254/ff5b6be7c15211eeaac92e0a4af00d3d/orig",
-        "src-2": "https://avatars.mds.yandex.net/get-shedevrum/12961523/fc070e89c1bc11eeb19a123c9da969d2/orig",
+        "src-1": "https://masterpiecer-images.s3.yandex.net/385cbfa327e511eeaa138e6d7e0d9e35:upscaled",
+        "src-2": "https://avatars.mds.yandex.net/get-shedevrum/12365046/3cd4633ec45211ee9a99feda328ae3aa/orig",
         "image-prompt": [
             "https://avatars.mds.yandex.net/get-shedevrum/12363575/342a77ebc1bd11eeac51c6a5b577b9fe/orig",
             "https://avatars.mds.yandex.net/get-shedevrum/11478110/2b0e5348c1b411ee88c2aa41dd3abb64/orig",

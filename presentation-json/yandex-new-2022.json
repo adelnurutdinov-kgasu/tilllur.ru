@@ -6,7 +6,11 @@
             "video": {
                 "src": "page01",
                 "position": {
-                    "type": "cinema"
+                    "left": "3%",
+                    "top": "2.7%",
+                    "width": "94%",
+                    "height": "82.2%",
+                    "radius": "1vh"
                 },
                 "player": {
                     "type": "shown",
@@ -32,7 +36,6 @@
             "video": {
                 "src": "page09",
                 "position": {
-                    "type": "custom",
                     "left": "8.78%",
                     "top": "2.7%",
                     "width": "82.44%",
@@ -59,7 +62,6 @@
             "video": {
                 "src": "page21",
                 "position": {
-                    "type": "custom",
                     "left": "36.6%",
                     "top": "4.888%",
                     "width": "26.7857%",

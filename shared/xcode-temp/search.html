@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Новый таб</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+  .search-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .search-box input[type="text"] {
+    border: 2px solid #dfe1e5;
+    border-radius: 24px;
+    padding: 12px 24px;
+    width: 480px;
+    height: 44px;
+    font-size: 16px;
+    outline: none;
+    box-shadow: none;
+  }
+  .search-box input[type="text"]::placeholder {
+    color: #a0a0a0;
+  }
+  .search-box input[type="text"]:focus {
+    box-shadow: 0 1px 6px rgb(32 33 36 / 28%);
+    border-color: rgba(223, 225, 229, 0);
+  }
+</style>
+</head>
+<body>
+<div class="search-box">
+  <input type="text" id="searchText" placeholder="Введите адрес, запрос или что угодно" onkeypress="search(event)">
+</div>
+<script>
+  function search(event){
+    if(event.key === "Enter"){
+      var query = document.getElementById('searchText').value;
+      window.location.href = 'https://yandex.ru/search/?text=' + encodeURIComponent(query);
+    }
+  }
+</script>
+</body>
+</html>

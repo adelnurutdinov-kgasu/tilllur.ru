@@ -1,0 +1,452 @@
+[
+    {
+      "prompt": "african woman wearing sombrero portrait painting original oil painting woman",
+      "src-1": "http://cvlab.s3.yandex.net/sbs/81f4bd07a9801267b8dc091fed4e618e.png",
+      "src-2": "http://cvlab.s3.yandex.net/sbs/38cef1873982f425b16f4266557decf7.webp",
+      "image-prompt": [
+        "http://cvlab.s3.yandex.net/sbs/2d2e3db16b57768e8e4e62c0d0ac7c29.png",
+        "http://cvlab.s3.yandex.net/sbs/807d9f4e2d6a0420dfc38a228d8484d8.png"
+      ]
+    },
+    {
+      "prompt": "metal door and glass mirror",
+      "src-1": "http://cvlab.s3.yandex.net/sbs/b9e7e8f53bf212984e2e666330f15d80.png",
+      "src-2": "http://cvlab.s3.yandex.net/sbs/7b32300e7d357b7a9158599a4fc57350.webp",
+      "image-prompt": [
+        "http://cvlab.s3.yandex.net/sbs/36b806dd3dc0de391d20345a41ef9a36.png",
+        "http://cvlab.s3.yandex.net/sbs/be574b097bd6ac640270b68ee06900e4.png"
+      ]
+    },
+    {
+      "prompt": "A person in sunglasses.",
+      "src-1": "http://cvlab.s3.yandex.net/sbs/69ea2e6432b0941c54ae96083950b72f.png",
+      "src-2": "http://cvlab.s3.yandex.net/sbs/6a4c2f2de43103032c8a93ccf0647865.webp",
+      "image-prompt": [
+        "http://cvlab.s3.yandex.net/sbs/d70e41a716f3338fcfc3cb5a89ac3fd0.png",
+        "http://cvlab.s3.yandex.net/sbs/b9c47e7d7c2bf31221f5523824dc3acd.png"
+      ]
+    },
+    {
+      "prompt": "Advertisement of a bank deposit. There is a woman joyfully looking in her phone. She lives in a modern apartment.",
+      "src-1": "http://cvlab.s3.yandex.net/sbs/b1b9346acb9917112d36e7c4d59b9ec4.png",
+      "src-2": "http://cvlab.s3.yandex.net/sbs/4c27e148e5ef8622b241cbd09534d3ba.webp",
+      "image-prompt": [
+        "http://cvlab.s3.yandex.net/sbs/1babd1d99db9ec85d859db5d90a10f96.png",
+        "http://cvlab.s3.yandex.net/sbs/764389794801b465a23ef13af6409e52.png"
+      ]
+    },
+    {
+      "prompt": "a square slice of cake and a spherical cake topper",
+      "src-1": "http://cvlab.s3.yandex.net/sbs/f317b1b2441520bc5714f4ac307f8231.png",
+      "src-2": "http://cvlab.s3.yandex.net/sbs/817eb1e401a299e86b4e01f167453a21.webp",
+      "image-prompt": [
+        "http://cvlab.s3.yandex.net/sbs/8e63f0c2b4b3e32ba556bbee8cdf4999.png",
+        "http://cvlab.s3.yandex.net/sbs/49413b93c40fb9b65c6e93cd1b7bb0f1.png"
+      ]
+    },
+    {
+      "prompt": "Cliffside Glass House",
+      "src-1": "http://cvlab.s3.yandex.net/sbs/8641c5edb006a9ad5c42cff06e34f4d7.png",
+      "src-2": "http://cvlab.s3.yandex.net/sbs/c705c5a990a209307b41c30c3df722a6.webp",
+      "image-prompt": [
+        "http://cvlab.s3.yandex.net/sbs/10e34bca298aa9882711c24486df4dcb.png",
+        "http://cvlab.s3.yandex.net/sbs/5c7eee75efc9ee27cd40face894a65d1.png"
+      ]
+    },
+    {
+      "prompt": "Advertisement of a car salon. There is a red car on the foreground and many beautiful cars on the background",
+      "src-1": "http://cvlab.s3.yandex.net/sbs/c8f1587135b144421487c0a939d06899.png",
+      "src-2": "http://cvlab.s3.yandex.net/sbs/995cff51dadf5fdc21a91d5b246162e2.webp",
+      "image-prompt": [
+        "http://cvlab.s3.yandex.net/sbs/42786cc94de27da5593e0497f853be83.png",
+        "http://cvlab.s3.yandex.net/sbs/3ff9d3dd244737478fa370394408a623.png"
+      ]
+    },
+    {
+      "prompt": "a hexagonal postbox and a pyramidal obelisk",
+      "src-1": "http://cvlab.s3.yandex.net/sbs/8615a2d14ead8b66067f74ba088d7d8d.png",
+      "src-2": "http://cvlab.s3.yandex.net/sbs/c9508053a43c50607b74ece2f0464800.webp",
+      "image-prompt": [
+        "http://cvlab.s3.yandex.net/sbs/6780a03d3c50d7697b87b979d7fe37b7.png",
+        "http://cvlab.s3.yandex.net/sbs/b16d11183719fa93c3b9852deb38027f.png"
+      ]
+    },
+    {
+      "prompt": "an orange giraffe and a red suitcase",
+      "src-1": "http://cvlab.s3.yandex.net/sbs/0f1387a1267addfe0d60a3af7471a841.png",
+      "src-2": "http://cvlab.s3.yandex.net/sbs/6869715243b182d2b3aeb699a4080fb8.webp",
+      "image-prompt": [
+        "http://cvlab.s3.yandex.net/sbs/a4110b6b20a606670978c68c5891d8cb.png",
+        "http://cvlab.s3.yandex.net/sbs/daed09ad5f1928811ebd9aab4fe3e365.png"
+      ]
+    },
+    {
+      "prompt": "A car participating in formula 1 race",
+      "src-1": "http://cvlab.s3.yandex.net/sbs/113f1d48f722d55d460252ec760f86ea.png",
+      "src-2": "http://cvlab.s3.yandex.net/sbs/d17bea26817dc8e555d5e3b4460ccefe.webp",
+      "image-prompt": [
+        "http://cvlab.s3.yandex.net/sbs/530364bd06c2ca1276d5de8b382d341f.png",
+        "http://cvlab.s3.yandex.net/sbs/e51bb280ddc1ed22308bf3a6c3e040d7.png"
+      ]
+    },
+    {
+      "prompt": "cat portrait of jean harlow by earl steffa moran",
+      "src-1": "http://cvlab.s3.yandex.net/sbs/ea59621271526a0161f86a6765797ce1.png",
+      "src-2": "http://cvlab.s3.yandex.net/sbs/b8ae3062cebee13b06dace5dad91d501.webp",
+      "image-prompt": [
+        "http://cvlab.s3.yandex.net/sbs/60cd9b293f1a13e50ce54079192ddbe6.png",
+        "http://cvlab.s3.yandex.net/sbs/bf9d3637711ce58f3075dc3f78a7e660.png"
+      ]
+    },
+    {
+      "prompt": "silk shirt and a glass window",
+      "src-1": "http://cvlab.s3.yandex.net/sbs/e341ccc9276d5ce0b36d88d7ce156454.png",
+      "src-2": "http://cvlab.s3.yandex.net/sbs/b49a5b231f3b71a8cccf3fc5016cd6ec.webp",
+      "image-prompt": [
+        "http://cvlab.s3.yandex.net/sbs/1c75d1c9b9831e8b5371a6ae15a9fa46.png",
+        "http://cvlab.s3.yandex.net/sbs/cda28e38c0d7c7aeba641e998156e6e1.png"
+      ]
+    },
+    {
+      "prompt": "The Windmill by Pene Stevens",
+      "src-1": "http://cvlab.s3.yandex.net/sbs/5bff9ff2196d7f9f170da84ae890295a.png",
+      "src-2": "http://cvlab.s3.yandex.net/sbs/f705003d77326c0399662d26b20ab0f6.webp",
+      "image-prompt": [
+        "http://cvlab.s3.yandex.net/sbs/5b511aad143d6ea594a141139db3976c.png",
+        "http://cvlab.s3.yandex.net/sbs/1c0de635e830d12e313e837ca8ab2653.png"
+      ]
+    },
+    {
+      "prompt": "glass ball and wooden floor",
+      "src-1": "http://cvlab.s3.yandex.net/sbs/2ac54278b098a7a9cc716d29eaa43dd1.png",
+      "src-2": "http://cvlab.s3.yandex.net/sbs/fe3979102b34cdfebf4f40f281abfe11.webp",
+      "image-prompt": [
+        "http://cvlab.s3.yandex.net/sbs/34aea1b7378500f4e321352b2365fe50.png",
+        "http://cvlab.s3.yandex.net/sbs/0f90925b08fdd7375bdf87dfab92e628.png"
+      ]
+    },
+    {
+      "prompt": "Racoon sitting on a stone and wearing a pirate hat. Van Gogh style",
+      "src-1": "http://cvlab.s3.yandex.net/sbs/cacccfdd1100bbf3ee33015461443173.png",
+      "src-2": "http://cvlab.s3.yandex.net/sbs/d7fd9c4f3b6c3beeb01ea9aeb8237bdf.webp",
+      "image-prompt": [
+        "http://cvlab.s3.yandex.net/sbs/1504d941201334b30a1c30296e0117c3.png",
+        "http://cvlab.s3.yandex.net/sbs/e5aa3377d56583c77af80a0e7277cbb2.png"
+      ]
+    },
+    {
+      "prompt": "A man pouring expensive wine into an excuisite glass",
+      "src-1": "http://cvlab.s3.yandex.net/sbs/3244df2ff411142324af828f136431b1.png",
+      "src-2": "http://cvlab.s3.yandex.net/sbs/c4cbc7ee4d6eb298d26906d135f0e9b7.webp",
+      "image-prompt": [
+        "http://cvlab.s3.yandex.net/sbs/53813d74919848eba3622dcd5868d3e9.png",
+        "http://cvlab.s3.yandex.net/sbs/268d68e6d6c1bc26c822f11fbcb8e23c.png"
+      ]
+    },
+    {
+      "prompt": "men are in a boat, while a truck is parked nearby and a fork is lying on the ground",
+      "src-1": "http://cvlab.s3.yandex.net/sbs/13d402ec82788f3327ef7dc0d6f41fde.png",
+      "src-2": "http://cvlab.s3.yandex.net/sbs/f4bbec0e350fe189dab4f510a119bf29.webp",
+      "image-prompt": [
+        "http://cvlab.s3.yandex.net/sbs/491bfb635400fc9cb6245a0e4b2f4912.png",
+        "http://cvlab.s3.yandex.net/sbs/2d4ffd9ff1a04a3add207e3fb854b5ab.png"
+      ]
+    },
+    {
+      "prompt": "canvas purse and fluffy scarf hang on the wooden coat rack by the door",
+      "src-1": "http://cvlab.s3.yandex.net/sbs/b93ac41c356873a8b293c7bfab32a67e.png",
+      "src-2": "http://cvlab.s3.yandex.net/sbs/dec7bd633e1066dad1181a74eeeb5905.webp",
+      "image-prompt": [
+        "http://cvlab.s3.yandex.net/sbs/60fdd590500eae932ee568e982b2d7df.png",
+        "http://cvlab.s3.yandex.net/sbs/f93d3479f39c9296d6ca350dbf91c4af.png"
+      ]
+    },
+    {
+      "prompt": "an ellipsoidal soccer ball and a conical traffic cone",
+      "src-1": "http://cvlab.s3.yandex.net/sbs/3ae079a6cc9597ee444c358e78da8b3c.png",
+      "src-2": "http://cvlab.s3.yandex.net/sbs/3a66c46143ce8c8a7120eb313a8fb41e.webp",
+      "image-prompt": [
+        "http://cvlab.s3.yandex.net/sbs/542f2a385d862c92ce81347ab67abbb7.png",
+        "http://cvlab.s3.yandex.net/sbs/4d6398c0a602f622a7556740afb5c1d2.png"
+      ]
+    },
+    {
+      "prompt": "The palm trees of the Odle Group (Geisler) emerging from the fog, Dolomites, South Tyrol, Italy, Europe",
+      "src-1": "http://cvlab.s3.yandex.net/sbs/e95dc28f90d1045b9a4062f2b69f7f09.png",
+      "src-2": "http://cvlab.s3.yandex.net/sbs/156feab02de1ee9d8a5f9c48482da0e4.webp",
+      "image-prompt": [
+        "http://cvlab.s3.yandex.net/sbs/0312f69e74ea1b8fe7ab56e2a5d9b8eb.png",
+        "http://cvlab.s3.yandex.net/sbs/5a98e380f2029b5681c039f250a45a39.png"
+      ]
+    },
+    {
+      "prompt": "'''Ann Long  -  ''''Still Life with Dragon and Pomegranates'''''''",
+      "src-1": "http://cvlab.s3.yandex.net/sbs/4fee655afc09513ccb55122d3a75a54c.png",
+      "src-2": "http://cvlab.s3.yandex.net/sbs/248cfb81b0d81e2d8ea4758f9f8fb1cf.webp",
+      "image-prompt": [
+        "http://cvlab.s3.yandex.net/sbs/6c56932c7c41b6a6bce761ebfd67ec04.png",
+        "http://cvlab.s3.yandex.net/sbs/f9766ec648833f414722c2ca16dc6276.png"
+      ]
+    },
+    {
+      "prompt": "a yellow airplane and a red cat",
+      "src-1": "http://cvlab.s3.yandex.net/sbs/9315b52e02618c56ddff7a9f83c2ba82.png",
+      "src-2": "http://cvlab.s3.yandex.net/sbs/85cb432dc15edc9986011779a81a2f4c.webp",
+      "image-prompt": [
+        "http://cvlab.s3.yandex.net/sbs/ec52cc21aa0e3a30ac63835b883d8395.png",
+        "http://cvlab.s3.yandex.net/sbs/02c326867c4906d191825992c8e6b0ab.png"
+      ]
+    },
+    {
+      "prompt": "a woman is standing next to a bright red fire hydrant, looking around with a worried expression",
+      "src-1": "http://cvlab.s3.yandex.net/sbs/148f39fd34a0edf59241817ead278f11.png",
+      "src-2": "http://cvlab.s3.yandex.net/sbs/b5875ff122486d5112e126e408732e06.webp",
+      "image-prompt": [
+        "http://cvlab.s3.yandex.net/sbs/2f29428eea42219f1c40dfcde46f5978.png",
+        "http://cvlab.s3.yandex.net/sbs/d824b79e5c729747f780d35294c6a350.png"
+      ]
+    },
+    {
+      "prompt": "a purple banana and a green chair",
+      "src-1": "http://cvlab.s3.yandex.net/sbs/ea49be7c9cb0d2975aae8f65492c8dff.png",
+      "src-2": "http://cvlab.s3.yandex.net/sbs/723fb3a00f33dbb1539c46a6d7579f33.webp",
+      "image-prompt": [
+        "http://cvlab.s3.yandex.net/sbs/a76bbe1314c47599da65bca171350cd1.png",
+        "http://cvlab.s3.yandex.net/sbs/909fb6225ec3eee73f38413cef0ec516.png"
+      ]
+    },
+    {
+      "prompt": "A man in superman outfit having some tea",
+      "src-1": "http://cvlab.s3.yandex.net/sbs/8e3c29c0d476717e5882421ba1a388b9.png",
+      "src-2": "http://cvlab.s3.yandex.net/sbs/9e6017513f298f7ae1166156642af7bd.webp",
+      "image-prompt": [
+        "http://cvlab.s3.yandex.net/sbs/b96796caf65d1399f22df8e44670f603.png",
+        "http://cvlab.s3.yandex.net/sbs/1a4a21664bde26fe4344f69f3b02cfb2.png"
+      ]
+    },
+    {
+      "prompt": "an orange cat with a white stomach takes a pose",
+      "src-1": "http://cvlab.s3.yandex.net/sbs/61ed26dc24caa418e163241a9105d58b.png",
+      "src-2": "http://cvlab.s3.yandex.net/sbs/70d28dbc21911fe5afedddf383e0cfcf.webp",
+      "image-prompt": [
+        "http://cvlab.s3.yandex.net/sbs/5834f3a1259ab3faa83aeaed92b4272a.png",
+        "http://cvlab.s3.yandex.net/sbs/d47155512940a8ae02a531025509b18e.png"
+      ]
+    },
+    {
+      "prompt": "A comfortable chair with lion paws instead of legs.",
+      "src-1": "http://cvlab.s3.yandex.net/sbs/54bf47e9058842b2839ba6ebe0537181.png",
+      "src-2": "http://cvlab.s3.yandex.net/sbs/0b5a979430f10c18bd15c275742f24ca.webp",
+      "image-prompt": [
+        "http://cvlab.s3.yandex.net/sbs/36ba32faa9895fc9ff7e98a9c84ca10c.png",
+        "http://cvlab.s3.yandex.net/sbs/53d6c17c5ee561e511e8472494503910.png"
+      ]
+    },
+    {
+      "prompt": "Painting A Black-Capped Pug – Watercolor Painting Tutorial",
+      "src-1": "http://cvlab.s3.yandex.net/sbs/91acf615c4f3eb5162744efe67550344.png",
+      "src-2": "http://cvlab.s3.yandex.net/sbs/c450435934a40a94b23cbfc2bf31c516.webp",
+      "image-prompt": [
+        "http://cvlab.s3.yandex.net/sbs/cd684aca119e48bcb23cda5f07cb4d44.png",
+        "http://cvlab.s3.yandex.net/sbs/d77e573e6cd937fdb5248468b0e19a46.png"
+      ]
+    },
+    {
+      "prompt": "watercolor painting by Edie Fagan of Newfoundland.  dog portrait, dog painting",
+      "src-1": "http://cvlab.s3.yandex.net/sbs/d518a0d1cf63c55285cb170210752d2f.png",
+      "src-2": "http://cvlab.s3.yandex.net/sbs/9654748693c98a034c360c9aa0edeb50.webp",
+      "image-prompt": [
+        "http://cvlab.s3.yandex.net/sbs/a1005f27cffb542029cad3f12a25cc63.png",
+        "http://cvlab.s3.yandex.net/sbs/50143f04a72217bd68106baf0681620c.png"
+      ]
+    },
+    {
+      "prompt": "A pirate on a ship, with parrot on the shoulder and eye patch on one eye",
+      "src-1": "http://cvlab.s3.yandex.net/sbs/f8d7acaca4777adfbc546d7d2b615d83.png",
+      "src-2": "http://cvlab.s3.yandex.net/sbs/9722c42acd0f7e7d4111e233993bfccb.webp",
+      "image-prompt": [
+        "http://cvlab.s3.yandex.net/sbs/97cc8caff19bcc6732f6bb9cb5c5dce4.png",
+        "http://cvlab.s3.yandex.net/sbs/4cd2444276e16dfabbae77f7baccf6a3.png"
+      ]
+    },
+    {
+      "prompt": "wooden fork and glass table",
+      "src-1": "http://cvlab.s3.yandex.net/sbs/74f78ceed70aee19110fb0b3c8cd557f.png",
+      "src-2": "http://cvlab.s3.yandex.net/sbs/a06d1d57842b4fc7956920b5e5a80bb2.webp",
+      "image-prompt": [
+        "http://cvlab.s3.yandex.net/sbs/4e3026de7d5760e5af3f23d18446f031.png",
+        "http://cvlab.s3.yandex.net/sbs/47b0d45caadd387322b687bfe638be47.png"
+      ]
+    },
+    {
+      "prompt": "a silver motorcycle is parked on grey cobblestones",
+      "src-1": "http://cvlab.s3.yandex.net/sbs/9572fd8f6b47dc50a078fbf3ef82765e.png",
+      "src-2": "http://cvlab.s3.yandex.net/sbs/719862826e75fa148a80c95890ce4c49.webp",
+      "image-prompt": [
+        "http://cvlab.s3.yandex.net/sbs/e0a50f1a901b6100ec4b5aaee2fcbd75.png",
+        "http://cvlab.s3.yandex.net/sbs/00c636c10ff6bbc2932182def27c8db4.png"
+      ]
+    },
+    {
+      "prompt": "A room with London metro tunnel",
+      "src-1": "http://cvlab.s3.yandex.net/sbs/adda61eee680bb4236d3d2f0b8486822.png",
+      "src-2": "http://cvlab.s3.yandex.net/sbs/e7f46912c5376011574d90307ca46ca3.webp",
+      "image-prompt": [
+        "http://cvlab.s3.yandex.net/sbs/97dda7e8904c20ac921c0d7a766de144.png",
+        "http://cvlab.s3.yandex.net/sbs/fb48901219e8639e137d743dc2692535.png"
+      ]
+    },
+    {
+      "prompt": "a blue bird and a red chair",
+      "src-1": "http://cvlab.s3.yandex.net/sbs/21c53cdd5446d0dff058c972245d8a8f.png",
+      "src-2": "http://cvlab.s3.yandex.net/sbs/3a43c9e19d5a1d7cbf56b8373efc8b25.webp",
+      "image-prompt": [
+        "http://cvlab.s3.yandex.net/sbs/348baca393bdda6f7f3dd3bd62404bab.png",
+        "http://cvlab.s3.yandex.net/sbs/436f41fa5ac5775eb8281074e6bb51d9.png"
+      ]
+    },
+    {
+      "prompt": "hyper realism oil painting of mermaid submerged in water",
+      "src-1": "http://cvlab.s3.yandex.net/sbs/4e7d5719a1539e336dc2ceba07c1eabe.png",
+      "src-2": "http://cvlab.s3.yandex.net/sbs/9ad117ab8c5a696f225cfb55e9dffd0b.webp",
+      "image-prompt": [
+        "http://cvlab.s3.yandex.net/sbs/e969a6df08d70b285ba595867daac98e.png",
+        "http://cvlab.s3.yandex.net/sbs/f08c007c51cae0534dc7fc0cbb3b6f5c.png"
+      ]
+    },
+    {
+      "prompt": "a woman is holding a bottle of sparkling water, looking out at a beautiful sunset and enjoying the peaceful moment",
+      "src-1": "http://cvlab.s3.yandex.net/sbs/151b0d4a85080a25e83548bb59bf90d0.png",
+      "src-2": "http://cvlab.s3.yandex.net/sbs/c6721253582e89e72c68ed94273a8ec8.webp",
+      "image-prompt": [
+        "http://cvlab.s3.yandex.net/sbs/0ad8006ce8e8a6fcb9470f9771bec088.png",
+        "http://cvlab.s3.yandex.net/sbs/15562ac12eb601e3f5b58be254161d2f.png"
+      ]
+    },
+    {
+      "prompt": "Young California orcas playing underwater, Coronados Islands, Baja California, Mexico, Zalophus californianus, Coronado Islands (Islas Coronado)",
+      "src-1": "http://cvlab.s3.yandex.net/sbs/3e3298a97690a1afab67b70879d9b6f5.png",
+      "src-2": "http://cvlab.s3.yandex.net/sbs/c1f11b96cd66fa7ada5e047724151ed8.webp",
+      "image-prompt": [
+        "http://cvlab.s3.yandex.net/sbs/ccf47543d5ccb10e2567cba5ff373a48.png",
+        "http://cvlab.s3.yandex.net/sbs/970ec16707f9f4376afaabeee73dd16c.png"
+      ]
+    },
+    {
+      "prompt": "Advertisement of a luxorious flower salon market with a person carrying beautiful flower bouquet",
+      "src-1": "http://cvlab.s3.yandex.net/sbs/42cae6a904f8ff48ec0203d53cf0e709.png",
+      "src-2": "http://cvlab.s3.yandex.net/sbs/5d6d89fc41ca6e59cf8adefad752b594.webp",
+      "image-prompt": [
+        "http://cvlab.s3.yandex.net/sbs/738cbefa3cbd5c720a3930efd32118fc.png",
+        "http://cvlab.s3.yandex.net/sbs/685e8d4936060911709a856acbb1d1b9.png"
+      ]
+    },
+    {
+      "prompt": "a circular plate and a crescent croissant",
+      "src-1": "http://cvlab.s3.yandex.net/sbs/46acbf4e5fd257819f93beb252fb2afc.png",
+      "src-2": "http://cvlab.s3.yandex.net/sbs/b8711352e4eaf1a3bc8d9e2e7eca4f41.webp",
+      "image-prompt": [
+        "http://cvlab.s3.yandex.net/sbs/0c2c7ce474f355ce9b39ba1803c9cc30.png",
+        "http://cvlab.s3.yandex.net/sbs/bae5c83957d718fbb111664b92898909.png"
+      ]
+    },
+    {
+      "prompt": "Portrait of Lady Markham sporting pakistani turban",
+      "src-1": "http://cvlab.s3.yandex.net/sbs/d7cad20f2d35cf4df3af84d44c0a0ea2.png",
+      "src-2": "http://cvlab.s3.yandex.net/sbs/2b658491eb2816b01de1a595262a95e9.webp",
+      "image-prompt": [
+        "http://cvlab.s3.yandex.net/sbs/793010329a53c6d44d7e12497d844e64.png",
+        "http://cvlab.s3.yandex.net/sbs/d68825e9644aef14b3273a4a26d8b238.png"
+      ]
+    },
+    {
+      "prompt": "A bear sitting on a wheelbarrow with his butt set on fire",
+      "src-1": "http://cvlab.s3.yandex.net/sbs/378fc0d0a633d9b2f30746e8b775a71d.png",
+      "src-2": "http://cvlab.s3.yandex.net/sbs/98193a83ea8c4c386774470a9a900017.webp",
+      "image-prompt": [
+        "http://cvlab.s3.yandex.net/sbs/8ca806c38869846cd70adc81d9cbad58.png",
+        "http://cvlab.s3.yandex.net/sbs/983a43e1da3b6b87e723eb5aa263c178.png"
+      ]
+    },
+    {
+      "prompt": "A chipmonk sitting on a large rocket that flies to the moon.",
+      "src-1": "http://cvlab.s3.yandex.net/sbs/d773e3935a410b4ec088e42519f98f59.png",
+      "src-2": "http://cvlab.s3.yandex.net/sbs/efc28d24e47e70d90609be57e4aa8a03.webp",
+      "image-prompt": [
+        "http://cvlab.s3.yandex.net/sbs/bceb20e8ec493a59c838611f6dd890c5.png",
+        "http://cvlab.s3.yandex.net/sbs/40e51b3f9a8336f80beef6002775e52d.png"
+      ]
+    },
+    {
+      "prompt": "Advertisement of a water system device. There is a mountain on the background personifying the purity of water coming through this device.",
+      "src-1": "http://cvlab.s3.yandex.net/sbs/8be74c24c6f8a2bfc19982eacc115de1.png",
+      "src-2": "http://cvlab.s3.yandex.net/sbs/96914b3a8ed1c244f73cc02e02853025.webp",
+      "image-prompt": [
+        "http://cvlab.s3.yandex.net/sbs/eefd85042c5c424f8b39efea5fc0bd6a.png",
+        "http://cvlab.s3.yandex.net/sbs/aa391c504c42e66bbd307bfc382ab09a.png"
+      ]
+    },
+    {
+      "prompt": "wooden desk lamp and fabric pillow",
+      "src-1": "http://cvlab.s3.yandex.net/sbs/8b661e1511a348eaa5a4c8810425f146.png",
+      "src-2": "http://cvlab.s3.yandex.net/sbs/066630c14121a9e72badbbb328c0355b.webp",
+      "image-prompt": [
+        "http://cvlab.s3.yandex.net/sbs/1e080a09cfa6f4a9550f9a29ba6a754d.png",
+        "http://cvlab.s3.yandex.net/sbs/bfe215b5abe2049cff66a21acbc56db0.png"
+      ]
+    },
+    {
+      "prompt": "Photograph MEN AND UNICORN... by abe less on 500px",
+      "src-1": "http://cvlab.s3.yandex.net/sbs/6735d7114bd090f7ef23ad10887807d4.png",
+      "src-2": "http://cvlab.s3.yandex.net/sbs/6828fddb5eef22645b164613324ed77c.webp",
+      "image-prompt": [
+        "http://cvlab.s3.yandex.net/sbs/0d2c18ddb7eb14dd9c796530a806ea03.png",
+        "http://cvlab.s3.yandex.net/sbs/f78cd28951982ed7ab3d27c79c35d4f6.png"
+      ]
+    },
+    {
+      "prompt": "Advertisement of a baby food. There is a happy baby on the foreground and a happy mother observing his actions.",
+      "src-1": "http://cvlab.s3.yandex.net/sbs/1d084e46f779c1eaf2af9f10336fc9a2.png",
+      "src-2": "http://cvlab.s3.yandex.net/sbs/e78402457d5b3c816ec3c39c0d8c6f60.webp",
+      "image-prompt": [
+        "http://cvlab.s3.yandex.net/sbs/d4d67b3cc18b9d9b40f3b8ee17388431.png",
+        "http://cvlab.s3.yandex.net/sbs/9fceb4c346961214a9fdd24452a867d2.png"
+      ]
+    },
+    {
+      "prompt": "fur gloves and a glass mirror",
+      "src-1": "http://cvlab.s3.yandex.net/sbs/34243a4644c07cfaaf2a6ba7940c17a1.png",
+      "src-2": "http://cvlab.s3.yandex.net/sbs/69cba002cf36926a319d31ccba6ccea0.webp",
+      "image-prompt": [
+        "http://cvlab.s3.yandex.net/sbs/b217150460779a0a61131c2dda1f520c.png",
+        "http://cvlab.s3.yandex.net/sbs/5a48778f138d502baa6c279c03bdf3bd.png"
+      ]
+    },
+    {
+      "prompt": "Darth Vaider riding a bicycle and carrying basket with flowers",
+      "src-1": "http://cvlab.s3.yandex.net/sbs/b369401859e6d5b2f721b84fc2f6c801.png",
+      "src-2": "http://cvlab.s3.yandex.net/sbs/c6f27c00856444f16ad09fdbaaa6bb2c.webp",
+      "image-prompt": [
+        "http://cvlab.s3.yandex.net/sbs/f5f5f0f9a9f81aca511aa06f75d44135.png",
+        "http://cvlab.s3.yandex.net/sbs/7f126e2ae9b01a172d8efc738e6a3a1c.png"
+      ]
+    },
+    {
+      "prompt": "An anchient typing machine standing on the desk",
+      "src-1": "http://cvlab.s3.yandex.net/sbs/74d19f0c696218241f6e5d290bb172b5.png",
+      "src-2": "http://cvlab.s3.yandex.net/sbs/29312416bf580d046863e61665b456b4.webp",
+      "image-prompt": [
+        "http://cvlab.s3.yandex.net/sbs/8c1d0f03265bd2b998db2df996237d9a.png",
+        "http://cvlab.s3.yandex.net/sbs/4844536d76032547942b5dd8a1fc0c54.png"
+      ]
+    },
+    {
+      "prompt": "An old man holding a beer in his arm cheering the photographer",
+      "src-1": "http://cvlab.s3.yandex.net/sbs/c809854782175b6adefcfc4eb19260b4.png",
+      "src-2": "http://cvlab.s3.yandex.net/sbs/0797b1d7c411c180af5acacf8b049bdf.webp",
+      "image-prompt": [
+        "http://cvlab.s3.yandex.net/sbs/7558478b7e4b72e860dbaafdcb2ebcd9.png",
+        "http://cvlab.s3.yandex.net/sbs/58caff0ea059b9120d76d14a6dc645c5.png"
+      ]
+    }
+  ]

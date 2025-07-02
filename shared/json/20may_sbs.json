@@ -1,4 +1,7 @@
-[
+{
+  "name-1": "Модель 1",
+  "name-2": "Модель 2",
+  "pairs": [
     {
       "prompt": "african woman wearing sombrero portrait painting original oil painting woman",
       "src-1": "http://cvlab.s3.yandex.net/sbs/81f4bd07a9801267b8dc091fed4e618e.png",
@@ -252,7 +255,7 @@
       ]
     },
     {
-      "prompt": "watercolor painting by Edie Fagan of Newfoundland.  dog portrait, dog painting",
+      "prompt": "watercolor painting by Edie Fagan of Newfoundland. dog portrait, dog painting",
       "src-1": "http://cvlab.s3.yandex.net/sbs/d518a0d1cf63c55285cb170210752d2f.png",
       "src-2": "http://cvlab.s3.yandex.net/sbs/9654748693c98a034c360c9aa0edeb50.webp",
       "image-prompt": [
@@ -449,4 +452,5 @@
         "http://cvlab.s3.yandex.net/sbs/58caff0ea059b9120d76d14a6dc645c5.png"
       ]
     }
-] 
+  ]
+}

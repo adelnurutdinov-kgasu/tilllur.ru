@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alice AI Suggest - Умный поиск</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- ▼▼▼ ОБЕРТКА ДЛЯ ВСЕГО БЛОКА ПОИСКА ▼▼▼ -->
+        <div class="search-wrapper">
+            <!-- 1. ИНПУТ -->
+            <div id="searchInput" class="search-input" contenteditable="true" data-placeholder="Введите адрес или запрос"></div>
+            
+            <!-- 2. КОНТЕЙНЕР ДЛЯ ПОДСКАЗОК (будет появляться здесь) -->
+            <div class="suggestions-container" id="suggestionsContainer">
+                <div class="suggestions-scroll-area">
+                    <div class="suggestion-item active" id="currentQuery">
+                        <!-- Содержимое генерируется JS -->
+                    </div>
+                    <div class="suggestion-item" id="aliceQuery">
+                        <!-- Содержимое генерируется JS -->
+                    </div>
+                    <div class="suggestions-list" id="suggestionsList"></div>
+                </div>
+            </div>
+
+            <!-- 3. ФУТЕР (всегда виден) -->
+            <div class="suggestion-footer">
+                <img class="footer-icon filter-icon" src="svg/settings.png" alt="Настройки" style="opacity: 0.6;" />
+                <div class="footer-right-group">
+                    <img class="footer-icon mic-icon" src="svg/attach.png" alt="Прикрепить" style="opacity: 0.6;" />
+                    <button class="footer-button" id="footerButton"></button>
+                </div>
+            </div>
+        </div>
+        <!-- ▲▲▲ КОНЕЦ ОБЕРТКИ ▲▲▲ -->
+    </div>
+
+    <!-- Демо-переключатели -->
+    <div class="demo-link-bottom">
+        <span style="font-size: 14px; display: flex; align-items: center;">
+            <input type="checkbox" id="aliceAppPromoToggle" checked style="margin-left: 8px; margin-right: 4px;"> Алиса в первой строчке после
+            <select id="aliceAppPromoThresholdSelect" style="margin: 0 4px;">
+                <option value="20" selected>20</option>
+                <option value="30">30</option>
+                <option value="40">40</option>
+            </select> символов
+        </span>
+        <span style="font-size: 14px; display: flex; align-items: center; margin-left: 24px;">
+            <input type="checkbox" id="unitedOutputToggle" style="margin-left: 8px; margin-right: 4px;"> Одна точка выхода
+            <select id="unitedOutputTargetSelect" style="margin: 0 4px; display: none;">
+                <option value="search">Поиск</option>
+                <option value="alice">Алиса</option>
+            </select>
+        </span>
+    </div>
+
+    <script src="search.js"></script>
+</body>
+</html>

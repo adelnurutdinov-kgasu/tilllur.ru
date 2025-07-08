@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alice AI Suggest - Быстрая демо</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="search-container">
+            <div class="search-box">
+                <div class="search-input-wrapper">
+                    <input 
+                        type="text" 
+                        id="searchInput" 
+                        placeholder="Введите адрес или запрос" 
+                        autocomplete="off"
+                    >
+                    <div class="search-icon">🔍</div>
+                </div>
+                
+                <div class="suggestions-container" id="suggestionsContainer">
+                    <div class="suggestion-item active" id="currentQuery">
+                        <span class="suggestion-text" id="currentQueryText"></span>
+                        <span class="suggestion-hint">— найти в Яндексе</span>
+                    </div>
+                    <div class="suggestions-list" id="suggestionsList"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="info-panel">
+            <h2>🚀 Быстрая демо-версия</h2>
+            <p>Эта версия работает без внешних API для мгновенного отклика.</p>
+            <ul>
+                <li><strong>Быстрый отклик:</strong> Подсказки генерируются локально</li>
+                <li><strong>Умный анализ:</strong> Автоматически определяет URL или поисковый запрос</li>
+                <li><strong>Навигация:</strong> Используйте стрелки ↑↓ для выбора, Enter для подтверждения</li>
+                <li><strong>Быстрый доступ:</strong> Esc для закрытия подсказок</li>
+            </ul>
+            <div style="margin-top: 20px; text-align: center;">
+                <a href="index.html" style="color: #667eea; text-decoration: none; font-weight: 500;">
+                    🔗 Перейти к полной версии с API →
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        class FastSearchEngine {
+            constructor() {
+                this.searchInput = document.getElementById('searchInput');
+                this.suggestionsContainer = document.getElementById('suggestionsContainer');
+                this.currentQueryText = document.getElementById('currentQueryText');
+                this.suggestionsList = document.getElementById('suggestionsList');
+                this.currentQuery = document.getElementById('currentQuery');
+                
+                this.activeIndex = 0;
+                this.suggestions = [];
+                
+                this.init();
+            }
+            
+            init() {
+                this.searchInput.focus();
+                
+                this.searchInput.addEventListener('input', (e) => this.handleInput(e));
+                this.searchInput.addEventListener('keydown', (e) => this.handleKeydown(e));
+                this.searchInput.addEventListener('focus', () => this.showSuggestions());
+                this.searchInput.addEventListener('blur', () => this.hideSuggestions());
+                
+                this.suggestionsContainer.addEventListener('click', (e) => this.handleSuggestionClick(e));
+            }
+            
+            handleInput(e) {
+                const query = e.target.value.trim();
+                this.currentQueryText.textContent = query;
+                
+                if (query.length === 0) {
+                    this.hideSuggestions();
+                    return;
+                }
+                
+                // Генерируем локальные подсказки
+                this.generateLocalSuggestions(query);
+            }
+            
+            generateLocalSuggestions(query) {
+                const suggestions = [];
+                
+                // Базовые подсказки для популярных запросов
+                const commonSuggestions = {
+                    'погода': ['погода москва', 'погода спб', 'погода сегодня', 'прогноз погоды'],
+                    'новости': ['новости сегодня', 'новости россии', 'последние новости', '3dnews.ru'],
+                    'карты': ['карты яндекс', 'google карты', 'карты онлайн'],
+                    'перевод': ['переводчик яндекс', 'google translate', 'перевод текста'],
+                    'майл': ['mail.yandex.ru', 'mail.ru', 'gmail.com'],
+                    'ютуб': ['youtube.com', 'youtube', 'видео'],
+                    'гугл': ['google.com', 'google.ru', 'поиск google'],
+                    '3d': ['3dnews.ru', '3d модели', '3d печать']
+                };
+                
+                // Ищем подходящие подсказки
+                for (const [key, values] of Object.entries(commonSuggestions)) {
+                    if (query.toLowerCase().includes(key)) {
+                        values.forEach(suggestion => {
+                            if (suggestion.toLowerCase().includes(query.toLowerCase())) {
+                                suggestions.push({
+                                    text: suggestion,
+                                    isNav: suggestion.includes('.')
+                                });
+                            }
+                        });
+                    }
+                }
+                
+                // Добавляем общие подсказки
+                if (query.length > 2) {
+                    suggestions.push({
+                        text: `${query} - поиск`,
+                        isNav: false
+                    });
+                    suggestions.push({
+                        text: `${query} онлайн`,
+                        isNav: false
+                    });
+                }
+                
+                // Если это похоже на домен
+                if (query.includes('.') && !query.startsWith('http') && !query.includes(' ')) {
+                    suggestions.push({
+                        text: `https://${query}`,
+                        isNav: true
+                    });
+                }
+                
+                this.suggestions = suggestions.slice(0, 5); // Ограничиваем 5 подсказками
+                this.renderSuggestions();
+                this.showSuggestions();
+            }
+            
+            handleKeydown(e) {
+                switch (e.key) {
+                    case 'ArrowDown':
+                        e.preventDefault();
+                        this.navigateSuggestions(1);
+                        break;
+                    case 'ArrowUp':
+                        e.preventDefault();
+                        this.navigateSuggestions(-1);
+                        break;
+                    case 'Enter':
+                        e.preventDefault();
+                        this.executeSearch();
+                        break;
+                    case 'Escape':
+                        e.preventDefault();
+                        this.hideSuggestions();
+                        break;
+                }
+            }
+            
+            navigateSuggestions(direction) {
+                const totalItems = this.suggestions.length + 1;
+                
+                this.activeIndex += direction;
+                
+                if (this.activeIndex < 0) {
+                    this.activeIndex = totalItems - 1;
+                } else if (this.activeIndex >= totalItems) {
+                    this.activeIndex = 0;
+                }
+                
+                this.updateActiveSuggestion();
+            }
+            
+            updateActiveSuggestion() {
+                document.querySelectorAll('.suggestion-item').forEach(item => {
+                    item.classList.remove('active');
+                });
+                
+                if (this.activeIndex === 0) {
+                    this.currentQuery.classList.add('active');
+                } else {
+                    const suggestionItem = this.suggestionsList.children[this.activeIndex - 1];
+                    if (suggestionItem) {
+                        suggestionItem.classList.add('active');
+                    }
+                }
+            }
+            
+            executeSearch() {
+                let searchQuery = this.searchInput.value.trim();
+                
+                if (this.activeIndex === 0) {
+                    searchQuery = this.searchInput.value.trim();
+                } else if (this.suggestions[this.activeIndex - 1]) {
+                    searchQuery = this.suggestions[this.activeIndex - 1].text;
+                }
+                
+                if (searchQuery) {
+                    const url = this.asSuggestURL(searchQuery);
+                    window.open(url, '_blank');
+                }
+            }
+            
+            handleSuggestionClick(e) {
+                const suggestionItem = e.target.closest('.suggestion-item');
+                if (!suggestionItem) return;
+                
+                let searchQuery = '';
+                
+                if (suggestionItem === this.currentQuery) {
+                    searchQuery = this.searchInput.value.trim();
+                } else {
+                    const index = Array.from(this.suggestionsList.children).indexOf(suggestionItem);
+                    if (index >= 0 && this.suggestions[index]) {
+                        searchQuery = this.suggestions[index].text;
+                    }
+                }
+                
+                if (searchQuery) {
+                    const url = this.asSuggestURL(searchQuery);
+                    window.open(url, '_blank');
+                }
+            }
+            
+            renderSuggestions() {
+                this.suggestionsList.innerHTML = '';
+                
+                this.suggestions.forEach((suggestion, index) => {
+                    const item = document.createElement('div');
+                    
+                    // Определяем, является ли это URL-адресом
+                    const isURL = this.isURL(suggestion.text);
+                    const isNav = suggestion.isNav || isURL;
+                    
+                    item.className = `suggestion-item ${isNav ? 'nav-item' : ''} ${isURL ? 'url-item' : ''}`;
+                    
+                    let hint = '';
+                    if (isURL) {
+                        hint = '— перейти на сайт';
+                    } else if (suggestion.isNav) {
+                        hint = '— сайт';
+                    }
+                    
+                    item.innerHTML = `
+                        <span class="suggestion-text">${this.escapeHtml(suggestion.text)}</span>
+                        ${hint ? `<span class="suggestion-hint">${hint}</span>` : ''}
+                    `;
+                    this.suggestionsList.appendChild(item);
+                });
+            }
+            
+            showSuggestions() {
+                if (this.searchInput.value.trim()) {
+                    this.suggestionsContainer.classList.add('visible');
+                }
+            }
+            
+            hideSuggestions() {
+                setTimeout(() => {
+                    this.suggestionsContainer.classList.remove('visible');
+                }, 150);
+            }
+            
+            asSuggestURL(input) {
+                let correctedString = input;
+                if (!input.startsWith('http://') && !input.startsWith('https://') && input.includes('.')) {
+                    correctedString = 'https://' + input;
+                }
+                
+                try {
+                    const url = new URL(correctedString);
+                    if (url.hostname) {
+                        return correctedString;
+                    }
+                } catch (e) {
+                    // URL невалидный, продолжаем
+                }
+                
+                const encodedQuery = encodeURIComponent(input);
+                return `https://ya.ru/search/?text=${encodedQuery}`;
+            }
+            
+            escapeHtml(text) {
+                const div = document.createElement('div');
+                div.textContent = text;
+                return div.innerHTML;
+            }
+            
+            // Функция для определения URL-адреса
+            isURL(text) {
+                // Проверяем, содержит ли текст протокол
+                if (text.startsWith('http://') || text.startsWith('https://')) {
+                    try {
+                        new URL(text);
+                        return true;
+                    } catch {
+                        return false;
+                    }
+                }
+                
+                // Проверяем, похоже ли на домен (содержит точку)
+                if (text.includes('.') && !text.includes(' ')) {
+                    // Исключаем очевидные не-домены
+                    if (text.length < 4) {
+                        return false;
+                    }
+                    
+                    // Более простая проверка домена - содержит точку и не содержит пробелов
+                    // Допускаем домены, начинающиеся с цифр (например, 3dnews.ru)
+                    const domainPattern = /^[a-zA-Z0-9][a-zA-Z0-9-]*(\.[a-zA-Z0-9][a-zA-Z0-9-]*)+$/;
+                    return domainPattern.test(text);
+                }
+                
+                return false;
+            }
+        }
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            new FastSearchEngine();
+        });
+    </script>
+</body>
+</html> 

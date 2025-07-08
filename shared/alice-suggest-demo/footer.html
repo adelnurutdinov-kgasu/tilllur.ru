@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Footer</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: transparent; /* Убедимся, что фон прозрачный */
+            height: 100%; /* Растягиваем body на всю высоту iframe */
+            position: relative; /* Для абсолютного позиционирования дочерних элементов */
+        }
+        .demo-link-bottom {
+            position: absolute; /* Абсолютное позиционирование внутри body */
+            bottom: 0; /* Прижимаем к низу */
+            left: 0;
+            right: 0;
+            text-align: center;
+            padding-bottom: 20px; /* Отступ снизу */
+            width: 100%;
+        }
+        .demo-link-bottom a {
+            color: #667eea;
+            text-decoration: underline;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="demo-link-bottom">
+        <a href="demo.html">узнать про демо</a>
+    </div>
+</body>
+</html> 

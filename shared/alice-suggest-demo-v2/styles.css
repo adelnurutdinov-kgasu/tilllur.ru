@@ -105,6 +105,7 @@ body {
    flex-direction: column;
    width: 100%;
    border-top: 1px solid #f0f0f0; /* Разделитель от инпута */
+   margin-bottom: 12px;
 }
 
 /* Когда JS добавляет класс .visible, блок появляется в потоке */
@@ -112,10 +113,18 @@ body {
    display: flex;
 }
 
+.suggestions-container.only-static {
+    border-top: none;
+}
+
 /* --- ОБЛАСТЬ СКРОЛЛА --- */
 .suggestions-scroll-area {
    overflow-y: auto;
    max-height: 350px;
+}
+
+.suggestions-scroll-area.only-static .suggestion-item {
+    border-bottom: none !important;
 }
 
 /* --- ЭЛЕМЕНТЫ ПОДСКАЗОК --- */

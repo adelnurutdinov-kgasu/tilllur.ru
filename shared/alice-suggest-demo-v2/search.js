@@ -490,6 +490,12 @@ class SearchEngine {
     
     renderSuggestions() {
         this.suggestionsList.innerHTML = '';
+        const scrollArea = this.suggestionsContainer.querySelector('.suggestions-scroll-area');
+        if (this.suggestions.length === 0) {
+            scrollArea.classList.add('only-static');
+        } else {
+            scrollArea.classList.remove('only-static');
+        }
         if (this.isUnitedOutput && (this.searchInput.textContent || '').trim().length >= this.aliceAppPromoThreshold) {
              this.suggestions = [];
         }

@@ -34,6 +34,12 @@ class SearchEngine {
         const thresholdStored = localStorage.getItem('aliceAppPromoThreshold');
         this.aliceAppPromoThreshold = thresholdStored !== null && !isNaN(Number(thresholdStored)) ? Number(thresholdStored) : 30;
 
+        const unitedOutputStored = localStorage.getItem('isUnitedOutput');
+        this.isUnitedOutput = unitedOutputStored !== null ? unitedOutputStored === 'true' : false;
+
+        const unitedOutputTargetStored = localStorage.getItem('unitedOutputTarget');
+        this.unitedOutputTarget = unitedOutputTargetStored === 'alice' ? 'alice' : 'search';
+
         this.init();
     }
     
@@ -95,6 +101,32 @@ class SearchEngine {
             });
         }
 
+        const unitedOutputToggle = document.getElementById('unitedOutputToggle');
+        const unitedOutputTargetSelect = document.getElementById('unitedOutputTargetSelect');
+        if (unitedOutputToggle) {
+            unitedOutputToggle.checked = this.isUnitedOutput;
+            if (unitedOutputTargetSelect) {
+                unitedOutputTargetSelect.value = this.unitedOutputTarget;
+                unitedOutputTargetSelect.style.display = this.isUnitedOutput ? '' : 'none';
+            }
+            unitedOutputToggle.addEventListener('change', (e) => {
+                this.isUnitedOutput = e.target.checked;
+                localStorage.setItem('isUnitedOutput', String(this.isUnitedOutput));
+                if (unitedOutputTargetSelect) {
+                    unitedOutputTargetSelect.style.display = this.isUnitedOutput ? '' : 'none';
+                }
+                this.handleInput({ target: this.searchInput }); // Обновляем UI
+            });
+        }
+        if (unitedOutputTargetSelect) {
+            unitedOutputTargetSelect.value = this.unitedOutputTarget;
+            unitedOutputTargetSelect.addEventListener('change', (e) => {
+                this.unitedOutputTarget = e.target.value;
+                localStorage.setItem('unitedOutputTarget', this.unitedOutputTarget);
+                this.handleInput({ target: this.searchInput });
+            });
+        }
+
         // Логика авто-ресайза инпута
         if (this.searchInput) {
             this.searchInput.addEventListener('input', () => {
@@ -153,6 +185,11 @@ class SearchEngine {
         
         clearTimeout(this.debounceTimer);
         this.debounceTimer = setTimeout(() => {
+            if (this.isUnitedOutput && query.length >= this.aliceAppPromoThreshold) {
+                this.suggestions = [];
+                this.renderSuggestions(); // Очистит список
+                return;
+            }
             this.fetchSuggestions(query);
         }, 200);
     }
@@ -257,7 +294,7 @@ class SearchEngine {
     
     updateActiveSuggestion() {
         const query = (this.searchInput.textContent || '').trim();
-        const isUnited = query.length >= this.aliceAppPromoThreshold;
+        const isUnited = this.isUnitedOutput && query.length >= this.aliceAppPromoThreshold;
 
         this.currentQuery.style.display = isUnited ? 'none' : 'flex';
         this.aliceQuery.style.display = isUnited ? 'none' : 'flex';
@@ -291,12 +328,21 @@ class SearchEngine {
 
     updateFooterButtonByActive(activeDomItem) {
         const query = (this.searchInput.textContent || '').trim();
-        if (query.length >= this.aliceAppPromoThreshold) {
-            this.footerButton.textContent = 'Спросить Алису';
-            this.footerButton.classList.add('alice');
-            if (this.searchInputActionButton) {
-                this.searchInputActionButton.textContent = 'Спросить Алису';
-                this.searchInputActionButton.classList.add('alice');
+        if (this.isUnitedOutput && query.length >= this.aliceAppPromoThreshold) {
+            if (this.unitedOutputTarget === 'alice') {
+                this.footerButton.textContent = 'Спросить Алису';
+                this.footerButton.classList.add('alice');
+                if (this.searchInputActionButton) {
+                    this.searchInputActionButton.textContent = 'Спросить Алису';
+                    this.searchInputActionButton.classList.add('alice');
+                }
+            } else {
+                this.footerButton.textContent = 'Найти';
+                this.footerButton.classList.remove('alice');
+                if (this.searchInputActionButton) {
+                    this.searchInputActionButton.textContent = 'Найти';
+                    this.searchInputActionButton.classList.remove('alice');
+                }
             }
             return;
         }
@@ -339,8 +385,12 @@ class SearchEngine {
         let searchQuery = this.searchInput.textContent.trim();
         const activeItem = this.suggestionsContainer.querySelector('.suggestion-item.active');
 
-        if (searchQuery.length >= this.aliceAppPromoThreshold) {
-            window.open(this.getAliceURL(searchQuery), '_self');
+        if (this.isUnitedOutput && searchQuery.length >= this.aliceAppPromoThreshold) {
+            if (this.unitedOutputTarget === 'alice') {
+                window.open(this.getAliceURL(searchQuery), '_self');
+            } else {
+                window.open(this.asSuggestURL(searchQuery), '_self');
+            }
             return;
         }
 
@@ -445,6 +495,9 @@ class SearchEngine {
             scrollArea.classList.add('only-static');
         } else {
             scrollArea.classList.remove('only-static');
+        }
+        if (this.isUnitedOutput && (this.searchInput.textContent || '').trim().length >= this.aliceAppPromoThreshold) {
+             this.suggestions = [];
         }
 
         this.suggestions.forEach((suggestion, idx) => {

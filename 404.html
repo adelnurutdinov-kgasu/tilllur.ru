@@ -1,15 +1,21 @@
 <!DOCTYPE html>
 <html lang="en" style="background-color: black">
   <head>
-    <meta charset="utf-8" />
-    <title>Timur Nurutdinov</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>tilllur.com</title>
     <style>
       body {
         background-color: black;
-        visibility: hidden;
-        opacity: 0;
       }
     </style>
+    <!--
+      SPA fallback for GitHub Pages (single-page-apps for GitHub Pages technique).
+      GitHub Pages serves this file for any unknown path. We encode the requested
+      path into the query string and redirect to "/", where the decoder script in
+      index.html restores the original URL so react-router can handle it.
+      pathSegmentsToKeep = 0 because the site runs on a custom domain root (CNAME).
+    -->
     <script type="text/javascript">
       var pathSegmentsToKeep = 0;
 

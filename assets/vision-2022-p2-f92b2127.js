@@ -1,1 +1,0 @@
-import{j as r}from"./index-a8a032ab.js";import{P as t,i as n,d as i}from"./Slide-843acfd1.js";function o(){return r(t,{title:"Vision 2022 p2",id:"vision-2022-p2",size:24,overrideHandler:e=>{switch(e.index){case 2:return i(e);case 20:return i(e);default:return n(e)}}})}export{o as default};
